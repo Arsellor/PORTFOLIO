@@ -1,0 +1,121 @@
+/* Importation d'une police élégante */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --accent-color: #e76f51;
+    --bg-color: #ffffff;     /* Fond blanc */
+    --text-color: #264653;
+}
+
+#profil {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 40px;
+    line-height: 1.6;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    box-shadow: 10px 10px 0px var(--accent-color);
+}
+
+/* --- Header style Magazine --- */
+#profil header {
+    grid-column: 1 / -1;
+    border-bottom: 4px solid var(--text-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+#profil h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+    color: var(--accent-color);
+}
+
+#profil header p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* --- Sections --- */
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+section {
+    animation: fadeInUp 1s ease-out backwards;
+}
+
+/* Délai d'animation pour chaque section */
+#soft-skills { animation-delay: 0.3s; }
+#langues { animation-delay: 0.5s; }
+#loisirs { 
+    animation-delay: 0.7s; 
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --- Listes et Détails --- */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.loisir {
+    background: #fff;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.loisir:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    #profil {
+        grid-template-columns: 1fr;
+        margin: 10px;
+        padding: 20px;
+    }
+
+    #profil h2 {
+        font-size: 2.5rem;
+    }
+
+    #loisirs {
+        grid-template-columns: 1fr;
+    }
+}

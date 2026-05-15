@@ -1,0 +1,130 @@
+/* Utilisation des variables globales */
+:root {
+    --accent-color: #e76f51;
+    --bg-color: #fdfaf5;
+    --text-color: #264653;
+}
+
+/* Le bandeau de navigation (Remplace .color) */
+.color {
+    background: linear-gradient(90deg, #ff3131 0%, #ff9104 100%);
+    padding: 15px 40px;
+    box-shadow: 0 4px 0px var(--text-color); /* Bordure épaisse façon BD/Magazine */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Conteneur flex pour logo + menu */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Section logo et prénom */
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Pour un effet cercle, enlevez si vous préférez garder le format original */
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.prenom {
+    font-family: 'Playfair Display', "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Aligne le menu à droite */
+    gap: 40px;
+}
+
+/* Style des liens (Texte) */
+a {
+    font-family: 'Playfair Display', "Times New Roman", serif; /* Style Serif pour le luxe */ 
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+/* --- L'Animation "Stabilo" Magazine --- */
+a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 0; /* Départ caché */
+    height: 100%;
+    background-color: var(--text-color); /* On utilise le bleu pétrole pour le contraste */   
+    transform: skewX(-15deg); /* L'inclinaison dynamique que vous aimiez */
+    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+a:hover {
+    color: var(--bg-color); /* Le texte devient crème sur le bloc sombre */
+    text-decoration: none; /* On enlève le soulignement classique pour l'effet bloc */        
+}
+
+a:hover::before {
+    width: 100%; /* Le bloc se remplit au survol */
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+    .color {
+        padding: 10px 20px;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .logo-section {
+        gap: 10px;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .prenom {
+        font-size: 1.2rem;
+    }
+
+    ul {
+        justify-content: center; /* Centré sur mobile */
+        gap: 15px;
+    }
+
+    a {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+}

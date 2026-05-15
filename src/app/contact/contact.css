@@ -1,0 +1,137 @@
+/* Utilisation des variables définies précédemment */
+:root {
+    --accent-color: #e76f51;
+    --bg-color: #fdfaf5;
+    --text-color: #264653;
+}
+
+/* Réinitialisation propre pour le mode plein écran */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--bg-color);
+}
+
+#contact {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Infos contact (Gauche) --- */
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    background-color: var(--bg-color);
+    position: relative;
+    animation: fadeInLeft 1s ease-out;
+}
+
+.contact-info .article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 3rem;
+    border-bottom: 8px solid var(--text-color);
+    display: inline-block;
+    width: fit-content;
+}
+
+.contact-info p {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    color: var(--text-color);
+}
+
+/* Style des liens avec animation */
+.contact-info a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.contact-info a:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* --- Colonne de droite (Map) --- */
+.mapbox {
+    flex: 1.2; /* Un peu plus large pour l'impact visuel */
+    background: var(--accent-color); /* Couleur unie pour le rappel magazine */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: fadeInRight 1s ease-out;
+}
+
+.mapbox figure {
+    width: 80%;
+    height: 70%;
+    margin: 0;
+    transform: rotate(2deg); /* Petit effet de papier posé */
+    transition: transform 0.5s ease;
+}
+
+.mapbox figure:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.mapbox iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 0; /* Carré pour le style éditorial */
+    box-shadow: 20px 20px 0px var(--text-color);
+    border: 3px solid var(--text-color);
+}
+
+/* --- Animations --- */
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Responsive Mobile --- */
+@media screen and (max-width: 768px) {
+    #contact {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    
+    .contact-info {
+        padding: 2rem;
+        order: 2; /* Les infos passent après la carte sur mobile si besoin */
+    }
+    
+    .contact-info .article-title {
+        font-size: 2.5rem;
+    }
+    
+    .mapbox {
+        min-height: 400px;
+        order: 1;
+    }
+
+    .mapbox figure {
+        width: 90%;
+        height: 300px;
+        transform: rotate(0deg);
+    }
+}

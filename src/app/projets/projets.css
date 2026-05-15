@@ -1,142 +1,99 @@
-/* Utilisation des variables globales */
+/* Variables globales conservées */
 :root {
     --accent-color: #e76f51;
     --bg-color: #ffffff;
     --text-color: #264653;
 }
 
-section {
+/* Section */
+.projects {
     position: relative;
     background-color: var(--bg-color);
     padding: 80px 0;
     overflow: hidden;
 }
 
-/* Le fond décoratif façon "ruban de couleur" magazine */
-section::after {
+.projects::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 350px; /* Augmenté légèrement pour l'équilibre visuel */
+    height: 350px;
     background: var(--text-color);
     z-index: 0;
 }
 
-ol {
+/* Liste */
+.projects ol {
     position: relative;
     z-index: 1;
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 60px; /* Espace augmenté pour laisser respirer les titres */
+    align-items: flex-start;
+    gap: 60px;
     margin: 0 auto;
     padding: 0 20px;
     flex-wrap: wrap;
     max-width: 1200px;
 }
 
-/* Chaque projet (li) */
-li {
-    flex: 1;
-    min-width: 320px;
+/* Élément */
+.projects li {
+    flex: 1 1 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
     animation: fadeInUp 0.8s ease-out backwards;
 }
 
-li:nth-child(2) { animation-delay: 0.2s; }
-li:nth-child(3) { animation-delay: 0.4s; }
+.projects li:nth-child(2) { animation-delay: 0.2s; }
+.projects li:nth-child(3) { animation-delay: 0.4s; }
 
-/* Titres de projets style Titre de Presse */
-li h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--accent-color);
-    margin: 0;
-    line-height: 0.8;
-    z-index: 10; /* Priorité maximale pour le chevauchement */
-    transform: translateY(35px); /* Positionnement précis sur l'image */
-    pointer-events: none; /* L'utilisateur clique à travers le titre sur l'image */
-}
-
-li h4 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--text-color);
-    margin-bottom: 0;
-    z-index: 2;
-}
-
-/* Style de la photo (figure) */
-figure {
+/* Figure */
+.projects figure {
     margin: 0;
     background: #fff;
-    padding: 12px; 
+    padding: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1;
     width: 100%;
-    max-width: 340px; /* Taille fixée pour l'harmonie */
+    max-width: 340px;
+    border-radius: 8px;
 }
 
-figure img {
+.projects figure img {
     width: 100%;
-    height: 400px; /* Hauteur fixe pour uniformiser les projets */
-    object-fit: cover; /* Recadrage propre peu importe le format d'origine */
+    height: 400px;
+    object-fit: cover;
     display: block;
     filter: grayscale(30%);
     transition: filter 0.3s;
+    border-radius: 6px;
 }
 
-li:hover figure {
+.projects li:hover figure {
     transform: translateY(-10px) rotate(1deg);
     box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
-li:hover figure img {
+.projects li:hover figure img {
     filter: grayscale(0%);
 }
 
-/* Légende sous la photo */
-figcaption {
+/* Légende */
+.projects figcaption {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.2rem;
     color: #ffffff;
     margin-top: 25px;
     text-align: center;
-    z-index: 2;
 }
 
-/* Lien source */
-li a[alt="Code source"] {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--accent-color);
-    text-decoration: none;
-    letter-spacing: 1px;
-    margin-top: 15px;
-    padding: 6px 12px;
-    border: 1px solid transparent;
-    transition: all 0.3s;
-    z-index: 2;
-}
-
-li a[alt="Code source"]:hover {
-    border-color: var(--accent-color);
-    background: rgba(231, 111, 81, 0.1);
-}
-
-/* Animations */
+/* Animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -148,22 +105,40 @@ li a[alt="Code source"]:hover {
     }
 }
 
-/* --- Responsive --- */
+/* Responsive */
 @media (max-width: 768px) {
-    section::after {
+    .projects::after {
         height: 100%;
     }
-    
-    li h1 {
-        font-size: 2.8rem;
-        transform: translateY(25px);
-    }
-    
-    figure img {
-        height: 300px; /* Plus petit sur mobile */
+
+    .projects figure img {
+        height: 300px;
     }
 
-    ol {
-        gap: 60px;
+    .projects ol {
+        gap: 40px;
     }
+}
+
+figure {
+    position: relative;
+}
+
+figure .overlay {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: none; /* Ne bloque pas le clic */
+}
+
+figure:hover .overlay {
+    opacity: 1;
 }

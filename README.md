@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfolio
 
 My site is live at https://arsellor.github.io/Portfolio_Angular/
@@ -59,3 +60,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# PORTFOLIO
+>>>>>>> f2e7fb6b8743dc3d5e1802cba809d5d823ba2177

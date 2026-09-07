@@ -1,0 +1,9 @@
+/* Tokens globaux - base pour la migration progressive */
+:root {
+  --header-height: 72px;
+  --page-max-width: 1400px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+}

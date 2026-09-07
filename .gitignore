@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local archives and exports
+_archive/
+*.zip
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Build/dependency folders
+node_modules/
+dist/
+coverage/

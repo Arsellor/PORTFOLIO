@@ -1,0 +1,1836 @@
+:root {
+
+    --orange: #fd9311;
+    --orange-dark: #d96f00;
+    --orange-light: #ffb34d;
+
+    --blue: #1761df;
+    --blue-dark: #0c3f99;
+    --blue-light: #5b91f2;
+
+    --black: #111111;
+    --black-soft: #181818;
+    --black-light: #252525;
+
+    --white: #ffffff;
+
+    --background: #f7f7f5;
+    --background-light: #fafafa;
+
+    --gray: #dedede;
+    --gray-light: #eeeeee;
+
+    --muted: #6f6f6f;
+    --muted-dark: #444444;
+
+
+    /* -----------------------------------------------------
+       LARGEURS
+    ----------------------------------------------------- */
+
+    --container-width: 1440px;
+
+    --page-padding:
+        clamp(20px, 5vw, 100px);
+
+
+    /* -----------------------------------------------------
+       TRANSITIONS
+    ----------------------------------------------------- */
+
+    --transition-fast:
+        0.2s ease;
+
+    --transition:
+        0.35s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    --transition-slow:
+        0.7s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+
+    /* -----------------------------------------------------
+       OMBRES
+    ----------------------------------------------------- */
+
+    --shadow-small:
+        0 10px 30px
+        rgba(0, 0, 0, 0.08);
+
+    --shadow-medium:
+        0 20px 60px
+        rgba(0, 0, 0, 0.14);
+
+    --shadow-large:
+        0 40px 100px
+        rgba(0, 0, 0, 0.2);
+
+}
+
+.projects-page,
+.projects-page * {
+    box-sizing: border-box;
+}
+
+.projects-page {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+
+ .section-eyebrow {
+
+    width: 100%;
+
+}
+
+
+::selection {
+
+    background: var(--orange);
+
+    color: var(--white);
+
+}
+
+
+.container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--container-width)
+    );
+
+    margin-inline: auto;
+
+}
+
+
+.section-eyebrow {
+
+    margin-bottom: 20px;
+
+    color: var(--orange);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   07 - ANIMATION CINÉMATIQUE
+========================================================= */
+
+.sequence-scroll {
+
+    position: relative;
+
+    height: 700vh;
+
+    padding-top: var(--header-height);
+
+    background: #000000;
+
+}
+
+
+.sequence-sticky {
+
+    position: sticky;
+
+    top: var(--header-height);
+
+    width: 100%;
+
+    height:
+
+        calc(
+            100svh -
+            var(--header-height)
+        );
+
+    overflow: hidden;
+
+    background: #000000;
+
+}
+
+
+/* ---------------------------------------------------------
+   CANVAS
+--------------------------------------------------------- */
+
+#morphCanvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+}
+
+
+/* ---------------------------------------------------------
+   OVERLAY CINÉMATIQUE
+--------------------------------------------------------- */
+
+.cinematic-overlay {
+
+    display: none;
+
+}
+
+
+/* ---------------------------------------------------------
+   TITRE CINÉMATIQUE
+--------------------------------------------------------- */
+
+.animation-title {
+
+    position: absolute;
+
+    top: 12%;
+    left: 50%;
+
+    z-index: 5;
+
+    width: min(850px, 90%);
+
+    text-align: center;
+
+    color: var(--white);
+
+    opacity: 0;
+
+    transform:
+
+        translateX(-50%)
+        translateY(30px);
+
+    transition:
+
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+
+.animation-title.is-visible {
+
+    opacity: 1;
+
+    transform:
+
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+.animation-title p {
+
+    margin-bottom: 16px;
+
+    color: var(--orange);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.24em;
+
+    text-transform: uppercase;
+
+}
+
+
+.animation-title h2 {
+
+    margin: 0;
+
+    font-size:
+
+        clamp(
+            35px,
+            5vw,
+            76px
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
+
+}
+
+
+.animation-title h2 span {
+
+    display: block;
+
+    color: var(--orange);
+
+}
+
+
+/* ---------------------------------------------------------
+   COMPTEUR
+--------------------------------------------------------- */
+
+.sequence-counter {
+
+    position: absolute;
+
+    left: 35px;
+    bottom: 35px;
+
+    z-index: 6;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--white);
+
+    font-size: 13px;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+.sequence-counter__line {
+
+    width: 50px;
+    height: 1px;
+
+    background:
+
+        rgba(255, 255, 255, 0.5);
+
+}
+
+
+/* ---------------------------------------------------------
+   TEXTE FINAL
+--------------------------------------------------------- */
+
+.scroll-prompt {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 42px;
+
+    z-index: 6;
+
+    margin: 0;
+
+    color: var(--white);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        opacity 0.5s ease;
+
+}
+
+
+.scroll-prompt.is-visible {
+
+    opacity: 1;
+
+}
+
+
+.skip-animation {
+
+    position: absolute;
+
+    top: 24px;
+    right: 35px;
+
+    z-index: 6;
+
+    padding: 10px 16px;
+
+    border: 1px solid var(--white);
+    border-radius: 999px;
+
+    background: transparent;
+    color: var(--white);
+
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+
+}
+
+
+.skip-animation:hover {
+
+    background: var(--white);
+    color: var(--text);
+
+}
+
+
+.skip-animation:focus-visible {
+
+    outline: 2px solid var(--orange);
+    outline-offset: 4px;
+
+}
+
+
+/* ---------------------------------------------------------
+   BARRE DE PROGRESSION
+--------------------------------------------------------- */
+
+.progress-track {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    z-index: 10;
+
+    width: 100%;
+    height: 4px;
+
+    border: 0;
+
+    appearance: none;
+
+}
+
+
+.progress-track::-webkit-progress-bar {
+
+    background:
+
+        rgba(255, 255, 255, 0.2);
+
+}
+
+
+.progress-track::-webkit-progress-value {
+
+    background: var(--orange);
+
+}
+
+
+.progress-track::-moz-progress-bar {
+
+    background: var(--orange);
+
+}
+
+
+/* =========================================================
+   08 - SECTION MES PROJETS
+========================================================= */
+
+.projects-showcase {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+
+        150px
+        var(--page-padding);
+
+    background: var(--background);
+
+}
+
+
+.projects-showcase::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -300px;
+    right: -300px;
+
+    width: 700px;
+    height: 700px;
+
+    border-radius: 50%;
+
+    border:
+
+        1px solid
+        rgba(253, 147, 17, 0.14);
+
+}
+
+
+.projects-showcase__header {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 850px);
+
+    margin-bottom: 90px;
+
+}
+
+
+.projects-showcase__header h2 {
+
+    margin-bottom: 30px;
+
+    color: var(--black);
+
+    font-size:
+
+        clamp(
+            48px,
+            6vw,
+            100px
+        );
+
+    line-height: 0.92;
+
+    letter-spacing: -0.065em;
+
+}
+
+
+.projects-showcase__header h2 span {
+
+    color: var(--orange);
+
+}
+
+
+.projects-showcase__header > p:last-child {
+
+    width: min(100%, 650px);
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   09 - PANNEAUX INTERACTIFS
+========================================================= */
+
+/* =========================================================
+   CARROUSEL DES PROJETS
+========================================================= */
+
+.projects-carousel {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+
+/* ---------------------------------------------------------
+   FENÊTRE
+--------------------------------------------------------- */
+
+.projects-carousel__viewport {
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+/* ---------------------------------------------------------
+   TRACK
+--------------------------------------------------------- */
+
+.projects-carousel__track {
+
+    display: flex;
+
+    gap: 28px;
+
+    transition:
+
+        transform 0.8s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    will-change: transform;
+
+}
+
+
+/* ---------------------------------------------------------
+   CARTE
+--------------------------------------------------------- */
+
+.projects-carousel
+.project-panel {
+
+    flex:
+
+        0 0
+        calc(
+            (100% - 56px) / 3
+        );
+
+    min-height: 600px;
+
+}
+
+
+/* ---------------------------------------------------------
+   BOUTONS
+--------------------------------------------------------- */
+
+.carousel-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 20;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+
+        rgba(255, 255, 255, 0.95);
+
+    color: var(--black);
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(0, 0, 0, 0.14);
+
+    font-size: 25px;
+
+    transform:
+
+        translateY(-50%);
+
+    transition:
+
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition);
+
+}
+
+.carousel-button:hover {
+
+    background: var(--orange);
+
+    color: var(--white);
+
+}
+
+.carousel-button--previous {
+
+    left: -28px;
+
+}
+
+.carousel-button--next {
+
+    right: -28px;
+
+}
+
+
+/* ---------------------------------------------------------
+   INDICATEURS
+--------------------------------------------------------- */
+
+.projects-carousel__indicators {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+}
+
+.carousel-indicator {
+
+    width: 38px;
+    height: 4px;
+
+    padding: 0;
+
+    border-radius: 20px;
+
+    background:
+
+        rgba(0, 0, 0, 0.15);
+
+    transition:
+
+        width var(--transition),
+        background var(--transition);
+
+}
+
+.carousel-indicator.is-active {
+
+    width: 70px;
+
+    background: var(--orange);
+
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .projects-carousel
+    .project-panel {
+
+        flex:
+
+            0 0
+            calc(
+                (100% - 28px) / 2
+            );
+
+    }
+
+    .carousel-button--previous {
+
+        left: -18px;
+
+    }
+
+    .carousel-button--next {
+
+        right: -18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .projects-carousel__viewport {
+
+        overflow: visible;
+
+    }
+
+    .projects-carousel__track {
+
+        overflow-x: auto;
+
+        scroll-snap-type:
+            x mandatory;
+
+        scrollbar-width: none;
+
+        padding-bottom: 10px;
+
+    }
+
+    .projects-carousel__track::-webkit-scrollbar {
+
+        display: none;
+
+    }
+
+    .projects-carousel
+    .project-panel {
+
+        flex:
+
+            0 0
+            88%;
+
+        scroll-snap-align:
+            center;
+
+        min-height: 520px;
+
+    }
+
+    .carousel-button {
+
+        display: none;
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   PANNEAU
+--------------------------------------------------------- */
+
+.project-panel {
+
+    position: relative;
+
+    min-height: 620px;
+
+    display: block;
+
+    overflow: hidden;
+
+    color: var(--white);
+
+    background: var(--black);
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    transform:
+
+        perspective(1000px)
+        rotateX(0deg)
+        rotateY(0deg);
+
+    transform-style: preserve-3d;
+
+    transition:
+
+        transform 0.45s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+
+        box-shadow 0.45s ease;
+
+    will-change: transform;
+
+}
+
+
+.project-panel:hover {
+
+    z-index: 2;
+
+    box-shadow:
+
+        0 35px 90px
+        rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE BACKGROUND
+--------------------------------------------------------- */
+
+.project-panel__background {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform: scale(1.02);
+
+    transition:
+
+        transform 0.9s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+}
+
+
+.project-panel:hover
+.project-panel__background {
+
+    transform: scale(1.12);
+
+}
+
+
+/* ---------------------------------------------------------
+   FALLBACK COULEURS
+--------------------------------------------------------- */
+
+.project-panel--crane {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #19314e,
+            #080b10
+        );
+
+}
+
+
+.project-panel--morazato {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #743915,
+            #130c08
+        );
+
+}
+
+
+.project-panel--web {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #1761df,
+            #07172f
+        );
+
+}
+
+
+/* ---------------------------------------------------------
+   OVERLAY
+--------------------------------------------------------- */
+
+.project-panel__overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            180deg,
+
+            rgba(0, 0, 0, 0.05),
+
+            rgba(0, 0, 0, 0.9)
+
+        );
+
+}
+
+
+/* ---------------------------------------------------------
+   NUMÉRO
+--------------------------------------------------------- */
+
+.project-panel__number {
+
+    position: absolute;
+
+    top: 28px;
+    right: 30px;
+
+    z-index: 4;
+
+    color:
+
+        rgba(255, 255, 255, 0.8);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTENU
+--------------------------------------------------------- */
+
+.project-panel__content {
+
+    position: absolute;
+
+    left: 34px;
+    right: 34px;
+    bottom: 34px;
+
+    z-index: 5;
+
+    transform:
+        translateZ(40px);
+
+}
+
+
+.project-panel__category {
+
+    margin-bottom: 16px;
+
+    color: var(--orange);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+}
+
+
+.project-panel h3 {
+
+    margin-bottom: 20px;
+
+    font-size:
+
+        clamp(
+            34px,
+            3vw,
+            52px
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
+
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+
+.project-panel__description {
+
+    margin-bottom: 22px;
+
+    color:
+
+        rgba(255, 255, 255, 0.78);
+
+    line-height: 1.6;
+
+    opacity: 0;
+
+    transform:
+        translateY(18px);
+
+    transition:
+
+        opacity 0.45s ease,
+        transform 0.45s ease;
+
+}
+
+
+.project-panel:hover
+.project-panel__description {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER PANNEAU
+--------------------------------------------------------- */
+
+.project-panel__footer {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    border-top:
+
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+}
+
+
+.project-panel__arrow {
+
+    font-size: 25px;
+
+    transition:
+
+        transform var(--transition);
+
+}
+
+
+.project-panel:hover
+.project-panel__arrow {
+
+    transform:
+        translateX(9px);
+
+}
+
+
+/* ---------------------------------------------------------
+   LUMIÈRE DYNAMIQUE
+--------------------------------------------------------- */
+
+.project-panel__glow {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left:
+        var(--glow-x, 50%);
+
+    top:
+        var(--glow-y, 50%);
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform:
+
+        translate(-50%, -50%);
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255, 255, 255, 0.2),
+
+            transparent 68%
+
+        );
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+.project-panel:hover
+.project-panel__glow {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   BAS SECTION PROJETS
+========================================================= */
+
+.projects-showcase__bottom {
+
+    margin-top: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+}
+
+
+.projects-showcase__bottom p {
+
+    margin: 0;
+
+}
+
+
+.projects-showcase__bottom span {
+
+    color: var(--orange);
+
+    font-size: 35px;
+
+    animation:
+
+        scrollArrow
+        1.6s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   10 - FOOTER
+========================================================= */
+
+.site-footer {
+
+    padding:
+
+        50px
+        var(--page-padding);
+
+    background: var(--black);
+
+    color: var(--white);
+
+}
+
+
+.site-footer__content {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.site-footer p {
+
+    margin: 0;
+
+    color:
+
+        rgba(255, 255, 255, 0.6);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   11 - RESPONSIVE TABLETTE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+
+}
+
+
+/* =========================================================
+   12 - RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+
+    /* -----------------------------------------------------
+       ANIMATION
+    ----------------------------------------------------- */
+
+    .sequence-scroll {
+
+        height: 500vh;
+
+    }
+
+
+    .sequence-sticky {
+
+        height:
+
+            calc(
+                100svh -
+                var(--header-height)
+            );
+
+    }
+
+
+    .animation-title {
+
+        top: 10%;
+
+    }
+
+
+    .animation-title p {
+
+        font-size: 9px;
+
+        letter-spacing: 0.16em;
+
+    }
+
+
+    .animation-title h2 {
+
+        font-size:
+            clamp(
+                32px,
+                10vw,
+                52px
+            );
+
+    }
+
+
+    .sequence-counter {
+
+        left: 20px;
+        bottom: 25px;
+
+    }
+
+
+    .sequence-counter__line {
+
+        width: 30px;
+
+    }
+
+
+    .scroll-prompt {
+
+        bottom: 25px;
+
+        font-size: 9px;
+
+        white-space: nowrap;
+
+    }
+
+
+    .skip-animation {
+
+        right: 20px;
+        top: 20px;
+        padding: 8px 12px;
+        font-size: 9px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       SECTION PROJETS
+    ----------------------------------------------------- */
+
+    .projects-showcase {
+
+        padding:
+
+            100px
+            20px;
+
+    }
+
+
+    .projects-showcase__header {
+
+        margin-bottom: 55px;
+
+    }
+
+
+    .projects-showcase__header h2 {
+
+        font-size:
+            clamp(
+                48px,
+                13vw,
+                75px
+            );
+
+    }
+
+
+    .projects-showcase__header > p:last-child {
+
+        font-size: 16px;
+
+    }
+
+
+    .project-panel {
+
+        min-height: 520px;
+
+    }
+
+
+    .project-panel__content {
+
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+
+    }
+
+
+    .project-panel__number {
+
+        top: 20px;
+        right: 22px;
+
+    }
+
+
+    .project-panel__description {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    .projects-showcase__bottom {
+
+        margin-top: 70px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+    ----------------------------------------------------- */
+
+    .site-footer__content {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+/* =========================================================
+   PETITS MOBILES
+========================================================= */
+
+@media (max-width: 420px) {
+
+
+    .project-panel {
+
+        min-height: 470px;
+
+    }
+
+
+    .project-panel h3 {
+
+        font-size: 38px;
+
+    }
+
+}
+
+
+/* =========================================================
+   13 - ACCESSIBILITÉ
+========================================================= */
+
+:focus-visible {
+
+    outline:
+
+        3px solid
+        var(--orange);
+
+    outline-offset: 4px;
+
+}
+
+
+.project-panel:focus-visible {
+
+    outline:
+
+        4px solid
+        var(--orange);
+
+    outline-offset: 5px;
+
+}
+
+
+/* =========================================================
+   RÉDUCTION DES ANIMATIONS
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+    html {
+
+        scroll-behavior: auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   SECTION PROJETS — COMPOSITION VILLE 3D
+========================================================= */
+
+.projects-showcase {
+    min-height: 100vh;
+    padding: 95px 0 0;
+    background: #fff;
+}
+
+.projects-showcase__intro {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.projects-showcase__intro .section-eyebrow {
+    margin: 0 0 12px;
+    color: var(--orange);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.projects-showcase__intro h2 {
+    margin: 0;
+    color: var(--black);
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.05;
+    letter-spacing: 0;
+}
+
+.projects-showcase__intro > p:last-child {
+    margin: 16px 0 0;
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.projects-city {
+    position: relative;
+    width: min(1123px, calc(100% - 50px));
+    aspect-ratio: 1123 / 749;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.projects-city__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    animation: projectCityEnter 1.2s ease both;
+}
+
+.city-project {
+    position: absolute;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    border: 4px solid rgba(255,255,255,.85);
+    border-radius: 24%;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 2px 8px rgba(0,0,0,.35);
+    box-shadow: 0 12px 24px rgba(0,0,0,.25), inset 0 0 0 2px rgba(255,255,255,.18);
+    transform: translateY(30px) scale(.85);
+    opacity: 0;
+    transition: filter .3s ease, transform .3s ease;
+    animation-fill-mode: forwards;
+}
+
+.city-project span {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.city-project strong {
+    font-size: clamp(10px, 1.1vw, 15px);
+    line-height: 1.05;
+}
+
+.city-project small {
+    display: block;
+    margin-top: 4px;
+    font-size: .52em;
+    letter-spacing: .04em;
+}
+
+.city-project--orange {
+    top: 13.75%;
+    left: 17.45%;
+    width: 109px;
+    height: 101px;
+    background: linear-gradient(145deg, #ffbd45, #e85c00);
+    animation: projectButtonEnter 1s .45s ease forwards;
+}
+
+.city-project--red {
+    top: 31.6%;
+    left: 48.8%;
+    width: 147px;
+    height: 122px;
+    background: linear-gradient(145deg, #ff695c, #a71825);
+    animation: projectButtonEnter 1s .7s ease forwards;
+}
+
+.city-project--blue {
+    top: 24.05%;
+    left: 67.5%;
+    width: 124px;
+    height: 113px;
+    background: linear-gradient(145deg, #6756d9, #241d75);
+    animation: projectButtonEnter 1s .6s ease forwards;
+}
+
+.city-project--green {
+    top: 55%;
+    left: 31%;
+    width: 112px;
+    height: 96px;
+    background: linear-gradient(145deg, #62c782, #176b50);
+    animation: projectButtonEnter 1s .8s ease forwards;
+}
+
+.city-project--pink {
+    top: 68%;
+    left: 49%;
+    width: 128px;
+    height: 101px;
+    background: linear-gradient(145deg, #f179a8, #a32f66);
+    animation: projectButtonEnter 1s .9s ease forwards;
+}
+
+.city-project--teal {
+    top: 55%;
+    left: 77%;
+    width: 110px;
+    height: 96px;
+    background: linear-gradient(145deg, #46c9c1, #176a78);
+    animation: projectButtonEnter 1s 1s ease forwards;
+}
+
+.city-project--navy {
+    top: 68%;
+    left: 4%;
+    width: 124px;
+    height: 101px;
+    background: linear-gradient(145deg, #4d82bd, #1d3d70);
+    animation: projectButtonEnter 1s 1.1s ease forwards;
+}
+
+.city-project:hover {
+    filter: brightness(1.1);
+    transform: translateY(-4px) scale(1.08);
+}
+
+.projects-showcase__pagination {
+    position: absolute;
+    top: 300px;
+    left: 6vw;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #5b5b5b;
+}
+
+.pagination-dot--light {
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    border: 2px solid #d6d6d6;
+}
+
+.pagination-dot--orange {
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border: 2px solid var(--orange);
+}
+
+@keyframes projectCityEnter {
+    from { opacity: 0; filter: blur(14px); transform: scale(.94); }
+    to { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+@keyframes projectButtonEnter {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 900px) {
+    .projects-showcase { padding-top: 75px; }
+    .projects-showcase__intro { padding: 0 20px; }
+    .projects-city { width: calc(100% - 24px); }
+    .projects-showcase__pagination { left: 24px; top: 270px; }
+}
+
+@media (max-width: 600px) {
+    .projects-showcase { min-height: 620px; }
+    .projects-showcase__intro { margin-bottom: 20px; }
+    .projects-showcase__intro h2 { font-size: 30px; }
+    .projects-showcase__intro > p:last-child { font-size: 14px; }
+    .city-project--orange { width: 75px; height: 70px; }
+    .city-project--red { width: 95px; height: 79px; }
+    .city-project--blue { top: 0; width: 82px; height: 75px; }
+    .city-project--green { top: 52%; left: 32%; width: 72px; height: 62px; }
+    .city-project--pink { top: 68%; left: 51%; width: 91px; height: 72px; }
+    .city-project--teal { top: 52%; left: 77%; width: 72px; height: 62px; }
+    .city-project--navy { top: 68%; left: 4%; width: 88px; height: 72px; }
+    .projects-showcase__pagination { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projects-city__image,
+    .city-project { animation: none; opacity: 1; transform: none; }
+}
+
+/* =========================================================
+   FIN DU FICHIER
+========================================================= */

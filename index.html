@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arsellia — Portfolio de développeur web full stack.">
+    <title>Arsellia — Portfolio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/responsive-index.css">
+    <script src="js/header.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body class="home-page">
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+<header class="site-header">
+    <a class="brand" href="index.html" aria-label="Arsellia — Accueil">
+        <span class="brand__name">ARSELLIA</span>
+        <span class="brand__type">— Full Stack Developer</span>
+    </a>
+
+    <nav class="site-navigation" aria-label="Navigation principale">
+        <ul class="site-navigation__list">
+            <li>
+                <a class="site-navigation__link is-active"
+                   href="index.html"
+                   aria-label="Accueil"
+                   data-page="home"
+                   aria-current="page">
+                    <img class="nav-icon"
+                         src="assets/icons/icons_accueil_orange.webp"
+                         data-orange="assets/icons/icons_accueil_orange.webp"
+                         data-black="assets/icons/icons_accueil_noir.webp"
+                         alt=""
+                         width="26"
+                         height="20">
+                    <span>Accueil</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="site-navigation__link"
+                   href="projets.html"
+                   aria-label="Mes projets"
+                   data-page="projects">
+                    <img class="nav-icon"
+                         src="assets/icons/icons_mes_projets_noir.webp"
+                         data-orange="assets/icons/icons_mes_projets_orange.webp"
+                         data-black="assets/icons/icons_mes_projets_noir.webp"
+                         alt=""
+                         width="38"
+                         height="20">
+                    <span>Mes projets</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="site-navigation__link"
+                   href="contact.html"
+                   aria-label="Contact"
+                   data-page="contact">
+                    <img class="nav-icon"
+                         src="assets/icons/icons_contact_noir.webp"
+                         data-orange="assets/icons/icons_contact_orange.webp"
+                         data-black="assets/icons/icons_contact_noir.webp"
+                         alt=""
+                         width="38"
+                         height="20">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <button class="scroll-to-top" type="button" aria-label="Revenir en haut de la page">
+        <span aria-hidden="true">↑</span>
+    </button>
+</header>
+
+<main id="main-content" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+
+        <header class="hero__content">
+            <h1 id="hero-title">
+                Je code vos idées,<br>
+                <span>je crée vos succès.</span>
+            </h1>
+
+            <p class="hero__description">
+                Je transforme les idées<br>
+                en expériences web créatives.
+            </p>
+
+            <nav class="hero__actions" aria-label="Actions principales">
+                <a class="hero__button hero__button--projects"
+                   href="projets.html">
+                    <span>VOIR MES PROJETS</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+
+                <a class="hero__button hero__button--contact"
+                   href="contact.html">
+                    <span>ME CONTACTER</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+            </nav>
+        </header>
+
+        <figure class="hero__visual">
+            <video class="hero__video"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   preload="auto"
+                   aria-label="Animation visuelle du portfolio Arsellia">
+
+                <source src="assets/videos/Accueil.mp4"
+                        type="video/mp4">
+
+                Votre navigateur ne prend pas en charge la vidéo.
+            </video>
+        </figure>
+
+    </section>
+</main>
+
+</body>
+</html>

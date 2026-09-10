@@ -1,55 +1,235 @@
-/* Responsive overrides for the home page. */
+/* =========================================================
+   ARSELLIA
+   RESPONSIVE — PAGE D'ACCUEIL
+========================================================= */
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
 @media (max-width: 900px) {
+
     .hero {
-        grid-template-columns: minmax(0, 1fr);
+
         width: 100%;
+
         min-width: 0;
+
+        grid-template-columns:
+            minmax(0, 1fr);
+
     }
+
 
     .hero__content,
     .hero__visual {
+
         min-width: 0;
+
     }
+
+
+    .hero__content {
+
+        width: 100%;
+
+    }
+
 
     .hero__actions {
+
         width: 100%;
+
     }
 
-    .hero__button {
-        min-width: 0;
-        width: min(100%, 320px);
-    }
-
-    .hero__video {
-        width: 100%;
-        max-width: 100%;
-        transform: none;
-    }
-}
-
-@media (max-width: 620px) {
-    .hero {
-        padding: calc(var(--header-height) + 28px) 16px 24px;
-        gap: 16px;
-    }
-
-    .hero h1 {
-        font-size: clamp(34px, 12vw, 52px);
-        line-height: .95;
-    }
-
-    .hero__description {
-        max-width: 100%;
-        font-size: 14px;
-        line-height: 1.55;
-    }
-
-    .hero__actions,
-    .hero__button {
-        width: 100%;
-    }
 
     .hero__visual {
-        min-height: 38svh;
+
+        width: 100%;
+
     }
+
+
+    .hero__video {
+
+        max-width: 100%;
+
+        height: auto;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 620px) {
+
+    .hero {
+
+        width: 100%;
+
+        overflow: hidden;
+
+    }
+
+
+    .hero__eyebrow {
+
+        max-width: 100%;
+
+        white-space: normal;
+
+    }
+
+
+    .hero h1 {
+
+        width: 100%;
+
+        word-break: normal;
+
+    }
+
+
+    .hero__description {
+
+        max-width: 100%;
+
+    }
+
+
+    .hero__actions {
+
+        width: 100%;
+
+    }
+
+
+    .hero__button {
+
+        width: 100%;
+
+        min-width: 0;
+
+    }
+
+
+    .hero__technologies {
+
+        width: 100%;
+
+        justify-content: flex-start;
+
+    }
+
+
+    .hero__visual {
+
+        width: 100%;
+
+        min-width: 0;
+
+    }
+
+
+    .hero__visual-frame {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero {
+
+        padding-left: 14px;
+
+        padding-right: 14px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(38px, 12vw, 48px);
+
+    }
+
+
+    .hero__eyebrow {
+
+        padding:
+            8px
+            12px;
+
+        letter-spacing:
+            0.08em;
+
+    }
+
+
+    .hero__technologies {
+
+        gap: 7px;
+
+    }
+
+
+    .hero__technologies i {
+
+        width: 4px;
+
+        height: 4px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MODE PAYSAGE MOBILE
+========================================================= */
+
+@media (max-height: 600px)
+and (orientation: landscape) {
+
+    .hero {
+
+        min-height: auto;
+
+        padding-top:
+
+            calc(
+                var(--header-height, 70px)
+                + 25px
+            );
+
+    }
+
+
+    .hero__visual {
+
+        min-height: auto;
+
+    }
+
+
+    .hero__video {
+
+        max-height: 70vh;
+
+    }
+
 }

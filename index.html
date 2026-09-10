@@ -2,132 +2,368 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arsellia — Portfolio de développeur web full stack.">
-    <title>Arsellia — Portfolio</title>
 
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Arsellia — Portfolio de développeur web Full Stack. Création d'expériences web modernes, créatives et performantes.">
+
+    <title>Arsellia — Full Stack Developer</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/responsive-index.css">
+
+    <!-- JS -->
     <script src="js/header.js" defer></script>
     <script src="js/app.js" defer></script>
 </head>
 
 <body class="home-page">
-    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
-<header class="site-header">
-    <a class="brand" href="index.html" aria-label="Arsellia — Accueil">
-        <span class="brand__name">ARSELLIA</span>
-        <span class="brand__type">— Full Stack Developer</span>
+    <!-- Accessibilité -->
+    <a class="skip-link" href="#main-content">
+        Aller au contenu principal
     </a>
 
-    <nav class="site-navigation" aria-label="Navigation principale">
-        <ul class="site-navigation__list">
-            <li>
-                <a class="site-navigation__link is-active"
-                   href="index.html"
-                   aria-label="Accueil"
-                   data-page="home"
-                   aria-current="page">
-                    <img class="nav-icon"
-                         src="assets/icons/icons_accueil_orange.webp"
-                         data-orange="assets/icons/icons_accueil_orange.webp"
-                         data-black="assets/icons/icons_accueil_noir.webp"
-                         alt=""
-                         width="26"
-                         height="20">
-                    <span>Accueil</span>
-                </a>
-            </li>
 
-            <li>
-                <a class="site-navigation__link"
-                   href="projets.html"
-                   aria-label="Mes projets"
-                   data-page="projects">
-                    <img class="nav-icon"
-                         src="assets/icons/icons_mes_projets_noir.webp"
-                         data-orange="assets/icons/icons_mes_projets_orange.webp"
-                         data-black="assets/icons/icons_mes_projets_noir.webp"
-                         alt=""
-                         width="38"
-                         height="20">
-                    <span>Mes projets</span>
-                </a>
-            </li>
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
-            <li>
-                <a class="site-navigation__link"
-                   href="contact.html"
-                   aria-label="Contact"
-                   data-page="contact">
-                    <img class="nav-icon"
-                         src="assets/icons/icons_contact_noir.webp"
-                         data-orange="assets/icons/icons_contact_orange.webp"
-                         data-black="assets/icons/icons_contact_noir.webp"
-                         alt=""
-                         width="38"
-                         height="20">
-                    <span>Contact</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <header class="site-header">
 
-    <button class="scroll-to-top" type="button" aria-label="Revenir en haut de la page">
-        <span aria-hidden="true">↑</span>
-    </button>
-</header>
+        <a class="brand"
+           href="index.html"
+           aria-label="Arsellia — Accueil">
 
-<main id="main-content" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-title">
+            <span class="brand__name">
+                ARSELLIA
+            </span>
 
-        <header class="hero__content">
-            <h1 id="hero-title">
-                Je code vos idées,<br>
-                <span>je crée vos succès.</span>
-            </h1>
+            <span class="brand__type">
+                — Full Stack Developer
+            </span>
 
-            <p class="hero__description">
-                Je transforme les idées<br>
-                en expériences web créatives.
-            </p>
+        </a>
 
-            <nav class="hero__actions" aria-label="Actions principales">
-                <a class="hero__button hero__button--projects"
-                   href="projets.html">
-                    <span>VOIR MES PROJETS</span>
-                    <span aria-hidden="true">→</span>
-                </a>
 
-                <a class="hero__button hero__button--contact"
-                   href="contact.html">
-                    <span>ME CONTACTER</span>
-                    <span aria-hidden="true">→</span>
-                </a>
-            </nav>
-        </header>
+        <!-- Navigation -->
 
-        <figure class="hero__visual">
-            <video class="hero__video"
-                   autoplay
-                   muted
-                   loop
-                   playsinline
-                   preload="auto"
-                   aria-label="Animation visuelle du portfolio Arsellia">
+        <nav class="site-navigation"
+             aria-label="Navigation principale">
 
-                <source src="assets/videos/Accueil.mp4"
-                        type="video/mp4">
+            <ul class="site-navigation__list">
 
-                Votre navigateur ne prend pas en charge la vidéo.
-            </video>
-        </figure>
+                <!-- Accueil -->
 
-    </section>
-</main>
+                <li>
+
+                    <a class="site-navigation__link is-active"
+                       href="index.html"
+                       aria-label="Accueil"
+                       data-page="home"
+                       aria-current="page">
+
+                        <img class="nav-icon"
+                             src="assets/icons/icons_accueil_orange.webp"
+                             data-orange="assets/icons/icons_accueil_orange.webp"
+                             data-black="assets/icons/icons_accueil_noir.webp"
+                             alt=""
+                             width="26"
+                             height="20">
+
+                        <span>Accueil</span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Projets -->
+
+                <li>
+
+                    <a class="site-navigation__link"
+                       href="projets.html"
+                       aria-label="Mes projets"
+                       data-page="projects">
+
+                        <img class="nav-icon"
+                             src="assets/icons/icons_mes_projets_noir.webp"
+                             data-orange="assets/icons/icons_mes_projets_orange.webp"
+                             data-black="assets/icons/icons_mes_projets_noir.webp"
+                             alt=""
+                             width="38"
+                             height="20">
+
+                        <span>Mes projets</span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Contact -->
+
+                <li>
+
+                    <a class="site-navigation__link"
+                       href="contact.html"
+                       aria-label="Contact"
+                       data-page="contact">
+
+                        <img class="nav-icon"
+                             src="assets/icons/icons_contact_noir.webp"
+                             data-orange="assets/icons/icons_contact_orange.webp"
+                             data-black="assets/icons/icons_contact_noir.webp"
+                             alt=""
+                             width="38"
+                             height="20">
+
+                        <span>Contact</span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- Bouton haut -->
+
+        <button class="scroll-to-top"
+                type="button"
+                aria-label="Revenir en haut de la page">
+
+            <span aria-hidden="true">↑</span>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENU PRINCIPAL
+    ===================================================== -->
+
+    <main id="main-content" tabindex="-1">
+
+
+        <!-- HERO -->
+
+        <section class="hero"
+                 aria-labelledby="hero-title">
+
+
+            <!-- Décoration -->
+
+            <div class="hero__background"
+                 aria-hidden="true">
+
+                <span class="hero__glow hero__glow--orange"></span>
+                <span class="hero__glow hero__glow--blue"></span>
+
+                <span class="hero__grid"></span>
+
+            </div>
+
+
+
+            <!-- TEXTE -->
+
+            <div class="hero__content">
+
+
+                <!-- Petit badge -->
+
+                <div class="hero__eyebrow">
+
+                    <span class="hero__eyebrow-dot"></span>
+
+                    <span>
+                        DÉVELOPPEUR WEB FULL STACK
+                    </span>
+
+                </div>
+
+
+
+                <!-- Titre -->
+
+                <h1 id="hero-title">
+
+                    Je code vos idées,
+
+                    <span>
+                        je crée vos succès.
+                    </span>
+
+                </h1>
+
+
+
+                <!-- Description -->
+
+                <p class="hero__description">
+
+                    Je transforme vos idées en
+                    <strong>expériences web modernes</strong>,
+                    créatives et performantes.
+
+                </p>
+
+
+
+                <!-- Actions -->
+
+                <div class="hero__actions">
+
+
+                    <a class="hero__button hero__button--primary"
+                       href="projets.html">
+
+                        <span>
+                            Voir mes projets
+                        </span>
+
+                        <span class="hero__button-arrow"
+                              aria-hidden="true">
+
+                            →
+
+                        </span>
+
+                    </a>
+
+
+
+                    <a class="hero__button hero__button--secondary"
+                       href="contact.html">
+
+                        <span>
+                            Me contacter
+                        </span>
+
+                        <span class="hero__button-arrow"
+                              aria-hidden="true">
+
+                            →
+
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- Technologies -->
+
+                <div class="hero__technologies"
+                     aria-label="Technologies utilisées">
+
+                    <span>HTML</span>
+
+                    <i></i>
+
+                    <span>CSS</span>
+
+                    <i></i>
+
+                    <span>JAVASCRIPT</span>
+
+                    <i></i>
+
+                    <span>PHP</span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- VISUEL -->
+
+            <div class="hero__visual">
+
+
+                <div class="hero__visual-frame">
+
+
+                    <div class="hero__visual-glow"
+                         aria-hidden="true"></div>
+
+
+                    <video class="hero__video"
+                           autoplay
+                           muted
+                           loop
+                           playsinline
+                           preload="auto"
+                           aria-label="Animation visuelle du portfolio Arsellia">
+
+                        <source src="assets/videos/Accueil.mp4"
+                                type="video/mp4">
+
+                        Votre navigateur ne prend pas en charge
+                        la vidéo.
+
+                    </video>
+
+
+                </div>
+
+
+                <!-- Badge code -->
+
+                <div class="hero__floating hero__floating--code"
+                     aria-hidden="true">
+
+                    &lt;/&gt;
+
+                </div>
+
+
+                <!-- Badge créativité -->
+
+                <div class="hero__floating hero__floating--creative"
+                     aria-hidden="true">
+
+                    ✦
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Scroll -->
+
+            <a class="hero__scroll"
+               href="projets.html"
+               aria-label="Découvrir mes projets">
+
+                <span>Découvrir</span>
+
+                <span class="hero__scroll-line"></span>
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
 
 </body>
 </html>

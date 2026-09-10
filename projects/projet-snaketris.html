@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Snaketris — Projet C++ / SDL2 d'Arsellia.">
+    <title>Arsellia — Snaketris</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2s?family=Caprasimo&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/projet-snaketris.css">
+
+    <!-- CSS responsive (chargé après pour surcharger) -->
+    <link rel="stylesheet" href="../css/projet-snaketris-responsive.css">
+
+    <script src="../js/header.js" defer></script>
+    <script src="../js/projet-snaketris.js" defer></script>
+</head>
+
+<body class="project-detail-page">
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+    <!-- =========================
+         HEADER / NAVIGATION
+    ========================== -->
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Arsellia — Accueil">
+            <span class="brand__name">ARSELLIA</span>
+            <span class="brand__type">— Full Stack Developer</span>
+        </a>
+
+        <nav class="site-navigation" aria-label="Navigation principale">
+            <ul class="site-navigation__list">
+                <li>
+                    <a class="site-navigation__link" href="../index.html">
+                        <img class="nav-icon" src="../assets/icons/icons_accueil_noir.webp" alt="">
+                        <span>Accueil</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="site-navigation__link is-active" href="../projets.html" aria-current="page">
+                        <img class="nav-icon" src="../assets/icons/icons_mes_projets_orange.webp" alt="">
+                        <span>Mes projets</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="site-navigation__link" href="../contact.html">
+                        <img class="nav-icon" src="../assets/icons/icons_contact_noir.webp" alt="">
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="scroll-to-top" type="button" aria-label="Revenir en haut de la page">
+            <span aria-hidden="true">↑</span>
+        </button>
+    </header>
+
+    <!-- =========================
+         CONTENU PRINCIPAL
+    ========================== -->
+    <main class="project-detail" id="main-content">
+
+        <!-- =========================
+             HERO DU PROJET
+        ========================== -->
+        <section class="project-hero">
+
+            <!-- Colonne gauche : vidéo + GitHub -->
+            <div class="project-media-column">
+
+                <div class="project-media">
+                    <video
+                        class="project-video"
+                        controls
+                        preload="metadata"
+                        playsinline
+                        aria-label="Démonstration de Snaketris"
+                    >
+                        <source src="../assets/videos/snaketris.webm" type="video/webm">
+                        Votre navigateur ne prend pas en charge la vidéo.
+                    </video>
+                </div>
+
+                <footer class="project-socials" aria-label="Réseaux et liens du projet">
+                    <a href="https://github.com/Arsellor/Snaketris-Cpp"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Voir le code sur GitHub">
+                        <img src="../assets/icons/icons8-github-64.webp" alt="">
+                    </a>
+                </footer>
+
+            </div>
+
+            <!-- Colonne droite : informations du projet -->
+            <div class="project-copy">
+                <h1>Snaketris</h1>
+                <div class="title-line" aria-hidden="true"></div>
+
+                <p class="project-type">Jeu C++ / SDL2</p>
+
+                <p class="project-lead">
+                    Snaketris est un jeu hybride entre Snake et Tetris.
+                    Le joueur dirige un serpent, récupère des fruits,
+                    augmente son score et utilise des mécaniques basées
+                    sur les couleurs de ses anneaux.
+                </p>
+
+                <!-- Technologies -->
+                <ul class="tech-list">
+                    <li class="tech-badge tech-cpp">C++</li>
+                    <li class="tech-badge tech-sdl">SDL2</li>
+                    <li class="tech-badge">Makefile</li>
+                    <li class="tech-badge">Programmation modulaire</li>
+                    <li class="tech-badge">SAÉ</li>
+                </ul>
+
+                <!-- Cartes de présentation -->
+                <div class="project-facts">
+                    <article class="fact">
+                        <img class="fact-icon" src="../assets/images/code.webp" alt="">
+                        <p>
+                            <strong>Concept Snake :</strong> le serpent grandit
+                            lorsqu'il mange un fruit. Le score augmente et une
+                            nouvelle ressource apparaît sur le plateau.
+                        </p>
+                    </article>
+
+                    <article class="fact">
+                        <img class="fact-icon" src="../assets/images/coeur.webp" alt="">
+                        <p>
+                            <strong>Règle Tetris :</strong> lorsque trois anneaux
+                            consécutifs possèdent la même couleur, celui du
+                            milieu disparaît automatiquement.
+                        </p>
+                    </article>
+
+                    <article class="fact">
+                        <img class="fact-icon" src="../assets/images/micro.webp" alt="">
+                        <p>
+                            <strong>Objectif :</strong> maîtriser la programmation
+                            modulaire en C++ et la bibliothèque graphique SDL2.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             COMMANDES ET RÈGLES
+        ========================== -->
+        <section class="project-details">
+            <div class="details-grid">
+
+                <section class="section-card">
+                    <h2 class="section-title">Commandes</h2>
+
+                    <div class="command-row">
+                        <span class="key">↑ ↓ ← →</span>
+                        <span>Déplacer le serpent</span>
+                    </div>
+                    <div class="command-row">
+                        <span class="key">ESPACE</span>
+                        <span>Pause / reprendre</span>
+                    </div>
+                    <div class="command-row">
+                        <span class="key">S</span>
+                        <span>Sauvegarder la partie</span>
+                    </div>
+                    <div class="command-row">
+                        <span class="key">Q / ÉCHAP</span>
+                        <span>Quitter le jeu</span>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <h2 class="section-title">Règles principales</h2>
+                    <ul class="rules">
+                        <li>Le serpent perd s'il touche le bord du plateau.</li>
+                        <li>Le serpent perd s'il touche son propre corps.</li>
+                        <li>Les fruits rouge, vert et bleu font évoluer la partie.</li>
+                        <li>L'étoile peut supprimer un triplet d'anneaux identiques.</li>
+                    </ul>
+                </section>
+
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

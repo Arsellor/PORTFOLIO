@@ -1,235 +1,126 @@
 /* =========================================================
-   ARSELLIA
-   RESPONSIVE — PAGE D'ACCUEIL
+   ARSELLIA — RESPONSIVE PAGE D'ACCUEIL
 ========================================================= */
 
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: minmax(330px, .9fr) minmax(420px, 1.1fr);
+        gap: 30px;
+        padding-inline: clamp(22px, 4vw, 55px);
+    }
 
-/* =========================================================
-   TABLETTE
-========================================================= */
+    .hero h1 {
+        font-size: clamp(46px, 5.7vw, 70px);
+    }
+
+    .hero__video {
+        width: 108%;
+    }
+}
 
 @media (max-width: 900px) {
-
     .hero {
-
-        width: 100%;
-
-        min-width: 0;
-
-        grid-template-columns:
-            minmax(0, 1fr);
-
+        grid-template-columns: minmax(0, 1fr);
+        min-height: auto;
+        padding: calc(var(--header-height, 64px) + 38px) 22px 32px;
+        gap: 24px;
     }
-
-
-    .hero__content,
-    .hero__visual {
-
-        min-width: 0;
-
-    }
-
 
     .hero__content {
-
+        max-width: 720px;
         width: 100%;
-
     }
 
+    .hero h1 {
+        font-size: clamp(42px, 9vw, 64px);
+    }
 
     .hero__actions {
-
-        width: 100%;
-
+        margin-top: 30px;
     }
-
 
     .hero__visual {
-
-        width: 100%;
-
+        min-height: 40svh;
     }
-
 
     .hero__video {
-
-        max-width: 100%;
-
-        height: auto;
-
+        width: min(100%, 760px);
+        max-height: none;
     }
-
 }
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 620px) {
-
     .hero {
-
-        width: 100%;
-
-        overflow: hidden;
-
+        padding: calc(var(--header-height, 60px) + 28px) 16px 26px;
+        gap: 18px;
     }
-
 
     .hero__eyebrow {
-
-        max-width: 100%;
-
-        white-space: normal;
-
+        font-size: 9px;
+        letter-spacing: .08em;
+        padding: 8px 12px;
     }
-
 
     .hero h1 {
-
-        width: 100%;
-
-        word-break: normal;
-
+        font-size: clamp(38px, 12vw, 54px);
+        line-height: 1;
     }
-
 
     .hero__description {
-
-        max-width: 100%;
-
+        margin-top: 22px;
+        font-size: 16px;
     }
-
 
     .hero__actions {
-
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
         width: 100%;
-
     }
-
 
     .hero__button {
-
         width: 100%;
-
         min-width: 0;
-
     }
-
 
     .hero__technologies {
-
-        width: 100%;
-
-        justify-content: flex-start;
-
+        margin-top: 28px;
+        gap: 8px;
+        font-size: 9px;
     }
-
 
     .hero__visual {
-
-        width: 100%;
-
-        min-width: 0;
-
+        min-height: 0;
     }
-
-
-    .hero__visual-frame {
-
-        width: 100%;
-
-    }
-
-}
-
-
-/* =========================================================
-   TRÈS PETITS ÉCRANS
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .hero {
-
-        padding-left: 14px;
-
-        padding-right: 14px;
-
-    }
-
-
-    .hero h1 {
-
-        font-size:
-            clamp(38px, 12vw, 48px);
-
-    }
-
-
-    .hero__eyebrow {
-
-        padding:
-            8px
-            12px;
-
-        letter-spacing:
-            0.08em;
-
-    }
-
-
-    .hero__technologies {
-
-        gap: 7px;
-
-    }
-
-
-    .hero__technologies i {
-
-        width: 4px;
-
-        height: 4px;
-
-    }
-
-}
-
-
-/* =========================================================
-   MODE PAYSAGE MOBILE
-========================================================= */
-
-@media (max-height: 600px)
-and (orientation: landscape) {
-
-    .hero {
-
-        min-height: auto;
-
-        padding-top:
-
-            calc(
-                var(--header-height, 70px)
-                + 25px
-            );
-
-    }
-
-
-    .hero__visual {
-
-        min-height: auto;
-
-    }
-
 
     .hero__video {
+        width: 100%;
+    }
+}
 
-        max-height: 70vh;
-
+@media (max-width: 380px) {
+    .hero {
+        padding-left: 14px;
+        padding-right: 14px;
     }
 
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero__technologies i {
+        width: 4px;
+        height: 4px;
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding-top: calc(var(--header-height, 68px) + 24px);
+    }
+
+    .hero__video {
+        max-height: 70vh;
+    }
 }

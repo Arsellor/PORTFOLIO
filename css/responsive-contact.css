@@ -63,6 +63,26 @@
         padding: 22px;
     }
 
+    .apprenticeship-layout {
+        gap: 14px;
+    }
+
+    .info-grid {
+        gap: 10px;
+    }
+
+    .info-grid .info-card-image {
+        height: clamp(220px, 70vw, 280px);
+    }
+
+    .info-grid .info-card:first-child .info-card-image {
+        transform: scale(1.08);
+    }
+
+    .info-grid .info-card:last-child .info-card-image {
+        transform: scale(1.03);
+    }
+
     .info-card {
         min-width: 0;
     }

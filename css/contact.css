@@ -360,7 +360,7 @@ a.contact-card:hover {
 ========================================================= */
 
 .apprenticeship-section {
-    padding: 110px 8vw;
+    padding: 82px 8vw;
     background: var(--cream);
 }
 
@@ -380,11 +380,11 @@ a.contact-card:hover {
 }
 
 .apprenticeship-layout {
-    margin-top: 52px;
+    margin-top: 36px;
     display: grid;
     grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-    gap: 24px;
-    align-items: stretch;
+    gap: 18px;
+    align-items: start;
 }
 
 .availability-card {
@@ -395,7 +395,8 @@ a.contact-card:hover {
     padding: clamp(30px, 3vw, 42px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-self: start;
     border-radius: 26px;
     background: var(--orange);
     color: #fff;
@@ -429,7 +430,7 @@ a.contact-card:hover {
 }
 
 .card-label {
-    margin: 0 0 30px;
+    margin: 0 0 24px;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: .13em;
@@ -445,7 +446,7 @@ a.contact-card:hover {
 }
 
 .availability-card h3 + p {
-    max-width: 500px;
+    max-width: none;
     margin: 20px 0 0;
     font-size: 15px;
     line-height: 2.05;
@@ -474,7 +475,7 @@ a.contact-card:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 28px;
+    margin-top: 22px;
 }
 
 .availability-tech span {
@@ -489,7 +490,7 @@ a.contact-card:hover {
 
 .availability-badge {
     width: fit-content;
-    margin-top: 24px;
+    margin-top: 20px;
     padding: 12px 16px;
     border-radius: 999px;
     background: #fff;
@@ -503,18 +504,19 @@ a.contact-card:hover {
     min-width: 0;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
+    gap: 12px;
     align-items: stretch;
 }
 
 .info-grid .info-card {
-    min-height: 330px;
-    padding: 16px;
+    min-height: 0;
+    padding: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
+    overflow: hidden;
 }
 
 .info-grid .info-icon {
@@ -537,11 +539,23 @@ a.contact-card:hover {
 
 .info-grid .info-card .info-card-image {
     flex: 0 0 auto;
+    width: 100%;
+    height: clamp(240px, 24vw, 314px);
+    object-fit: contain;
+    transform-origin: center center;
+}
+
+.info-grid .info-card:first-child .info-card-image {
+    transform: scale(1.12);
+}
+
+.info-grid .info-card:last-child .info-card-image {
+    transform: scale(1.06);
 }
 
 .info-card-image {
     width: 100%;
-    height: 220px;
+    height: clamp(240px, 24vw, 314px);
     display: block;
     object-fit: contain;
 }

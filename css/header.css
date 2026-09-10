@@ -1,0 +1,212 @@
+/* =========================================================
+   ARSELLIA — HEADER GLOBAL
+   Composant unique : mêmes dimensions et comportements partout
+   ========================================================= */
+
+:root {
+    --header-height: 68px;
+    --header-mobile-height: 60px;
+    --orange: #fd9311;
+    --blue: #1761df;
+    --text: #111111;
+    --muted: #545960;
+    --white: #ffffff;
+    --header-padding: clamp(12px, 3vw, 40px);
+}
+
+/* Accessibilité : accès direct au contenu au clavier */
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 2000;
+    padding: 10px 14px;
+    background: var(--text);
+    color: var(--white);
+    border-radius: 6px;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+    min-height: var(--header-height);
+    display: grid;
+    grid-template-columns: minmax(170px, 1fr) auto minmax(170px, 1fr);
+    align-items: center;
+    padding-inline: var(--header-padding);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+    color: inherit;
+    text-decoration: none;
+    line-height: 1.05;
+}
+
+.brand__name {
+    color: var(--orange);
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.brand__type {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: clamp(10px, 1vw, 13px);
+    font-weight: 500;
+}
+
+.site-navigation {
+    justify-self: center;
+}
+
+.site-navigation__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1.8vw, 24px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-navigation__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 4px;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(13px, 1.1vw, 16px);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.site-navigation__link:hover,
+.site-navigation__link.is-active {
+    color: var(--orange);
+}
+
+.site-navigation__link:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+}
+
+.nav-icon {
+    width: 28px !important;
+    height: 22px !important;
+    flex: 0 0 28px;
+    object-fit: contain;
+}
+
+.scroll-to-top {
+    position: fixed;
+    right: clamp(14px, 2vw, 24px);
+    bottom: clamp(14px, 2vw, 24px);
+    z-index: 1001;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--blue);
+    font: 600 24px/1 Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+}
+
+.scroll-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+/* TABLETTE */
+@media (max-width: 900px) {
+    :root { --header-height: 64px; }
+
+    .site-header {
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+        padding-inline: 16px;
+    }
+
+    .site-navigation {
+        justify-self: end;
+    }
+
+    .site-navigation__list { gap: 8px; }
+    .site-navigation__link { font-size: 13px; }
+    .brand__type { display: none; }
+}
+
+/* TÉLÉPHONE */
+@media (max-width: 620px) {
+    :root { --header-height: var(--header-mobile-height); }
+
+    .site-header {
+        min-height: var(--header-mobile-height);
+        padding-inline: 10px;
+    }
+
+    .brand__name { font-size: 20px; }
+
+    .site-navigation__list { gap: 2px; }
+
+    .site-navigation__link {
+        width: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0;
+    }
+
+    /* Les icônes restent accessibles grâce aux aria-label ajoutés au HTML */
+    .site-navigation__link > span { display: none; }
+
+    .nav-icon {
+        width: 25px !important;
+        height: 22px !important;
+        flex-basis: 25px;
+    }
+}
+
+@media (max-width: 380px) {
+    .brand__name { font-size: 18px; }
+    .site-navigation__link { width: 40px; min-width: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

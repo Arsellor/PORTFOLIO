@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arsellia — Portfolio développeur web Full Stack, page contact.">
+    <title>Arsellia — Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive-contact.css">
+    <script src="js/header.js" defer></script>
+    <script src="js/contact.js" defer></script>
+</head>
+
+<body class="contact-page">
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+<header class="site-header">
+    <a class="brand" href="index.html" aria-label="Arsellia — Accueil">
+        <span class="brand__name">ARSELLIA</span>
+        <span class="brand__type">— Full Stack Developer</span>
+    </a>
+
+    <nav class="site-navigation" aria-label="Navigation principale">
+        <ul class="site-navigation__list">
+            <li>
+                <a class="site-navigation__link" href="index.html" data-page="home">
+                    <img class="nav-icon" src="assets/icons/icons_accueil_noir.webp" data-orange="assets/icons/icons_accueil_orange.webp" data-black="assets/icons/icons_accueil_noir.webp" alt="" width="26" height="20">
+                    <span>Accueil</span>
+                </a>
+            </li>
+            <li>
+                <a class="site-navigation__link" href="projets.html" data-page="projects">
+                    <img class="nav-icon" src="assets/icons/icons_mes_projets_noir.webp" data-orange="assets/icons/icons_mes_projets_orange.webp" data-black="assets/icons/icons_mes_projets_noir.webp" alt="" width="38" height="20">
+                    <span>Mes projets</span>
+                </a>
+            </li>
+            <li>
+                <a class="site-navigation__link is-active" href="contact.html" data-page="contact" aria-current="page">
+                    <img class="nav-icon" src="assets/icons/icons_contact_orange.webp" data-orange="assets/icons/icons_contact_orange.webp" data-black="assets/icons/icons_contact_noir.webp" alt="" width="38" height="20">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <button class="scroll-to-top" type="button" aria-label="Revenir en haut de la page">
+        <span aria-hidden="true">↑</span>
+    </button>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+    <!-- =====================================================
+         1. TON SCROLL-DRIVEN ANIMATION EXISTANTE
+         ===================================================== -->
+    <section class="contact-sequence" aria-label="Animation cinématique de la page contact">
+        <article class="contact-sequence__sticky">
+            <canvas id="contactCanvas" aria-hidden="true"></canvas>
+
+            <p class="scroll-prompt" id="scrollPrompt" aria-hidden="true">
+                continuez pour découvrir mon univers
+            </p>
+
+            <button class="skip-animation" id="skipAnimation" type="button">
+                PASSER L'ANIMATION
+                <span aria-hidden="true">↓</span>
+            </button>
+
+            <progress class="progress-track" id="progressBar" value="0" max="1"
+                      aria-label="Progression de l'animation"></progress>
+        </article>
+    </section>
+
+    <!-- =====================================================
+         2. PAGE CONTACT AJOUTÉE APRÈS L'ANIMATION
+         ===================================================== -->
+    <section class="contact-hero" id="contact" aria-labelledby="contact-hero-title">
+        <div class="contact-hero__content">
+            <p class="section-kicker">CONTACT</p>
+
+            <h1 id="contact-hero-title">
+                PRENONS CONTACT
+                <span>ET CRÉONS ENSEMBLE</span>
+            </h1>
+
+            <p class="script-title">votre prochain projet.</p>
+
+            <p class="hero-description">
+                Vous avez une idée, un projet ou une opportunité d'alternance ?
+                Je suis prêt à échanger avec vous et à participer à la création
+                d'expériences web modernes, performantes et créatives.
+            </p>
+
+            <div class="contact-links">
+                <a class="contact-card" href="mailto:tcharsellia2020@gmail.com">
+                    <span class="contact-card__icon" aria-hidden="true">✉</span>
+                    <span class="contact-card__content">
+                        <small>M'ENVOYER UN MAIL</small>
+                        <strong>tcharsellia2020@gmail.com</strong>
+                    </span>
+                    <span class="contact-card__arrow" aria-hidden="true">→</span>
+                </a>
+
+                <div class="contact-card">
+                    <span class="contact-card__icon" aria-hidden="true">⌖</span>
+                    <span class="contact-card__content">
+                        <small>MA LOCALISATION</small>
+                        <strong>94200 Ivry-sur-Seine · Île-de-France</strong>
+                    </span>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <p>RETROUVEZ-MOI AUSSI SUR</p>
+                <div class="social-buttons">
+                    <a href="https://github.com/Arsellor" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <span>↗</span></a>
+                    <a href="https://www.linkedin.com/in/arsellor-undefined-6b4aaa400" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn <span>↗</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-hero__visual">
+            <div class="visual-glow"></div>
+
+            <!-- IMAGE À AJOUTER :
+                 C:\Users\tchar\Downloads\Illustrations_Wrapper.png
+                 -> assets/images/Illustrations_Wrapper.webp -->
+            <img class="lighthouse-illustration"
+                src="assets/images/Illustrations_Wrapper.webp"
+                 alt="Illustration d'un phare"
+                 onerror="this.classList.add('is-missing')">
+
+            <div class="missing-image-message" aria-hidden="true">
+                Ajoute Illustrations_Wrapper.png dans assets/images/
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-ticker" aria-label="Valeurs">
+        <span>CODE</span><i></i>
+        <span class="accent">CRÉATIVITÉ</span><i></i>
+        <span>PERFORMANCE</span><i></i>
+        <span class="accent">IMPACT</span><i></i>
+    </section>
+
+    <!-- =====================================================
+         RECHERCHE D'ALTERNANCE
+         ===================================================== -->
+    <section class="apprenticeship-section" aria-labelledby="apprenticeship-title">
+        <header class="section-header">
+            <p class="section-kicker">MA RECHERCHE D'UNE ENTREPRISE EN ALTERNANCE</p>
+            <h2 id="apprenticeship-title">DÉVELOPPEUR WEB FULL STACK</h2>
+            <p>
+                Toutes les informations essentielles pour mon futur employeur
+                et mon futur tuteur d'apprentissage.
+            </p>
+        </header>
+
+        <div class="apprenticeship-layout">
+            <article class="availability-card">
+                <div>
+                    <p class="card-label">CONTRAT EN APPRENTISSAGE</p>
+                    <h3>Recherche active d'une alternance</h3>
+                    <p class="availability-copy">
+                        <span class="copy-lead"><span class="copy-icon" aria-hidden="true">&lt;/&gt;</span>Une solide expertise en <strong>JavaScript</strong>, <strong>React</strong>, <strong>Angular</strong>. Le
+                        développement et l’optimisation de solutions web.
+                        <span class="copy-lead"><span class="copy-icon" aria-hidden="true">✦</span>Passionnée par les innovations technologiques, motivée</span>
+                        à évoluer dans un environnement dynamique et je m’adapte
+                        rapidement aux nouveaux outils et langages pour offrir
+                        des applications web performantes et répondant aux
+                        besoins précis des clients.
+                        <span class="copy-lead"><span class="copy-icon" aria-hidden="true">↗</span>Motivé, curieux et prêt à m'investir pleinement dans</span>
+                        des projets web <strong>Front-End</strong> et <strong>Back-End</strong> au sein d'une entreprise.
+                    </p>
+                </div>
+                <div class="availability-tech" aria-label="Technologies principales">
+                    <span>JS</span>
+                    <span>REACT</span>
+                    <span>ANGULAR</span>
+                    <span>WEB</span>
+                </div>
+                <span class="availability-badge">DISPONIBLE POUR UNE ALTERNANCE</span>
+            </article>
+
+            <div class="info-grid">
+                <article class="info-card">
+                        <img class="info-card-image"
+                         src="assets/images/atouts.webp"
+                        alt="">
+                </article>
+
+                <article class="info-card">
+                    <img class="info-card-image"
+                         src="assets/images/exellente_maitrise.webp"
+                        alt="">
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+         FORMULAIRE + ILLUSTRATION PORTFOLIO
+         ===================================================== -->
+    <section class="message-section" aria-labelledby="message-title">
+        <div class="message-intro">
+            <p class="section-kicker">ÉCRIVEZ-MOI</p>
+            <h2 id="message-title">UN FORMULAIRE SIMPLE ET RAPIDE</h2>
+
+            <p>
+                Vous préférez m'envoyer un message directement depuis le portfolio ?
+                C'est ici. Je pourrai vous répondre dès que possible.
+            </p>
+
+            <div class="portfolio-art-card">
+                <img src="assets/images/Artistic_Card_Frame.webp"
+                     alt="Illustration artistique du portfolio"
+                     onerror="this.classList.add('is-missing')">
+
+                <div class="missing-art-message" aria-hidden="true">
+                    Ajoute Artistic_Card_Frame.png dans assets/images/
+                </div>
+
+                <strong>⚡ DISCUTONS DE VOS PROJETS WEB DE DEMAIN !</strong>
+            </div>
+        </div>
+
+        <form class="contact-form figma-form" id="contactForm" action="#" method="post">
+            <fieldset>
+                <legend>Votre message</legend>
+
+                <p class="form-title">VOTRE MESSAGE</p>
+
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input id="name" name="name" type="text"
+                           autocomplete="name" placeholder="Votre nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse e-mail</label>
+                    <input id="email" name="email" type="email"
+                           autocomplete="email" placeholder="votre@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input id="subject" name="subject" type="text"
+                           placeholder="Alternance, projet, collaboration..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message" rows="7"
+                              placeholder="Décrivez votre projet ou votre proposition..." required></textarea>
+                </div>
+
+                <button type="submit">
+                    <span>ENVOYER LE MESSAGE</span>
+                    <span aria-hidden="true">→</span>
+                </button>
+
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </fieldset>
+        </form>
+    </section>
+
+    <!-- =====================================================
+         CTA FINAL
+         ===================================================== -->
+    <section class="contact-cta">
+        <div>
+            <p class="section-kicker section-kicker--light">UNE OPPORTUNITÉ ?</p>
+            <h2>PRÊT À DÉMARRER CETTE AVENTURE ?</h2>
+            <p>
+                Je recherche une alternance pour développer mes compétences
+                et contribuer concrètement à des projets web ambitieux.
+            </p>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="documents/CV%20A%20T.%20PARIS.pdf" download>TÉLÉCHARGER MON CV</a>
+            <a class="cta-outline" href="projets.html">VOIR MES PROJETS</a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="site-footer__top">
+        <div>
+            <strong>ARSELLIA</strong>
+            <span>PORTFOLIO · DEVELOPER FORWARD</span>
+        </div>
+
+        <nav aria-label="Navigation pied de page">
+            <a href="index.html">Accueil</a>
+            <a href="projets.html">Mes projets</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+        <span>© 2026 ARSELLIA PORTFOLIO — Tous droits réservés</span>
+        <span>MERCI POUR VOTRE ATTENTION</span>
+    </div>
+</footer>
+
+</body>
+</html>

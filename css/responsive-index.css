@@ -1,126 +1,56 @@
-/* =========================================================
-   ARSELLIA — RESPONSIVE PAGE D'ACCUEIL
-========================================================= */
-
-@media (max-width: 1100px) {
-    .hero {
-        grid-template-columns: minmax(330px, .9fr) minmax(420px, 1.1fr);
-        gap: 30px;
-        padding-inline: clamp(22px, 4vw, 55px);
-    }
-
-    .hero h1 {
-        font-size: clamp(46px, 5.7vw, 70px);
-    }
-
-    .hero__video {
-        width: 108%;
-    }
-}
+/* Responsive overrides for the home page. */
 
 @media (max-width: 900px) {
     .hero {
         grid-template-columns: minmax(0, 1fr);
-        min-height: auto;
-        padding: calc(var(--header-height, 64px) + 38px) 22px 32px;
-        gap: 24px;
-    }
-
-    .hero__content {
-        max-width: 720px;
         width: 100%;
+        min-width: 0;
     }
 
-    .hero h1 {
-        font-size: clamp(42px, 9vw, 64px);
+    .hero__content,
+    .hero__visual {
+        min-width: 0;
     }
 
     .hero__actions {
-        margin-top: 30px;
+        width: 100%;
     }
 
-    .hero__visual {
-        min-height: 40svh;
+    .hero__button {
+        min-width: 0;
+        width: min(100%, 320px);
     }
 
     .hero__video {
-        width: min(100%, 760px);
-        max-height: none;
+        width: 100%;
+        max-width: 100%;
+        transform: none;
     }
 }
 
 @media (max-width: 620px) {
     .hero {
-        padding: calc(var(--header-height, 60px) + 28px) 16px 26px;
-        gap: 18px;
-    }
-
-    .hero__eyebrow {
-        font-size: 9px;
-        letter-spacing: .08em;
-        padding: 8px 12px;
+        padding: calc(var(--header-height) + 28px) 16px 24px;
+        gap: 16px;
     }
 
     .hero h1 {
-        font-size: clamp(38px, 12vw, 54px);
-        line-height: 1;
+        font-size: clamp(34px, 12vw, 52px);
+        line-height: .95;
     }
 
     .hero__description {
-        margin-top: 22px;
-        font-size: 16px;
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.55;
     }
 
-    .hero__actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        width: 100%;
-    }
-
+    .hero__actions,
     .hero__button {
         width: 100%;
-        min-width: 0;
-    }
-
-    .hero__technologies {
-        margin-top: 28px;
-        gap: 8px;
-        font-size: 9px;
     }
 
     .hero__visual {
-        min-height: 0;
-    }
-
-    .hero__video {
-        width: 100%;
-    }
-}
-
-@media (max-width: 380px) {
-    .hero {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .hero__technologies i {
-        width: 4px;
-        height: 4px;
-    }
-}
-
-@media (max-height: 600px) and (orientation: landscape) {
-    .hero {
-        min-height: auto;
-        padding-top: calc(var(--header-height, 68px) + 24px);
-    }
-
-    .hero__video {
-        max-height: 70vh;
+        min-height: 38svh;
     }
 }

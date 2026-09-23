@@ -1,1 +1,2 @@
-/* Responsive Snaketris — styles principaux intégrés dans projet-snaketris.css */
+/* SNAKETRIS — couche responsive de sécurité */
+.project-detail-page .fact-icon{width:42px !important;height:42px !important;max-width:42px !important;max-height:42px !important;object-fit:contain !important}.project-detail-page .project-socials img{width:28px !important;height:28px !important;max-width:28px !important;max-height:28px !important;object-fit:contain !important}@media(max-width:760px){.project-detail-page .fact-icon{width:34px !important;height:34px !important;max-width:34px !important;max-height:34px !important}.project-detail-page .project-socials img{width:25px !important;height:25px !important;max-width:25px !important;max-height:25px !important}}

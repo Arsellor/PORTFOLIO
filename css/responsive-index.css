@@ -95,3 +95,31 @@
         max-height: 160px !important;
     }
 }
+
+/* FINAL MOBILE SAFETY NET */
+@media (max-width: 620px) {
+    html, body, .home-page, .home-page main {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+    }
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .hero__content,
+    .hero__visual {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .hero__video {
+        width: min(100%, 320px) !important;
+        max-width: 100% !important;
+    }
+}

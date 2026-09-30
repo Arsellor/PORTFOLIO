@@ -369,7 +369,9 @@ a {
     }
 
     .hero__video {
-        width: 118%;
+        width: 100%;
+        max-width: 100%;
+        transform: none;
     }
 
     .scroll-prompt {

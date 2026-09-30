@@ -188,7 +188,7 @@
     }
 
     /* Les icônes restent accessibles grâce aux aria-label ajoutés au HTML */
-    .site-navigation__link > span { display: none; }
+    .site-navigation__link > span { display: inline; }
 
     .nav-icon {
         width: 25px !important;

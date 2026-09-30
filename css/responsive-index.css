@@ -50,7 +50,39 @@
         width: 100%;
     }
 
+    /*
+       MOBILE UNIQUEMENT
+       Réduction de l'animation Accueil pour éviter
+       qu'elle soit trop grande ou coupée sur téléphone.
+    */
     .hero__visual {
-        min-height: 38svh;
+        min-height: 0;
+        height: 235px;
+        max-height: 235px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero__video {
+        width: 88%;
+        max-width: 360px;
+        height: auto;
+        max-height: 235px;
+        object-fit: contain;
+        transform: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero__visual {
+        height: 205px;
+        max-height: 205px;
+    }
+
+    .hero__video {
+        width: 90%;
+        max-height: 205px;
     }
 }

@@ -54,10 +54,13 @@
 }
 
 @media (max-width: 620px) and (orientation: portrait) {
+    /* TÉLÉPHONE PORTRAIT UNIQUEMENT */
     .hero__visual {
+        width: 100%;
         min-height: 0;
-        height: 235px;
-        max-height: 235px;
+        height: 180px;
+        max-height: 180px;
+        margin-top: 4px;
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -65,12 +68,14 @@
     }
 
     .hero__video {
-        width: 88%;
-        max-width: 360px;
-        height: auto;
-        max-height: 235px;
+        display: block;
+        width: 62% !important;
+        max-width: 260px !important;
+        height: auto !important;
+        max-height: 180px !important;
         object-fit: contain;
-        transform: none;
+        transform: none !important;
+        margin: 0 auto;
     }
 }
 

@@ -11,8 +11,11 @@
        avec la page Contact placée juste après l'animation.
     ========================================================= */
 
+    const isMobile = window.matchMedia("(max-width: 650px)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const CONFIG = {
-        totalFrames: 640,
+        totalFrames: isMobile ? 320 : 640,
         framePath: new URL(
             "../assets/animations/contact/frames/",
             scriptURL
@@ -20,8 +23,8 @@
         framePrefix: "frame_",
         frameExtension: ".webp",
         firstFrame: 1,
-        preloadRadius: 18,
-        smoothing: 0.14
+        preloadRadius: isMobile ? 6 : 18,
+        smoothing: isMobile ? 0.22 : 0.14
     };
 
     const canvas = document.getElementById("contactCanvas");
@@ -177,7 +180,11 @@
         loadFrame(0);
         preloadAround(0);
         updateScroll();
-        render();
+        drawFrame(0);
+
+        if (!isMobile && !prefersReducedMotion) {
+            render();
+        }
     }
 
     const skipAnimationButton =
@@ -239,3 +246,6 @@
     }
 
 })();
+
+
+/* Mobile: update the canvas only when the target frame materially changes. */

@@ -50,11 +50,10 @@
         width: 100%;
     }
 
-    /*
-       MOBILE UNIQUEMENT
-       Réduction de l'animation Accueil pour éviter
-       qu'elle soit trop grande ou coupée sur téléphone.
-    */
+    /* Animation réduite uniquement sur téléphone PORTRAIT. */
+}
+
+@media (max-width: 620px) and (orientation: portrait) {
     .hero__visual {
         min-height: 0;
         height: 235px;
@@ -75,7 +74,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 380px) and (orientation: portrait) {
     .hero__visual {
         height: 205px;
         max-height: 205px;

@@ -10,8 +10,11 @@
         ? document.currentScript.src
         : document.baseURI;
 
+    const isMobile = window.matchMedia("(max-width: 750px)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const CONFIG = {
-        totalFrames: 240,
+        totalFrames: isMobile ? 120 : 240,
         framePath: new URL(
             "../assets/animations/projects/",
             scriptURL
@@ -20,8 +23,8 @@
         frameExtension: ".webp",
         firstFrame: 1,
         framePadding: 6,
-        preloadRadius: 18,
-        smoothing: 0.14
+        preloadRadius: isMobile ? 6 : 18,
+        smoothing: isMobile ? 0.22 : 0.14
     };
 
 
@@ -361,28 +364,23 @@
         ------------------------------------------------- */
 
         function render() {
+            currentFrame += (
+                targetFrame -
+                currentFrame
+            ) * CONFIG.smoothing;
 
-            currentFrame +=
-                (
-                    targetFrame -
-                    currentFrame
-                ) * CONFIG.smoothing;
-
-            if (
-                Math.abs(
-                    targetFrame -
-                    currentFrame
-                ) < 0.01
-            ) {
-                currentFrame =
-                    targetFrame;
+            if (Math.abs(
+                targetFrame -
+                currentFrame
+            ) < 0.01) {
+                currentFrame = targetFrame;
             }
 
-            drawFrame(
-                Math.round(currentFrame)
-            );
+            drawFrame(Math.round(currentFrame));
 
-            requestAnimationFrame(render);
+            if (!isMobile && !prefersReducedMotion) {
+                requestAnimationFrame(render);
+            }
         }
 
 
@@ -412,14 +410,14 @@
         ------------------------------------------------- */
 
         resizeCanvas();
-
         loadFrame(0);
-
         preloadAround(0);
-
         updateScroll();
+        drawFrame(0);
 
-        render();
+        if (!isMobile && !prefersReducedMotion) {
+            render();
+        }
     }
 
 

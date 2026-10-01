@@ -19,7 +19,7 @@
   };
 
   if (canvas && section && sticky) {
-    const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
+    const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
     const images = new Array(CONFIG.totalFrames);
     const requested = new Set();
 
@@ -51,8 +51,7 @@
       const image = isLoaded(index) ? images[index] : null;
       if (!image) return;
 
-      ctx.fillStyle = "#000";
-      ctx.fillRect(0, 0, width, height);
+      ctx.clearRect(0, 0, width, height);
 
       const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight) * 1.06;
       const drawWidth = image.naturalWidth * scale;

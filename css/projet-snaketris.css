@@ -40,3 +40,51 @@ body.project-detail-page{margin:0;background:#fff;color:var(--snk-ink);font-fami
 @media(max-width:760px){.project-detail{padding-top:var(--header-mobile-height,60px)}.project-hero{width:min(100% - 32px,620px);display:flex;flex-direction:column;gap:30px;padding:28px 0 38px}.project-media{aspect-ratio:16/10;border-radius:14px}.project-socials{margin-top:12px}.project-socials a{width:44px;height:44px;border-radius:10px}.project-socials img{width:25px !important;height:25px !important;max-width:25px;max-height:25px}.project-copy{padding-top:0}.project-copy h1{font-size:clamp(38px,11vw,52px)}.title-line{width:170px;height:2px;margin:15px 0 18px}.project-type{margin-bottom:12px;font-size:18px}.project-lead{margin-bottom:20px;font-size:16px;line-height:1.58}.tech-list{gap:7px;margin-bottom:22px}.tech-badge{min-height:31px;padding:6px 9px;font-size:11px}.project-facts{gap:10px}.fact{grid-template-columns:38px minmax(0,1fr);gap:10px;padding:11px 12px;border-radius:12px}.fact-icon{width:34px !important;height:34px !important;max-width:34px;max-height:34px}.fact p{font-size:14px;line-height:1.45}.project-details{width:min(100% - 32px,620px);padding:0 0 46px}.details-grid{grid-template-columns:1fr;gap:14px}.section-card{padding:20px;border-radius:14px}.section-title{margin-bottom:16px;font-size:27px}.command-row{grid-template-columns:92px minmax(0,1fr);gap:10px;font-size:13px}.key{min-height:32px;padding:5px 7px;font-size:10px}.rules{font-size:13px;line-height:1.5}}
 @media(max-width:390px){.project-hero,.project-details{width:calc(100% - 24px)}.project-copy h1{font-size:34px}.project-lead{font-size:15px}.fact p{font-size:13px}.command-row{grid-template-columns:82px minmax(0,1fr);font-size:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-socials a{transition:none}}
+
+
+/* =========================================================
+   RESPONSIVE FINAL — SNAKETRIS
+   Les dimensions mobiles appartiennent désormais à cette feuille.
+========================================================= */
+
+@media (max-width: 760px) {
+    .project-detail-page .fact-icon {
+        width: 34px !important;
+        height: 34px !important;
+        max-width: 34px !important;
+        max-height: 34px !important;
+        object-fit: contain !important;
+    }
+
+    .project-detail-page .project-socials img {
+        width: 25px !important;
+        height: 25px !important;
+        max-width: 25px !important;
+        max-height: 25px !important;
+        object-fit: contain !important;
+    }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+    .project-detail-page .project-hero,
+    .project-detail-page .project-details {
+        width: calc(100% - 24px);
+    }
+
+    .project-detail-page .project-copy h1 {
+        font-size: 34px;
+    }
+
+    .project-detail-page .project-lead {
+        font-size: 15px;
+    }
+
+    .project-detail-page .fact p {
+        font-size: 13px;
+    }
+
+    .project-detail-page .command-row {
+        grid-template-columns: 82px minmax(0, 1fr);
+        font-size: 12px;
+    }
+}

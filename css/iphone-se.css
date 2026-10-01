@@ -1,0 +1,520 @@
+/* =========================================================
+   ARSELLIA — iPhone SE 375 × 667 — PORTRAIT
+   Couche dédiée au petit écran. Aucun impact sur desktop/tablette.
+   ========================================================= */
+
+@media (max-width: 390px) and (orientation: portrait) {
+
+  :root{
+    --iphone-se-width: 375px;
+    --iphone-se-side: 14px;
+  }
+
+  html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  body{
+    min-width:0 !important;
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    min-height:56px !important;
+    height:56px !important;
+    padding:0 8px !important;
+    grid-template-columns:auto 1fr !important;
+    gap:4px !important;
+  }
+
+  .brand__name{
+    font-size:17px !important;
+    line-height:1 !important;
+    letter-spacing:.01em;
+  }
+
+  .site-navigation{
+    justify-self:end !important;
+  }
+
+  .site-navigation__list{
+    gap:0 !important;
+  }
+
+  .site-navigation__link{
+    width:38px !important;
+    min-width:38px !important;
+    min-height:38px !important;
+    padding:0 !important;
+  }
+
+  .nav-icon{
+    width:22px !important;
+    height:20px !important;
+    flex-basis:22px !important;
+  }
+
+  .scroll-to-top{
+    width:38px !important;
+    height:38px !important;
+    right:10px !important;
+    bottom:10px !important;
+    font-size:20px !important;
+  }
+
+  /* ---------- ACCUEIL ---------- */
+  .home-page main{
+    width:100% !important;
+  }
+
+  .home-page .hero{
+    width:100% !important;
+    min-height:0 !important;
+    padding:calc(var(--header-height) + 20px) var(--iphone-se-side) 18px !important;
+    gap:12px !important;
+  }
+
+  .home-page .hero__content{
+    width:100% !important;
+  }
+
+  .home-page .hero h1{
+    margin:0 0 12px !important;
+    font-size:clamp(30px, 9.2vw, 36px) !important;
+    line-height:.94 !important;
+    letter-spacing:-.045em !important;
+  }
+
+  .home-page .hero__description{
+    margin:0 0 14px !important;
+    max-width:300px !important;
+    font-size:13px !important;
+    line-height:1.45 !important;
+  }
+
+  .home-page .hero__actions{
+    gap:8px !important;
+  }
+
+  .home-page .hero__button{
+    width:100% !important;
+    min-height:42px !important;
+    padding:10px 13px !important;
+    font-size:11px !important;
+  }
+
+  .home-page .hero__visual{
+    width:100% !important;
+    height:145px !important;
+    min-height:145px !important;
+    max-height:145px !important;
+    margin-top:4px !important;
+    overflow:hidden !important;
+  }
+
+  .home-page .hero__video{
+    width:58% !important;
+    max-width:218px !important;
+    height:auto !important;
+    max-height:145px !important;
+    object-fit:contain !important;
+    transform:none !important;
+  }
+
+  /* ---------- PROJETS — ANIMATION CANVAS ---------- */
+  .projects-page .sequence-scroll{
+    height:380vh !important;
+    padding-top:var(--header-height) !important;
+  }
+
+  .projects-page .sequence-sticky{
+    top:var(--header-height) !important;
+    height:calc(100svh - var(--header-height)) !important;
+  }
+
+  .projects-page #morphCanvas{
+    width:100% !important;
+    height:100% !important;
+  }
+
+  .projects-page .animation-title{
+    top:12% !important;
+    width:calc(100% - 34px) !important;
+  }
+
+  .projects-page .animation-title p{
+    margin-bottom:10px !important;
+    font-size:8px !important;
+    letter-spacing:.12em !important;
+  }
+
+  .projects-page .animation-title h2{
+    font-size:clamp(25px,8vw,31px) !important;
+    line-height:.96 !important;
+  }
+
+  .projects-page .sequence-counter{
+    left:12px !important;
+    bottom:18px !important;
+    font-size:10px !important;
+    gap:7px !important;
+  }
+
+  .projects-page .sequence-counter__line{
+    width:22px !important;
+  }
+
+  .projects-page .scroll-prompt{
+    bottom:18px !important;
+    font-size:8px !important;
+    letter-spacing:.1em !important;
+  }
+
+  .projects-page .skip-animation{
+    top:12px !important;
+    right:12px !important;
+    padding:7px 9px !important;
+    font-size:8px !important;
+  }
+
+  .projects-page .progress-track{
+    height:3px !important;
+  }
+
+  /* ---------- PROJETS — VILLE ---------- */
+  .projects-page .projects-showcase{
+    padding:58px 0 42px !important;
+    min-height:0 !important;
+  }
+
+  .projects-page .projects-showcase__intro{
+    width:100% !important;
+    padding:0 12px !important;
+    margin-bottom:12px !important;
+  }
+
+  .projects-page .projects-showcase__intro .section-eyebrow{
+    margin-bottom:7px !important;
+    font-size:11px !important;
+  }
+
+  .projects-page .projects-showcase__intro h2{
+    font-size:27px !important;
+    line-height:1 !important;
+  }
+
+  .projects-page .projects-showcase__intro > p:last-child{
+    margin-top:9px !important;
+    font-size:12px !important;
+    line-height:1.35 !important;
+  }
+
+  .projects-page .projects-city{
+    width:100% !important;
+    max-width:none !important;
+    aspect-ratio:1123 / 749 !important;
+    min-height:0 !important;
+  }
+
+  .projects-page .city-project{
+    border-width:1.5px !important;
+    border-radius:10px !important;
+    padding:4px !important;
+    box-shadow:0 5px 12px rgba(0,0,0,.18) !important;
+  }
+
+  .projects-page .city-project span{
+    top:5px !important;
+    left:6px !important;
+    font-size:7px !important;
+  }
+
+  .projects-page .city-project strong{
+    font-size:7px !important;
+    line-height:1.04 !important;
+  }
+
+  .projects-page .city-project--orange{
+    top:14% !important; left:17.5% !important;
+    width:64px !important; height:58px !important;
+  }
+
+  .projects-page .city-project--red{
+    top:31.6% !important; left:48.5% !important;
+    width:84px !important; height:71px !important;
+  }
+
+  .projects-page .city-project--blue{
+    top:24% !important; left:67.3% !important;
+    width:72px !important; height:64px !important;
+  }
+
+  .projects-page .city-project--pink{
+    top:68% !important; left:49% !important;
+    width:78px !important; height:62px !important;
+  }
+
+  .projects-page .city-project--navy{
+    top:68% !important; left:4% !important;
+    width:76px !important; height:62px !important;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-page .contact-sequence{
+    height:320vh !important;
+  }
+
+  .contact-page .contact-sequence__sticky{
+    height:calc(100svh - var(--header-height)) !important;
+  }
+
+  .contact-page #contactCanvas{
+    width:100% !important;
+    height:100% !important;
+  }
+
+  .contact-page .contact-hero{
+    padding:calc(var(--header-height) + 18px) 14px 26px !important;
+    gap:14px !important;
+  }
+
+  .contact-page .contact-hero h1{
+    margin-bottom:10px !important;
+    font-size:clamp(31px,9vw,36px) !important;
+    line-height:.94 !important;
+    letter-spacing:-.04em !important;
+  }
+
+  .contact-page .script-title{
+    margin:0 0 12px !important;
+    font-size:22px !important;
+  }
+
+  .contact-page .hero-description{
+    margin-bottom:14px !important;
+    font-size:13px !important;
+    line-height:1.48 !important;
+  }
+
+  .contact-page .contact-links{
+    gap:9px !important;
+  }
+
+  .contact-page .contact-card{
+    padding:11px !important;
+    gap:8px !important;
+  }
+
+  .contact-page .contact-card__icon{
+    font-size:16px !important;
+  }
+
+  .contact-page .contact-card__content small{
+    font-size:8px !important;
+  }
+
+  .contact-page .contact-card__content strong{
+    font-size:10px !important;
+    line-height:1.3 !important;
+  }
+
+  .contact-page .contact-card__arrow{
+    font-size:17px !important;
+  }
+
+  .contact-page .contact-hero__visual{
+    min-height:175px !important;
+    height:175px !important;
+    overflow:hidden !important;
+  }
+
+  .contact-page .lighthouse-illustration{
+    width:78% !important;
+    max-width:280px !important;
+    height:auto !important;
+    max-height:175px !important;
+    object-fit:contain !important;
+  }
+
+  .contact-page .skills-ticker{
+    padding:11px 12px !important;
+    gap:7px 10px !important;
+    font-size:9px !important;
+  }
+
+  /* ---------- FICHES PROJETS ---------- */
+  .project-detail{
+    padding-top:var(--header-height) !important;
+  }
+
+  .project-hero{
+    width:calc(100% - 24px) !important;
+    max-width:none !important;
+    display:flex !important;
+    flex-direction:column !important;
+    padding:18px 0 18px !important;
+    gap:18px !important;
+  }
+
+  .project-media{
+    width:100% !important;
+    max-width:100% !important;
+    align-self:center !important;
+    border-radius:10px !important;
+    box-shadow:0 8px 20px rgba(0,0,0,.12) !important;
+  }
+
+  .project-copy{
+    width:100% !important;
+    max-width:none !important;
+    padding:0 !important;
+  }
+
+  .project-copy h1{
+    margin-bottom:14px !important;
+    font-size:30px !important;
+    line-height:1 !important;
+  }
+
+  .title-line{
+    width:135px !important;
+    margin-bottom:15px !important;
+  }
+
+  .project-facts{
+    gap:10px !important;
+  }
+
+  .fact{
+    grid-template-columns:34px minmax(0,1fr) !important;
+    gap:8px !important;
+    padding:9px 10px !important;
+    border-radius:9px !important;
+    min-height:0 !important;
+  }
+
+  .fact-icon{
+    width:32px !important;
+    height:32px !important;
+    max-width:32px !important;
+    max-height:32px !important;
+  }
+
+  .fact p{
+    font-size:13px !important;
+    line-height:1.35 !important;
+  }
+
+  .credits{
+    gap:10px !important;
+    margin-top:16px !important;
+  }
+
+  .credit{
+    gap:9px !important;
+  }
+
+  .credit-avatar{
+    width:38px !important;
+    height:38px !important;
+    font-size:18px !important;
+  }
+
+  .credit span{
+    font-size:10px !important;
+    line-height:1.2 !important;
+  }
+
+  .credit strong{
+    font-size:15px !important;
+    line-height:1.2 !important;
+  }
+
+  .project-socials{
+    width:calc(100% - 24px) !important;
+    padding:0 0 22px !important;
+    margin:0 auto !important;
+    gap:7px !important;
+  }
+
+  .project-socials a{
+    width:56px !important;
+    height:56px !important;
+  }
+
+  /* Snaketris : la fiche est plus dense, donc on réduit encore l'image. */
+  .project-detail-page .project-hero{
+    gap:16px !important;
+    padding-top:16px !important;
+  }
+
+  .project-detail-page .project-media{
+    aspect-ratio:16/10 !important;
+  }
+
+  .project-detail-page .project-copy h1{
+    font-size:30px !important;
+  }
+
+  .project-detail-page .project-lead{
+    font-size:13px !important;
+    line-height:1.45 !important;
+    margin-bottom:14px !important;
+  }
+
+  .project-detail-page .tech-list{
+    gap:5px !important;
+    margin-bottom:14px !important;
+  }
+
+  .project-detail-page .tech-badge{
+    min-height:27px !important;
+    padding:5px 7px !important;
+    font-size:9px !important;
+  }
+
+  .project-details{
+    width:calc(100% - 24px) !important;
+    padding-bottom:34px !important;
+  }
+
+  .section-card{
+    padding:15px !important;
+    border-radius:10px !important;
+  }
+
+  .section-title{
+    margin-bottom:12px !important;
+    font-size:22px !important;
+  }
+
+  .command-row{
+    grid-template-columns:70px minmax(0,1fr) !important;
+    gap:8px !important;
+    padding:9px 0 !important;
+    font-size:11px !important;
+  }
+
+  .key{
+    min-height:27px !important;
+    padding:4px 5px !important;
+    font-size:8px !important;
+  }
+
+  .rules{
+    gap:8px !important;
+    font-size:11px !important;
+    line-height:1.4 !important;
+    padding-left:15px !important;
+  }
+
+  /* Empêche les effets de hover de déplacer/agrandir les visuels sur tactile. */
+  .city-project:hover,
+  .project-socials a:hover,
+  .netlify-link:hover .netlify-badge{
+    transform:none !important;
+    filter:none !important;
+  }
+}

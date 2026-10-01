@@ -1947,3 +1947,18 @@
     animation: none !important;
   }
 }
+
+
+/* =========================================================
+   PATCH DESKTOP — ESPACEMENT HEADER / ANIMATION
+========================================================= */
+@media (min-width: 901px) {
+  .sequence-scroll {
+    padding-top: calc(var(--header-height) + 10px);
+  }
+
+  .sequence-sticky {
+    top: calc(var(--header-height) + 10px);
+    height: calc(100svh - var(--header-height) - 10px);
+  }
+}

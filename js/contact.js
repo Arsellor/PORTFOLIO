@@ -30,7 +30,7 @@
     const progressBar = document.getElementById("progressBar");
 
     if (canvas && section && sticky) {
-        const ctx = canvas.getContext("2d", { alpha: false });
+        const ctx = canvas.getContext("2d", { alpha: true });
         const images = new Array(CONFIG.totalFrames);
         const requested = new Set();
 
@@ -119,8 +119,7 @@
             const image = getAvailableFrame(index);
             if (!image) return;
 
-            ctx.fillStyle = "#000000";
-            ctx.fillRect(0, 0, width, height);
+            ctx.clearRect(0, 0, width, height);
 
             const scale = Math.max(
                 width / image.naturalWidth,

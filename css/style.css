@@ -1328,7 +1328,7 @@
 
 @media (max-width: 900px) {
     .sequence-scroll {
-        height: 100svh;
+        height: 180svh;
         padding-top: 0;
         background: #fff;
     }

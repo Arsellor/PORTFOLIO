@@ -1312,597 +1312,355 @@
 
 }
 
-
 /* =========================================================
-   11 - RESPONSIVE TABLETTE
+   RESPONSIVE CANONIQUE — PAGE PROJETS
+   Une seule source de vérité pour le responsive.
 ========================================================= */
 
 @media (max-width: 1100px) {
-
-
-}
-
-
-/* =========================================================
-   12 - RESPONSIVE MOBILE
-========================================================= */
-
-@media (max-width: 750px) {
-
-
-    /* -----------------------------------------------------
-       ANIMATION
-    ----------------------------------------------------- */
-
-    .sequence-scroll {
-
-        height: 500vh;
-
+    .projects-carousel .project-panel {
+        flex-basis: calc((100% - 28px) / 2);
     }
 
-
-    .sequence-sticky {
-
-        height:
-
-            calc(
-                100svh -
-                var(--header-height)
-            );
-
-    }
-
-
-    .animation-title {
-
-        top: 10%;
-
-    }
-
-
-    .animation-title p {
-
-        font-size: 9px;
-
-        letter-spacing: 0.16em;
-
-    }
-
-
-    .animation-title h2 {
-
-        font-size:
-            clamp(
-                32px,
-                10vw,
-                52px
-            );
-
-    }
-
-
-    .sequence-counter {
-
-        left: 20px;
-        bottom: 25px;
-
-    }
-
-
-    .sequence-counter__line {
-
-        width: 30px;
-
-    }
-
-
-    .scroll-prompt {
-
-        bottom: 25px;
-
-        font-size: 9px;
-
-        white-space: nowrap;
-
-    }
-
-
-    .skip-animation {
-
-        right: 20px;
-        top: 20px;
-        padding: 8px 12px;
-        font-size: 9px;
-
-    }
-
-
-    /* -----------------------------------------------------
-       SECTION PROJETS
-    ----------------------------------------------------- */
-
-    .projects-showcase {
-
-        padding:
-
-            100px
-            20px;
-
-    }
-
-
-    .projects-showcase__header {
-
-        margin-bottom: 55px;
-
-    }
-
-
-    .projects-showcase__header h2 {
-
-        font-size:
-            clamp(
-                48px,
-                13vw,
-                75px
-            );
-
-    }
-
-
-    .projects-showcase__header > p:last-child {
-
-        font-size: 16px;
-
-    }
-
-
-    .project-panel {
-
-        min-height: 520px;
-
-    }
-
-
-    .project-panel__content {
-
-        left: 25px;
-        right: 25px;
-        bottom: 25px;
-
-    }
-
-
-    .project-panel__number {
-
-        top: 20px;
-        right: 22px;
-
-    }
-
-
-    .project-panel__description {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-    }
-
-
-    .projects-showcase__bottom {
-
-        margin-top: 70px;
-
-    }
-
-
-    /* -----------------------------------------------------
-       FOOTER
-    ----------------------------------------------------- */
-
-    .site-footer__content {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-}
-
-
-/* =========================================================
-   PETITS MOBILES
-========================================================= */
-
-@media (max-width: 420px) {
-
-
-    .project-panel {
-
-        min-height: 470px;
-
-    }
-
-
-    .project-panel h3 {
-
-        font-size: 38px;
-
-    }
-
-}
-
-
-/* =========================================================
-   13 - ACCESSIBILITÉ
-========================================================= */
-
-:focus-visible {
-
-    outline:
-
-        3px solid
-        var(--orange);
-
-    outline-offset: 4px;
-
-}
-
-
-.project-panel:focus-visible {
-
-    outline:
-
-        4px solid
-        var(--orange);
-
-    outline-offset: 5px;
-
-}
-
-
-/* =========================================================
-   RÉDUCTION DES ANIMATIONS
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-
-    html {
-
-        scroll-behavior: auto;
-
-    }
-
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-
-    }
-
-}
-
-
-/* =========================================================
-   SECTION PROJETS — COMPOSITION VILLE 3D
-========================================================= */
-
-.projects-showcase {
-    min-height: 100vh;
-    padding: 95px 0 0;
-    background: #fff;
-}
-
-.projects-showcase__intro {
-    position: relative;
-    z-index: 20;
-    width: 100%;
-    margin-bottom: 35px;
-    text-align: center;
-}
-
-.projects-showcase__intro .section-eyebrow {
-    margin: 0 0 12px;
-    color: var(--orange);
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: .08em;
-}
-
-.projects-showcase__intro h2 {
-    margin: 0;
-    color: var(--black);
-    font-size: clamp(34px, 4vw, 48px);
-    line-height: 1.05;
-    letter-spacing: 0;
-}
-
-.projects-showcase__intro > p:last-child {
-    margin: 16px 0 0;
-    color: var(--black);
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-.projects-city {
-    position: relative;
-    width: min(1123px, calc(100% - 50px));
-    aspect-ratio: 1123 / 749;
-    margin: 0 auto;
-    overflow: visible;
-}
-
-.projects-city__image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    animation: projectCityEnter 1.2s ease both;
-}
-
-.city-project {
-    position: absolute;
-    z-index: 10;
-    display: grid;
-    place-items: center;
-    border: 4px solid rgba(255,255,255,.85);
-    border-radius: 24%;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 2px 8px rgba(0,0,0,.35);
-    box-shadow: 0 12px 24px rgba(0,0,0,.25), inset 0 0 0 2px rgba(255,255,255,.18);
-    transform: translateY(30px) scale(.85);
-    opacity: 0;
-    transition: filter .3s ease, transform .3s ease;
-    animation-fill-mode: forwards;
-}
-
-.city-project span {
-    position: absolute;
-    top: 8px;
-    left: 10px;
-    font-size: 10px;
-    font-weight: 800;
-}
-
-.city-project strong {
-    font-size: clamp(10px, 1.1vw, 15px);
-    line-height: 1.05;
-}
-
-.city-project small {
-    display: block;
-    margin-top: 4px;
-    font-size: .52em;
-    letter-spacing: .04em;
-}
-
-.city-project--orange {
-    top: 13.75%;
-    left: 17.45%;
-    width: 109px;
-    height: 101px;
-    background: linear-gradient(145deg, #ffbd45, #e85c00);
-    animation: projectButtonEnter 1s .45s ease forwards;
-}
-
-.city-project--red {
-    top: 31.6%;
-    left: 48.8%;
-    width: 147px;
-    height: 122px;
-    background: linear-gradient(145deg, #ff695c, #a71825);
-    animation: projectButtonEnter 1s .7s ease forwards;
-}
-
-.city-project--blue {
-    top: 24.05%;
-    left: 67.5%;
-    width: 124px;
-    height: 113px;
-    background: linear-gradient(145deg, #6756d9, #241d75);
-    animation: projectButtonEnter 1s .6s ease forwards;
-}
-
-.city-project--green {
-    top: 55%;
-    left: 31%;
-    width: 112px;
-    height: 96px;
-    background: linear-gradient(145deg, #62c782, #176b50);
-    animation: projectButtonEnter 1s .8s ease forwards;
-}
-
-.city-project--pink {
-    top: 68%;
-    left: 49%;
-    width: 128px;
-    height: 101px;
-    background: linear-gradient(145deg, #f179a8, #a32f66);
-    animation: projectButtonEnter 1s .9s ease forwards;
-}
-
-.city-project--teal {
-    top: 55%;
-    left: 77%;
-    width: 110px;
-    height: 96px;
-    background: linear-gradient(145deg, #46c9c1, #176a78);
-    animation: projectButtonEnter 1s 1s ease forwards;
-}
-
-.city-project--navy {
-    top: 68%;
-    left: 4%;
-    width: 124px;
-    height: 101px;
-    background: linear-gradient(145deg, #4d82bd, #1d3d70);
-    animation: projectButtonEnter 1s 1.1s ease forwards;
-}
-
-.city-project:hover {
-    filter: brightness(1.1);
-    transform: translateY(-4px) scale(1.08);
-}
-
-.projects-showcase__pagination {
-    position: absolute;
-    top: 300px;
-    left: 6vw;
-    z-index: 25;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.pagination-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #5b5b5b;
-}
-
-.pagination-dot--light {
-    width: 12px;
-    height: 12px;
-    background: transparent;
-    border: 2px solid #d6d6d6;
-}
-
-.pagination-dot--orange {
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border: 2px solid var(--orange);
-}
-
-@keyframes projectCityEnter {
-    from { opacity: 0; filter: blur(14px); transform: scale(.94); }
-    to { opacity: 1; filter: blur(0); transform: scale(1); }
-}
-
-@keyframes projectButtonEnter {
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    .carousel-button--previous { left: -18px; }
+    .carousel-button--next { right: -18px; }
 }
 
 @media (max-width: 900px) {
-    .projects-showcase { padding-top: 75px; }
-    .projects-showcase__intro { padding: 0 20px; }
-    .projects-city { width: calc(100% - 24px); }
-    .projects-showcase__pagination { left: 24px; top: 270px; }
+    .sequence-scroll {
+        height: 100svh;
+        padding-top: 0;
+        background: #fff;
+    }
+
+    .sequence-sticky {
+        top: var(--header-height);
+        height: calc(100svh - var(--header-height));
+        background: transparent;
+    }
+
+    #morphCanvas {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .animation-title {
+        top: 13%;
+        width: calc(100% - 32px);
+    }
+
+    .animation-title p {
+        font-size: 9px;
+        letter-spacing: .16em;
+    }
+
+    .animation-title h2 {
+        font-size: clamp(32px, 8.8vw, 52px);
+    }
+
+    .sequence-counter {
+        left: 16px;
+        bottom: 18px;
+    }
+
+    .sequence-counter__line { width: 30px; }
+
+    .scroll-prompt {
+        bottom: 18px;
+        font-size: 9px;
+    }
+
+    .skip-animation {
+        top: 14px;
+        right: 14px;
+        padding: 8px 11px;
+        font-size: 9px;
+    }
+
+    .projects-showcase {
+        padding: 75px 0 80px;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .projects-showcase__intro {
+        padding-inline: 20px;
+        margin-bottom: 20px;
+    }
+
+    .projects-showcase__intro h2 {
+        font-size: clamp(30px, 8vw, 42px);
+        line-height: 1;
+    }
+
+    .projects-showcase__intro > p:last-child {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .projects-city {
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+        aspect-ratio: 1123 / 749;
+        margin-inline: auto;
+    }
+
+    .projects-city__image {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .city-project {
+        border-radius: 18px;
+        border-width: 2px;
+        padding: 8px;
+        max-width: calc(100% - 8px);
+    }
+
+    .city-project strong {
+        font-size: clamp(8px, 2.5vw, 11px);
+    }
+
+    .city-project span {
+        top: 7px;
+        left: 8px;
+        font-size: 9px;
+    }
+
+    .city-project--orange {
+        top: 14%;
+        left: 17%;
+        width: 90px;
+        height: 84px;
+    }
+
+    .city-project--red {
+        top: 31.6%;
+        left: 48%;
+        width: 116px;
+        height: 98px;
+    }
+
+    .city-project--blue {
+        top: 24%;
+        left: 67%;
+        width: 100px;
+        height: 90px;
+    }
+
+    .city-project--pink {
+        top: 68%;
+        left: 49%;
+        width: 105px;
+        height: 84px;
+    }
+
+    .city-project--navy {
+        top: 68%;
+        left: 4%;
+        width: 105px;
+        height: 84px;
+    }
+
+    .projects-showcase__pagination {
+        display: none;
+    }
+
+    .project-panel__description {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .projects-carousel__viewport {
+        overflow: visible;
+    }
+
+    .projects-carousel__track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        padding-bottom: 10px;
+    }
+
+    .projects-carousel__track::-webkit-scrollbar { display: none; }
+
+    .projects-carousel .project-panel {
+        flex-basis: 88%;
+        scroll-snap-align: center;
+        min-height: 520px;
+    }
+
+    .carousel-button { display: none; }
+
+    .site-footer__content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 @media (max-width: 600px) {
-    .projects-showcase { min-height: 620px; }
-    .projects-showcase__intro { margin-bottom: 20px; }
-    .projects-showcase__intro h2 { font-size: 30px; }
-    .projects-showcase__intro > p:last-child { font-size: 14px; }
-    .city-project--orange { width: 75px; height: 70px; }
-    .city-project--red { width: 95px; height: 79px; }
-    .city-project--blue { top: 0; width: 82px; height: 75px; }
-    .city-project--green { top: 52%; left: 32%; width: 72px; height: 62px; }
-    .city-project--pink { top: 68%; left: 51%; width: 91px; height: 72px; }
-    .city-project--teal { top: 52%; left: 77%; width: 72px; height: 62px; }
-    .city-project--navy { top: 68%; left: 4%; width: 88px; height: 72px; }
-    .projects-showcase__pagination { display: none; }
+    .projects-showcase {
+        padding: 52px 0 44px;
+    }
+
+    .projects-showcase__intro {
+        padding-inline: 14px;
+        margin-bottom: 14px;
+    }
+
+    .projects-showcase__intro h2 {
+        font-size: clamp(28px, 8vw, 38px);
+    }
+
+    .projects-showcase__intro > p:last-child {
+        font-size: 13px;
+    }
+
+    .projects-city {
+        width: 100%;
+        aspect-ratio: 1123 / 749;
+    }
+
+    .city-project {
+        padding: 6px;
+        border-radius: 14px;
+    }
+
+    .city-project--orange {
+        width: 74px;
+        height: 68px;
+        left: 17.5%;
+    }
+
+    .city-project--red {
+        width: 95px;
+        height: 80px;
+        left: 48.5%;
+    }
+
+    .city-project--blue {
+        width: 82px;
+        height: 74px;
+        left: 67.3%;
+    }
+
+    .city-project--pink {
+        width: 90px;
+        height: 72px;
+    }
+
+    .city-project--navy {
+        width: 88px;
+        height: 72px;
+    }
+
+    .city-project strong { font-size: 8px; }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+    .projects-showcase {
+        padding-top: 44px;
+        padding-bottom: 38px;
+    }
+
+    .projects-showcase__intro {
+        padding-inline: 12px;
+    }
+
+    .animation-title {
+        top: 11%;
+        width: calc(100% - 24px);
+    }
+
+    .animation-title p {
+        font-size: 8px;
+        margin-bottom: 10px;
+    }
+
+    .animation-title h2 {
+        font-size: clamp(27px, 8.2vw, 36px);
+        line-height: .96;
+    }
+
+    .sequence-counter {
+        left: 12px;
+        bottom: 16px;
+        font-size: 10px;
+    }
+
+    .scroll-prompt {
+        bottom: 16px;
+        font-size: 8px;
+    }
+
+    .skip-animation {
+        top: 12px;
+        right: 12px;
+        padding: 8px 10px;
+        font-size: 8px;
+    }
+
+    .city-project--orange {
+        width: 68px;
+        height: 62px;
+    }
+
+    .city-project--red {
+        width: 88px;
+        height: 74px;
+    }
+
+    .city-project--blue {
+        width: 76px;
+        height: 68px;
+    }
+
+    .city-project--pink {
+        width: 82px;
+        height: 66px;
+    }
+
+    .city-project--navy {
+        width: 80px;
+        height: 66px;
+    }
+
+    .city-project strong { font-size: 8px; }
+}
+
+@media (max-width: 360px) and (orientation: portrait) {
+    .site-header { padding-inline: 8px; }
+
+    .brand__name { font-size: 18px; }
+
+    .site-navigation__link {
+        width: 40px;
+        min-width: 40px;
+    }
+
+    .animation-title h2 { font-size: 29px; }
+    .city-project strong { font-size: 7.5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .projects-city__image,
-    .city-project { animation: none; opacity: 1; transform: none; }
-}
+    html { scroll-behavior: auto; }
 
-/* =========================================================
-   FIN DU FICHIER
-========================================================= */
+    .city-project {
+        transition: none;
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
 
-/* =========================================================
-   PATCH RESPONSIVE — CITY PROJECTS / MOBILE
-========================================================= */
-.projects-showcase__intro{
-  position:relative;
-  z-index:30;
+    .projects-city__image {
+        animation: none;
+        filter: none;
+    }
 }
-.projects-city{
-  position:relative;
-  width:min(100%,1440px);
-  margin-inline:auto;
-  min-height:clamp(420px,48vw,780px);
-}
-.projects-city__image{
-  width:100%;
-  height:auto;
-  display:block;
-}
-.city-project{
-  z-index:20;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:10px;
-  border-radius:24px;
-  border:3px solid rgba(255,255,255,.58);
-  box-shadow:0 10px 24px rgba(0,0,0,.22);
-  line-height:1;
-  overflow-wrap:anywhere;
-}
-.city-project span{top:10px;left:12px}
-.city-project strong{font-size:clamp(10px,1vw,15px);line-height:1.08;max-width:100%}
-@media(max-width:900px){
-  .projects-showcase{padding-bottom:80px}
-  .projects-city{min-height:0;width:100%}
-  .city-project{border-radius:18px;padding:8px}
-  .city-project--orange{top:14%;left:17%;width:90px;height:84px}
-  .city-project--red{top:31.6%;left:48%;width:116px;height:98px}
-  .city-project--blue{top:24%;left:67%;width:100px;height:90px}
-  .city-project--pink{top:68%;left:49%;width:105px;height:84px}
-  .city-project--navy{top:68%;left:4%;width:105px;height:84px}
-}
-@media(max-width:600px){
-  .projects-showcase{padding:72px 12px 60px;min-height:0}
-  .projects-showcase__intro{padding:0 8px;margin-bottom:18px}
-  .projects-showcase__intro h2{font-size:clamp(28px,8vw,38px);line-height:1}
-  .projects-showcase__intro>p:last-child{font-size:14px;line-height:1.45}
-  .projects-city{width:100%;margin-top:8px}
-  .city-project{border-width:2px;border-radius:14px;padding:6px;box-shadow:0 7px 17px rgba(0,0,0,.2)}
-  .city-project span{top:7px;left:8px;font-size:9px}
-  .city-project strong{font-size:clamp(8px,2.5vw,11px)}
-  .city-project--orange{top:14%;left:17.5%;width:74px;height:68px}
-  .city-project--red{top:31.6%;left:48.5%;width:95px;height:80px}
-  .city-project--blue{top:24%;left:67.3%;width:82px;height:74px}
-  .city-project--pink{top:68%;left:49%;width:90px;height:72px}
-  .city-project--navy{top:68%;left:4%;width:88px;height:72px}
-}
-@media(max-width:390px){
-  .city-project--orange{width:68px;height:62px}
-  .city-project--red{width:88px;height:74px}
-  .city-project--blue{width:76px;height:68px}
-  .city-project--pink{width:82px;height:66px}
-  .city-project--navy{width:80px;height:66px}
-  .city-project strong{font-size:8px}
-}
-
 
 
 /* =========================================================
@@ -1945,100 +1703,5 @@
   .city-project {
     transition: none;
     animation: none !important;
-  }
-}
-
-
-/* =========================================================
-   PATCH FINAL — GÉOMÉTRIE FLUIDE / MOBILE
-========================================================= */
-
-/* Le body ne doit jamais créer de largeur parasite. */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-}
-
-.projects-page,
-.projects-page main,
-.projects-page section {
-  width: 100%;
-  max-width: 100%;
-}
-
-/* Animation : le sticky occupe exactement l'espace sous le header. */
-.sequence-scroll {
-  padding-top: var(--header-height);
-}
-
-.sequence-sticky {
-  top: var(--header-height);
-  height: calc(100svh - var(--header-height));
-}
-
-/* Visuel ville : largeur réellement fluide, sans largeur fixe résiduelle. */
-.projects-showcase {
-  padding-inline: 0;
-}
-
-.projects-city {
-  width: 100%;
-  max-width: 1123px;
-  margin-inline: auto;
-  aspect-ratio: 1123 / 749;
-}
-
-.projects-city__image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-/* Les boutons restent liés à la composition et ne peuvent pas élargir la page. */
-.city-project {
-  max-width: calc(100% - 8px);
-  overflow: hidden;
-}
-
-/* Mobile portrait : on privilégie la largeur de la composition et une hauteur calculée. */
-@media (max-width: 750px) {
-  .projects-showcase {
-    padding: 72px 0 60px;
-    overflow: hidden;
-  }
-
-  .projects-showcase__intro {
-    padding-inline: 16px;
-  }
-
-  .projects-city {
-    width: 100%;
-    max-width: none;
-    min-height: 0;
-    aspect-ratio: 1123 / 749;
-  }
-
-  .projects-city__image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-}
-
-/* Petits téléphones : aucune largeur fixe ne doit dépasser le viewport. */
-@media (max-width: 390px) {
-  .projects-showcase__intro {
-    padding-inline: 12px;
-  }
-
-  .city-project {
-    max-width: calc(100% - 4px);
   }
 }

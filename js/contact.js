@@ -166,7 +166,44 @@
             requestAnimationFrame(render);
         }
 
-        window.addEventListener("resize", resizeCanvas, { passive: true });
+        let orientationReflowTimer = 0;
+        let orientationReflowFrame = 0;
+
+        function reflowAfterOrientationChange() {
+            window.cancelAnimationFrame(orientationReflowFrame);
+            window.clearTimeout(orientationReflowTimer);
+
+            orientationReflowFrame = window.requestAnimationFrame(() => {
+                resizeCanvas();
+                updateScroll();
+            });
+
+            // Sur mobile, la hauteur du viewport peut se stabiliser après la rotation.
+            orientationReflowTimer = window.setTimeout(() => {
+                resizeCanvas();
+                updateScroll();
+            }, 180);
+        }
+
+        window.addEventListener("resize", () => {
+            resizeCanvas();
+            updateScroll();
+        }, { passive: true });
+
+        window.addEventListener(
+            "orientationchange",
+            reflowAfterOrientationChange,
+            { passive: true }
+        );
+
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener(
+                "resize",
+                reflowAfterOrientationChange,
+                { passive: true }
+            );
+        }
+
         window.addEventListener("scroll", updateScroll, { passive: true });
 
         resizeCanvas();

@@ -1,5 +1,6 @@
 /* =========================================================
    ARSELLIA — iPhone SE 375 × 667 — PORTRAIT
+   CACHE-BUST: 20261001-iphone-se-v3
    Couche dédiée au petit écran. Aucun impact sur desktop/tablette.
    ========================================================= */
 
@@ -596,4 +597,58 @@
     transform:none !important;
     filter:none !important;
   }
+
+  /* ---------- AUTHORITATIVE FINAL 375x667 OVERRIDES ---------- */
+  .home-page .hero__visual,
+  .projects-page .sequence-sticky,
+  .contact-page .contact-sequence__sticky{
+    width: min(100vw, 375px) !important;
+    max-width: 375px !important;
+    aspect-ratio: 9 / 16 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 667px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .home-page .hero__video,
+  .projects-page #morphCanvas,
+  .contact-page #contactCanvas{
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    display: block !important;
+  }
+
+  .home-page .hero__video{
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .projects-page .sequence-sticky,
+  .contact-page .contact-sequence__sticky{
+    background: #fff !important;
+  }
+
+  .projects-page #morphCanvas,
+  .contact-page #contactCanvas{
+    background: #fff !important;
+  }
+
+  .project-detail-page .project-video{
+    width: 100% !important;
+    aspect-ratio: 9 / 16 !important;
+    height: auto !important;
+    max-height: 667px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
 }

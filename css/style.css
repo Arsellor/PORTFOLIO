@@ -1904,6 +1904,7 @@
 }
 
 
+
 /* =========================================================
    PERFORMANCE / ACCESSIBILITÉ — PAGE PROJETS
    ========================================================= */
@@ -1936,7 +1937,6 @@
   will-change: auto;
 }
 
-/* Les liens se déplacent uniquement via transform, sans filtre coûteux. */
 .city-project {
   will-change: transform;
 }

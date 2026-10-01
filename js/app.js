@@ -33,10 +33,13 @@
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     const constrainedNetwork = Boolean(connection?.saveData) ||
       /(^slow-2g|2g)/i.test(connection?.effectiveType || "");
-    const isMobile = window.matchMedia("(max-width: 750px)").matches;
-    const preloadRadius = constrainedNetwork
-      ? 2
-      : (isMobile ? CONFIG.mobilePreloadRadius : CONFIG.desktopPreloadRadius);
+
+    function getPreloadRadius() {
+      const isMobile = window.matchMedia("(max-width: 750px)").matches;
+      return constrainedNetwork
+        ? 2
+        : (isMobile ? CONFIG.mobilePreloadRadius : CONFIG.desktopPreloadRadius);
+    }
 
     function frameURL(index) {
       const number = String(index + CONFIG.firstFrame)
@@ -114,6 +117,8 @@
 
     function preloadAround(index) {
       loadFrame(index, "high");
+
+      const preloadRadius = getPreloadRadius();
 
       for (let distance = 1; distance <= preloadRadius; distance += 1) {
         loadFrame(index - distance);
@@ -214,11 +219,48 @@
       { passive: true }
     );
 
+    let orientationReflowTimer = 0;
+    let orientationReflowFrame = 0;
+
+    function reflowAfterOrientationChange() {
+      window.cancelAnimationFrame(orientationReflowFrame);
+      window.clearTimeout(orientationReflowTimer);
+
+      orientationReflowFrame = window.requestAnimationFrame(() => {
+        resizeCanvas();
+        updateScroll();
+      });
+
+      // Les navigateurs mobiles peuvent encore modifier la hauteur du viewport
+      // quelques dizaines de millisecondes après la rotation.
+      orientationReflowTimer = window.setTimeout(() => {
+        resizeCanvas();
+        updateScroll();
+      }, 180);
+    }
+
     window.addEventListener(
       "resize",
-      updateScroll,
+      () => {
+        resizeCanvas();
+        updateScroll();
+      },
       { passive: true }
     );
+
+    window.addEventListener(
+      "orientationchange",
+      reflowAfterOrientationChange,
+      { passive: true }
+    );
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener(
+        "resize",
+        reflowAfterOrientationChange,
+        { passive: true }
+      );
+    }
 
     document.addEventListener(
       "visibilitychange",

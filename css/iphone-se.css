@@ -64,20 +64,17 @@
     font-size:20px !important;
   }
 
-  /* ---------- ACCUEIL ---------- */
-  .home-page main{
-    width:100% !important;
-  }
-
+  /* ---------- ACCUEIL : ANIMATION 9:16 ---------- */
   .home-page .hero{
     width:100% !important;
     min-height:0 !important;
-    padding:calc(var(--header-height) + 20px) var(--iphone-se-side) 18px !important;
-    gap:12px !important;
+    padding:calc(var(--header-height) + 20px) 0 18px !important;
+    gap:18px !important;
   }
 
   .home-page .hero__content{
     width:100% !important;
+    padding-inline:var(--iphone-se-side) !important;
   }
 
   .home-page .hero h1{
@@ -105,38 +102,52 @@
     font-size:11px !important;
   }
 
+  /* Format YouTube Shorts : 375 x 667 px */
   .home-page .hero__visual{
-    width:100% !important;
-    height:145px !important;
-    min-height:145px !important;
-    max-height:145px !important;
-    margin-top:4px !important;
+    width:100vw !important;
+    max-width:375px !important;
+    height:calc(100vw * 16 / 9) !important;
+    max-height:667px !important;
+    min-height:0 !important;
+    margin:0 auto !important;
     overflow:hidden !important;
+    display:block !important;
+    background:transparent !important;
   }
 
   .home-page .hero__video{
-    width:58% !important;
-    max-width:218px !important;
-    height:auto !important;
-    max-height:145px !important;
-    object-fit:contain !important;
+    width:100% !important;
+    max-width:none !important;
+    height:100% !important;
+    max-height:none !important;
+    object-fit:cover !important;
+    object-position:center center !important;
     transform:none !important;
+    margin:0 !important;
+    display:block !important;
   }
 
   /* ---------- PROJETS — ANIMATION CANVAS ---------- */
+  /* Format YouTube Shorts : 375 x 667 px */
   .projects-page .sequence-scroll{
     height:380vh !important;
-    padding-top:var(--header-height) !important;
+    padding-top:0 !important;
   }
 
   .projects-page .sequence-sticky{
-    top:var(--header-height) !important;
-    height:calc(100svh - var(--header-height)) !important;
+    top:0 !important;
+    width:100vw !important;
+    max-width:375px !important;
+    height:calc(100vw * 16 / 9) !important;
+    max-height:667px !important;
+    margin:0 auto !important;
+    background:transparent !important;
   }
 
   .projects-page #morphCanvas{
     width:100% !important;
     height:100% !important;
+    background:transparent !important;
   }
 
   .projects-page .animation-title{
@@ -173,7 +184,7 @@
   }
 
   .projects-page .skip-animation{
-    top:12px !important;
+    top:68px !important;
     right:12px !important;
     padding:7px 9px !important;
     font-size:8px !important;
@@ -261,18 +272,32 @@
     width:76px !important; height:62px !important;
   }
 
+  .contact-page .skip-animation{
+    top:68px !important;
+    right:12px !important;
+  }
+
   /* ---------- CONTACT ---------- */
+  /* Format YouTube Shorts : 375 x 667 px */
   .contact-page .contact-sequence{
     height:320vh !important;
+    padding-top:0 !important;
   }
 
   .contact-page .contact-sequence__sticky{
-    height:calc(100svh - var(--header-height)) !important;
+    top:0 !important;
+    width:100vw !important;
+    max-width:375px !important;
+    height:calc(100vw * 16 / 9) !important;
+    max-height:667px !important;
+    margin:0 auto !important;
+    background:transparent !important;
   }
 
   .contact-page #contactCanvas{
     width:100% !important;
     height:100% !important;
+    background:transparent !important;
   }
 
   .contact-page .contact-hero{

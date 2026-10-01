@@ -909,16 +909,16 @@ a.contact-card:hover {
 }
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — CONTACT
+   Source unique du responsive de contact.
+   Le desktop reste piloté par les règles précédentes.
 ========================================================= */
 
 @media (max-width: 980px) {
     .contact-hero,
     .message-section,
     .apprenticeship-layout,
-    .contact-cta {
-        grid-template-columns: 1fr;
-    }
+    .contact-cta { grid-template-columns: 1fr; }
 
     .contact-hero { padding-top: calc(var(--header-height) + 55px); }
     .contact-hero__visual { min-height: 430px; }
@@ -929,7 +929,6 @@ a.contact-card:hover {
 
 @media (max-width: 900px) {
     .contact-sequence { height: 300vh; }
-
     .skip-animation {
         top: 16px;
         right: 16px;
@@ -950,16 +949,20 @@ a.contact-card:hover {
 
     .contact-hero { padding-bottom: 70px; }
     .contact-hero__visual { min-height: 330px; }
-    .contact-card__content strong { font-size: 12px; }
 
-    .info-grid { grid-template-columns: 1fr; }
-
-    .availability-card {
-        padding: 28px;
+    .contact-card,
+    .contact-card__content {
+        min-width: 0;
     }
 
-    .portfolio-art-card img { height: 210px; }
+    .contact-card__content strong {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
 
+    .info-grid { grid-template-columns: 1fr; }
+    .availability-card { padding: 28px; }
+    .portfolio-art-card img { height: 210px; }
     .cta-buttons { grid-template-columns: 1fr; }
 
     .site-footer__top,
@@ -971,11 +974,228 @@ a.contact-card:hover {
     .skills-ticker { justify-content: flex-start; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+@media (max-width: 620px) {
+    .contact-sequence {
+        height: 320vh;
+        padding-top: 0;
+        background: #fff;
+    }
+
+    .contact-sequence__sticky {
+        top: var(--header-height);
+        height: calc(100svh - var(--header-height));
+        width: 100%;
+        max-width: none;
+        background: transparent;
+    }
+
+    #contactCanvas {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .skip-animation {
+        top: 12px;
+        right: 12px;
+        padding: 8px 10px;
+        font-size: 8px;
+    }
+
+    .contact-hero {
+        padding-top: 24px;
+        padding-bottom: 34px;
+    }
+
+    .contact-hero h1 {
+        font-size: clamp(35px, 10.3vw, 46px);
+        line-height: .96;
+    }
+
+    .script-title {
+        font-size: 24px;
+        margin: 10px 0 16px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .contact-links {
+        margin-top: 22px;
+        gap: 10px;
+    }
+
+    .contact-card {
+        min-height: 70px;
+        padding: 12px 13px;
+        border-radius: 14px;
+        gap: 10px;
+    }
+
+    .contact-card__icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 12px;
+    }
+
+    .social-section { margin-top: 22px; }
+
+    .contact-hero__visual {
+        height: 190px;
+        min-height: 190px;
+    }
+
+    .lighthouse-illustration {
+        width: 88%;
+        max-width: 320px;
+        max-height: 190px;
+    }
+
+    .availability-card { padding: 16px; }
+    .availability-card h3 { font-size: clamp(34px, 9.8vw, 46px); }
+    .availability-card h3 + p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .availability-tech { gap: 6px; }
+
+    .availability-badge {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .info-grid .info-card .info-card-image {
+        height: auto;
+        max-height: 315px;
+        transform: none;
+    }
+
+    .message-section { gap: 34px; }
+
+    .message-intro h2,
+    .section-header h2 {
+        font-size: clamp(40px, 11.5vw, 52px);
+        line-height: .96;
+    }
+
+    .message-intro > p,
+    .section-header > p:last-child {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .portfolio-art-card { margin-top: 24px; }
+
+    .portfolio-art-card strong {
+        min-height: 60px;
+        padding: 16px 18px;
+        font-size: 11px;
+    }
+
+    .figma-form {
+        padding: 22px 18px;
+        border-radius: 22px;
+    }
+
+    .form-title {
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group input,
+    .form-group textarea {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .form-group input { min-height: 52px; }
+    .form-group textarea { min-height: 150px; }
+    .figma-form button { min-height: 54px; }
+
+    .contact-cta {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .contact-cta h2 {
+        font-size: clamp(42px, 12vw, 58px);
+        line-height: .95;
+    }
+
+    .contact-cta p:last-child {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .cta-buttons { width: 100%; }
+
+    .cta-buttons a {
+        min-width: 0;
+        width: 100%;
+        min-height: 54px;
     }
 }
 
+@media (max-width: 390px) and (orientation: portrait) {
+    .contact-hero,
+    .apprenticeship-section,
+    .message-section,
+    .contact-cta,
+    .site-footer {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .contact-hero h1 { font-size: 34px; }
+    .script-title { font-size: 22px; }
+    .contact-card__content strong { font-size: 10.5px; }
+
+    .contact-hero__visual {
+        height: 175px;
+        min-height: 175px;
+    }
+
+    .availability-card { padding: 16px; }
+    .availability-card h3 { font-size: 32px; }
+    .availability-card h3 + p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .availability-tech span { padding: 6px 8px; }
+
+    .message-section,
+    .contact-cta {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .figma-form { padding: 18px 16px; }
+    .form-title { font-size: 30px; }
+}
+
+@media (max-width: 360px) and (orientation: portrait) {
+    .site-header { padding-inline: 8px; }
+    .brand__name { font-size: 18px; }
+    .site-navigation__link {
+        width: 40px;
+        min-width: 40px;
+    }
+    .contact-hero h1 { font-size: 32px; }
+    .availability-card h3 { font-size: 29px; }
+    .contact-card__content small { font-size: 9px; }
+    .contact-card__content strong { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .skip-animation,
+    .contact-card,
+    .figma-form button { transition: none; }
+}

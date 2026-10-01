@@ -928,7 +928,7 @@ a.contact-card:hover {
 }
 
 @media (max-width: 900px) {
-    .contact-sequence { height: 300vh; }
+    .contact-sequence { height: 180svh; }
     .skip-animation {
         top: 16px;
         right: 16px;

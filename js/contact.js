@@ -13,10 +13,7 @@
 
     const CONFIG = {
         totalFrames: 640,
-        framePath: new URL(
-            "../assets/animations/contact/frames/",
-            scriptURL
-        ).href,
+        framePath: new URL("./assets/animations/contact/frames/", document.baseURI).href,
         framePrefix: "frame_",
         frameExtension: ".webp",
         firstFrame: 1,

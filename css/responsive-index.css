@@ -1,4 +1,4 @@
-/* Mobile-first responsive layer — home page */
+/* MOBILE — Accueil : couche unique, sans redimensionner l'illustration */
 @media (max-width: 900px){
   .home-page .hero{grid-template-columns:1fr;min-height:auto;width:100%;padding:calc(var(--header-height) + 30px) 22px 28px;gap:24px;}
   .home-page .hero__content,.home-page .hero__visual{min-width:0;width:100%;}
@@ -6,7 +6,7 @@
   .home-page .hero__description{font-size:clamp(16px,3vw,21px);line-height:1.35;}
   .home-page .hero__actions{width:100%;margin-top:30px;gap:12px;}
   .home-page .hero__button{width:100%;min-width:0;min-height:44px;}
-  .home-page .hero__visual{min-height:0;display:block;overflow:hidden;}
+  .home-page .hero__visual{min-height:0;display:block;overflow:visible;}
   .home-page .hero__video{width:100%;max-width:100%;height:auto;transform:none;object-fit:contain;}
 }
 @media (max-width: 620px){
@@ -17,10 +17,11 @@
   .home-page .hero__button{font-size:11px;padding:10px 14px;}
 }
 @media (max-width: 620px) and (orientation: portrait){
-  .home-page .hero__visual{width:100%;height:auto;aspect-ratio:9/16;max-height:none;margin:2px auto 0;display:block;}
-  .home-page .hero__video{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center!important;display:block;}
+  /* Même taille visuelle : déplacement uniquement vers la gauche. */
+  .home-page .hero__visual{width:100%;height:auto;aspect-ratio:9/16;max-height:none;margin:2px auto 0;display:block;overflow:visible;}
+  .home-page .hero__video{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center!important;display:block;transform:translateX(-18px)!important;}
 }
 @media (max-width: 620px) and (orientation: landscape){
-  .home-page .hero__visual{aspect-ratio:auto;height:auto;min-height:0;}
-  .home-page .hero__video{width:100%!important;height:auto!important;object-fit:contain!important;}
+  .home-page .hero__visual{aspect-ratio:auto;height:auto;min-height:0;overflow:visible;}
+  .home-page .hero__video{width:100%!important;height:auto!important;object-fit:contain!important;transform:none!important;}
 }

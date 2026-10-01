@@ -1,92 +1,26 @@
-/* Responsive overrides for the home page. */
-
-@media (max-width: 900px) {
-    .hero {
-        grid-template-columns: minmax(0, 1fr);
-        width: 100%;
-        min-width: 0;
-    }
-
-    .hero__content,
-    .hero__visual {
-        min-width: 0;
-    }
-
-    .hero__actions {
-        width: 100%;
-    }
-
-    .hero__button {
-        min-width: 0;
-        width: min(100%, 320px);
-    }
-
-    .hero__video {
-        width: 100%;
-        max-width: 100%;
-        transform: none;
-    }
+/* Mobile-first responsive layer — home page */
+@media (max-width: 900px){
+  .home-page .hero{grid-template-columns:1fr;min-height:auto;width:100%;padding:calc(var(--header-height) + 30px) 22px 28px;gap:24px;}
+  .home-page .hero__content,.home-page .hero__visual{min-width:0;width:100%;}
+  .home-page .hero h1{font-size:clamp(40px,9vw,56px);line-height:.97;}
+  .home-page .hero__description{font-size:clamp(16px,3vw,21px);line-height:1.35;}
+  .home-page .hero__actions{width:100%;margin-top:30px;gap:12px;}
+  .home-page .hero__button{width:100%;min-width:0;min-height:44px;}
+  .home-page .hero__visual{min-height:0;display:block;overflow:hidden;}
+  .home-page .hero__video{width:100%;max-width:100%;height:auto;transform:none;object-fit:contain;}
 }
-
-@media (max-width: 620px) {
-    .hero {
-        padding: calc(var(--header-height) + 28px) 16px 24px;
-        gap: 16px;
-    }
-
-    .hero h1 {
-        font-size: clamp(34px, 12vw, 52px);
-        line-height: .95;
-    }
-
-    .hero__description {
-        max-width: 100%;
-        font-size: 14px;
-        line-height: 1.55;
-    }
-
-    .hero__actions,
-    .hero__button {
-        width: 100%;
-    }
-
-    /* Animation réduite uniquement sur téléphone PORTRAIT. */
+@media (max-width: 620px){
+  .home-page .hero{padding:calc(var(--header-height) + 18px) 16px 22px;gap:18px;}
+  .home-page .hero h1{font-size:clamp(32px,10.2vw,42px);line-height:.96;letter-spacing:-.035em;}
+  .home-page .hero__description{margin-top:16px;font-size:14px;line-height:1.45;}
+  .home-page .hero__actions{margin-top:22px;align-items:stretch;}
+  .home-page .hero__button{font-size:11px;padding:10px 14px;}
 }
-
-@media (max-width: 620px) and (orientation: portrait) {
-    /* TÉLÉPHONE PORTRAIT UNIQUEMENT */
-    .hero__visual {
-        width: 100%;
-        min-height: 0;
-        height: 180px;
-        max-height: 180px;
-        margin-top: 4px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hero__video {
-        display: block;
-        width: 62% !important;
-        max-width: 260px !important;
-        height: auto !important;
-        max-height: 180px !important;
-        object-fit: contain;
-        transform: none !important;
-        margin: 0 auto;
-    }
+@media (max-width: 620px) and (orientation: portrait){
+  .home-page .hero__visual{width:100%;height:auto;aspect-ratio:9/16;max-height:none;margin:2px auto 0;display:block;}
+  .home-page .hero__video{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center!important;display:block;}
 }
-
-@media (max-width: 380px) and (orientation: portrait) {
-    .hero__visual {
-        height: 205px;
-        max-height: 205px;
-    }
-
-    .hero__video {
-        width: 90%;
-        max-height: 205px;
-    }
+@media (max-width: 620px) and (orientation: landscape){
+  .home-page .hero__visual{aspect-ratio:auto;height:auto;min-height:0;}
+  .home-page .hero__video{width:100%!important;height:auto!important;object-fit:contain!important;}
 }

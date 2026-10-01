@@ -1950,15 +1950,95 @@
 
 
 /* =========================================================
-   PATCH DESKTOP — ESPACEMENT HEADER / ANIMATION
+   PATCH FINAL — GÉOMÉTRIE FLUIDE / MOBILE
 ========================================================= */
-@media (min-width: 901px) {
-  .sequence-scroll {
-    padding-top: var(--header-height);
+
+/* Le body ne doit jamais créer de largeur parasite. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.projects-page,
+.projects-page main,
+.projects-page section {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Animation : le sticky occupe exactement l'espace sous le header. */
+.sequence-scroll {
+  padding-top: var(--header-height);
+}
+
+.sequence-sticky {
+  top: var(--header-height);
+  height: calc(100svh - var(--header-height));
+}
+
+/* Visuel ville : largeur réellement fluide, sans largeur fixe résiduelle. */
+.projects-showcase {
+  padding-inline: 0;
+}
+
+.projects-city {
+  width: 100%;
+  max-width: 1123px;
+  margin-inline: auto;
+  aspect-ratio: 1123 / 749;
+}
+
+.projects-city__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Les boutons restent liés à la composition et ne peuvent pas élargir la page. */
+.city-project {
+  max-width: calc(100% - 8px);
+  overflow: hidden;
+}
+
+/* Mobile portrait : on privilégie la largeur de la composition et une hauteur calculée. */
+@media (max-width: 750px) {
+  .projects-showcase {
+    padding: 72px 0 60px;
+    overflow: hidden;
   }
 
-  .sequence-sticky {
-    top: var(--header-height);
-    height: calc(100svh - var(--header-height));
+  .projects-showcase__intro {
+    padding-inline: 16px;
+  }
+
+  .projects-city {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    aspect-ratio: 1123 / 749;
+  }
+
+  .projects-city__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Petits téléphones : aucune largeur fixe ne doit dépasser le viewport. */
+@media (max-width: 390px) {
+  .projects-showcase__intro {
+    padding-inline: 12px;
+  }
+
+  .city-project {
+    max-width: calc(100% - 4px);
   }
 }

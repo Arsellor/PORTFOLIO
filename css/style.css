@@ -1902,3 +1902,48 @@
   .city-project--navy{width:80px;height:66px}
   .city-project strong{font-size:8px}
 }
+
+
+/* =========================================================
+   PERFORMANCE / ACCESSIBILITÉ — PAGE PROJETS
+   ========================================================= */
+.projects-showcase {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+.projects-city {
+  list-style: none;
+  padding: 0;
+}
+
+.city-project-item,
+.city-project-image {
+  list-style: none;
+}
+
+.city-project-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+}
+
+.projects-city__image {
+  animation: none;
+  filter: none;
+  transform: none;
+  will-change: auto;
+}
+
+/* Les liens se déplacent uniquement via transform, sans filtre coûteux. */
+.city-project {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .city-project {
+    transition: none;
+    animation: none !important;
+  }
+}

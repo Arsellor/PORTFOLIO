@@ -510,6 +510,60 @@
     padding-left:15px !important;
   }
 
+  /* ---------- GARDE-FOU 375 x 667 : VISUELS ---------- */
+  .home-page .hero__visual,
+  .projects-page .sequence-sticky,
+  .projects-page .projects-city,
+  .contact-page .contact-sequence__sticky,
+  .contact-page .contact-hero__visual,
+  .project-detail-page .project-media,
+  .project-detail-page .project-media-column {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page .hero__video,
+  .contact-page #contactCanvas,
+  .project-detail-page .project-media img,
+  .project-detail-page .project-video {
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  .project-detail-page .project-media img,
+  .project-detail-page .project-video {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .project-detail-page .project-media {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .projects-page .projects-city {
+    overflow: hidden !important;
+  }
+
+  .contact-page .contact-hero__visual {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .contact-page .lighthouse-illustration {
+    max-width: 92% !important;
+  }
+
+  .site-footer__content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+
   /* Empêche les effets de hover de déplacer/agrandir les visuels sur tactile. */
   .city-project:hover,
   .project-socials a:hover,

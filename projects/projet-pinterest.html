@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Pinterest Clone — projet web d'Arsellia.">
-<title>Arsellia — Pinterest Clone</title>
+<meta name="description" content="Reproduction personnelle d'une interface web inspirée de Pinterest, réalisée en HTML, CSS et JavaScript.">
+<title>Arsellia — Interface web inspirée de Pinterest</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="../css/projet-pinterest.css">
+<link rel="stylesheet" href="../css/project-detail.css">
 <script src="../js/header.js" defer></script>
-<script src="../js/projet-pinterest.js" defer></script>
-  </head>
-<body class="project-detail-page">
+</head>
+<body class="project-detail-page project-page--pinterest">
     <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <header class="site-header">
   <a class="brand" href="../index.html" aria-label="Arsellia — Accueil">
@@ -32,38 +31,76 @@
   </button>
 </header>
 
-<main class="project-detail" data-node-id="2252:503">
-  <section class="project-hero">
-    <div class="project-media" data-node-id="2252:507">
-      <img src="../assets/images/pinterest.webp" alt="Pinterest Clone réalisé par Arsellia">
-    </div>
+<main class="project-detail" id="main-content" tabindex="-1">
+  <section class="project-hero" aria-labelledby="project-title">
+    <header class="project-heading">
+      <p class="project-heading__eyebrow">Projet front-end · Interface web</p>
+      <h1 id="project-title">Interface web inspirée de Pinterest</h1>
+      <hr class="project-heading__line">
+      <p class="project-intro">
+        Une reproduction personnelle d’interface responsive réalisée en HTML, CSS et JavaScript.
+        Il s’agit d’un projet indépendant, sans affiliation officielle à Pinterest.
+      </p>
+    </header>
 
-    <div class="project-copy" data-node-id="2252:508">
-      <h1>Pinterest Clone</h1>
-      <div class="title-line" aria-hidden="true"></div>
+    <figure class="project-media">
+      <img src="../assets/images/pinterest.webp" alt="Visuel de présentation du projet d’interface mobile inspirée de Pinterest" width="1080" height="1920" fetchpriority="high" decoding="async">
+      <figcaption>Visuel de présentation du projet.</figcaption>
+    </figure>
 
+    <div class="project-copy">
+      <h2 class="project-subheading">Technologies</h2>
+      <ul class="tech-list" aria-label="Technologies utilisées">
+        <li class="tech-badge">HTML</li>
+        <li class="tech-badge">CSS</li>
+        <li class="tech-badge">JavaScript</li>
+      </ul>
+
+      <h2 class="project-subheading">Objectif et contributions</h2>
       <div class="project-facts">
         <article class="fact">
           <img class="fact-icon" src="../assets/images/code.webp" alt="">
-          <p>Recreer une page Web et Web Mobile inspirée de Pinterest avec HTML, CSS &amp; JavaScript sur VSCode.</p>
+          <p><strong>Objectif :</strong> progresser en développement front-end et en conception d’interface.</p>
         </article>
         <article class="fact">
           <img class="fact-icon" src="../assets/images/coeur.webp" alt="">
-          <p>Photos prises par moi-même + icônes modifiées/créées pour respecter les droits d’auteur.</p>
+          <p><strong>Contenus :</strong> photographies prises par mes soins pour composer les visuels du projet.</p>
         </article>
         <article class="fact">
           <img class="fact-icon" src="../assets/images/micro.webp" alt="">
-          <p>Objectif : progresser en front-end et UI/UX design.</p>
+          <p><strong>Interface :</strong> icônes modifiées ou créées pour cette réalisation indépendante.</p>
         </article>
+      </div>
+
+      <div class="project-actions" aria-label="Démonstrations et code source">
+        <a class="project-link project-link--primary" href="https://github.com/Arsellor/Pinterest_Clone" target="_blank" rel="noopener noreferrer">
+          <img src="../assets/icons/icons8-github-64.webp" alt="">
+          Code source
+        </a>
+        <a class="project-link" href="https://youtube.com/shorts/9H8-hVAcfWQ?si=6yP8eAirliozia0f" target="_blank" rel="noopener noreferrer">
+          <img src="../assets/icons/icons8-lecture-de-youtube-48.webp" alt="">
+          Démonstration vidéo
+        </a>
+        <a class="project-link" href="https://www.tiktok.com/@tantchi/video/7639156916073073942?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener noreferrer">
+          Démonstration TikTok
+        </a>
       </div>
     </div>
   </section>
 
-  <footer class="project-socials" aria-label="Réseaux et liens du projet">
-    <a href="https://www.tiktok.com/@tantchi/video/7639156916073073942?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="../assets/icons/icons8-tic-tac-48.webp" alt=""></a>
-    <a href="https://youtube.com/shorts/9H8-hVAcfWQ?si=6yP8eAirliozia0f" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="../assets/icons/icons8-lecture-de-youtube-48.webp" alt=""></a>
-    <a href="https://github.com/Arsellor/Pinterest_Clone.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="../assets/icons/icons8-github-64.webp" alt=""></a>
-  </footer>
+  <nav class="project-navigation" aria-label="Navigation entre les projets">
+    <a href="projet-grue-blanche.html">← Projet précédent : La Grue Blanche</a>
+    <a href="../projets.html">Tous les projets</a>
+    <a href="projet-morazato.html">Projet suivant : Morazato →</a>
+  </nav>
 </main>
+<footer class="project-site-footer">
+  <p>© 2026 Arsellia · Portfolio</p>
+  <nav aria-label="Navigation de pied de page">
+    <a href="../index.html">Accueil</a>
+    <a href="../projets.html">Mes projets</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+</footer>
 </body>
 </html>

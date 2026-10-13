@@ -1,3 +1,0 @@
-/* =========================
-   PROJET SNAKETRIS — SCRIPT
-});

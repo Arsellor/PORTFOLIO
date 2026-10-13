@@ -3,55 +3,19 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Morazato — Site e-commerce de produits artisanaux malgaches."
-    >
-
-    <title>ARSELLIA | Morazato</title>
-
-    <!-- Police -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Morazato — site vitrine sous React pour valoriser des produits artisanaux et locaux de Madagascar.">
+    <title>Arsellia — Morazato, site e-commerce vitrine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/header.css">
-
-    <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="../css/projet-morazato.css"
-    >
-
-    <!-- JavaScript -->
-    <script
-        src="../js/header.js"
-        defer
-    ></script>
-
-    <script
-        src="../js/projet-morazato.js"
-        defer
-    ></script>
-
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <script src="../js/header.js" defer></script>
   </head>
 
 
-<body class="project-detail-page">
+<body class="project-detail-page project-page--morazato">
     <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
 
@@ -176,143 +140,67 @@
          CONTENU PRINCIPAL
     ========================== -->
 
-    <main class="project-detail">
+    <main class="project-detail" id="main-content" tabindex="-1">
+        <section class="project-hero" aria-labelledby="project-title">
+            <header class="project-heading">
+                <p class="project-heading__eyebrow">Projet web · E-commerce vitrine</p>
+                <h1 id="project-title">Morazato — site e-commerce</h1>
+                <hr class="project-heading__line">
+                <p class="project-intro">
+                    Un site vitrine réalisé sous React pour mettre en valeur des produits artisanaux
+                    et locaux de Madagascar.
+                </p>
+            </header>
 
-
-        <section class="project-hero">
-
-
-            <!-- =========================
-                 VISUEL MORAZATO
-            ========================== -->
-
-            <div class="project-media">
-
-                <img
-                    src="../assets/images/morazato.webp"
-                    alt="Aperçu du site e-commerce Morazato"
-                >
-
-            </div>
-
-
-
-            <!-- =========================
-                 TEXTE DU PROJET
-            ========================== -->
+            <figure class="project-media">
+                <img src="../assets/images/morazato.webp" alt="Capture du site vitrine Morazato et de sa présentation de produits malgaches" width="640" height="866" fetchpriority="high" decoding="async">
+                <figcaption>Aperçu du site Morazato.</figcaption>
+            </figure>
 
             <div class="project-copy">
+                <h2 class="project-subheading">Technologies</h2>
+                <ul class="tech-list" aria-label="Technologies utilisées">
+                    <li class="tech-badge">React</li>
+                </ul>
 
-
-                <!-- TITRE -->
-
-                <h1>
-                    Morazato(site e-commerce)
-                </h1>
-
-
-                <!-- LIGNE ORANGE -->
-
-                <div class="title-line"></div>
-
-
-
-                <!-- =========================
-                     INFORMATIONS
-                ========================== -->
-
+                <h2 class="project-subheading">Objectif et contributions</h2>
                 <div class="project-facts">
-
-
-                    <!-- DESCRIPTION -->
-
                     <article class="fact">
-
-                        <div class="fact-icon fact-icon--code">
-
-                            <span>&lt;/&gt;</span>
-
-                        </div>
-
-
-                        <p>
-                            Développer sous React un site vitrine e-commerce
-                            dédié à la mise en valeur de produits artisanaux
-                            et locaux malgaches.
-                        </p>
-
+                        <img class="fact-icon" src="../assets/images/code.webp" alt="">
+                        <p><strong>Objectif pédagogique :</strong> apprendre et pratiquer le framework React à travers un site vitrine à vocation e-commerce.</p>
                     </article>
-
-
-
-                    <!-- PHOTOS -->
-
                     <article class="fact">
-
-                        <div class="fact-icon fact-icon--image">
-
-                            🖼
-                        </div>
-
-
-                        <p>
-                            Photos prises par moi-même + Vidéo crée à partir
-                            de l’IA + Création du logo par Edene.T
-                        </p>
-
+                        <img class="fact-icon" src="../assets/images/coeur.webp" alt="">
+                        <p><strong>Photographies :</strong> prises par mes soins pour présenter les produits.</p>
                     </article>
-
-
-
-                    <!-- OBJECTIF -->
-
                     <article class="fact">
-
-                        <div class="fact-icon fact-icon--objective">
-
-                            ▭
-                        </div>
-
-
-                        <p>
-                            Objectif : Apprendre à utiliser le framework
-                            React
-                        </p>
-
+                        <img class="fact-icon" src="../assets/images/micro.webp" alt="">
+                        <p><strong>Autres visuels :</strong> vidéo créée à l’aide de l’IA et logo créé par Edene T.</p>
                     </article>
-
-
                 </div>
 
+                <div class="project-actions" aria-label="Liens du projet">
+                    <a class="project-link project-link--primary" href="https://ecommerce-morazato.netlify.app/contact" target="_blank" rel="noopener noreferrer">
+                        Ouvrir le site Morazato <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
             </div>
-
-
         </section>
 
-
-
-        <!-- =========================
-             RÉSEAUX SOCIAUX
-        ========================== -->
-
-        <footer class="project-socials" aria-label="Lien du projet">
-
-            <a
-                href="https://ecommerce-morazato.netlify.app/contact"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="netlify-link"
-                aria-label="Ouvrir le site e-commerce Morazato sur Netlify"
-            >
-                <span class="netlify-badge" aria-hidden="true">N</span>
-                <span class="netlify-label">Netlify</span>
-            </a>
-
-        </footer>
-
-
+        <nav class="project-navigation" aria-label="Navigation entre les projets">
+            <a href="projet-pinterest.html">← Projet précédent : Pinterest</a>
+            <a href="../projets.html">Tous les projets</a>
+            <a href="projet-snaketris.html">Projet suivant : Snaketris →</a>
+        </nav>
     </main>
 
-
+    <footer class="project-site-footer">
+        <p>© 2026 Arsellia · Portfolio</p>
+        <nav aria-label="Navigation de pied de page">
+            <a href="../index.html">Accueil</a>
+            <a href="../projets.html">Mes projets</a>
+            <a href="../contact.html">Contact</a>
+        </nav>
+    </footer>
 </body>
 </html>

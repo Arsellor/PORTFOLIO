@@ -42,50 +42,56 @@
   <main id="main-content" tabindex="-1">
     <section class="sequence-scroll" aria-labelledby="animation-title">
       <div class="sequence-sticky">
+        <img class="sequence-poster" src="assets/animations/projects/frame_000001.webp" alt="" aria-hidden="true" fetchpriority="high">
         <canvas id="morphCanvas" aria-hidden="true"></canvas>
         <div class="cinematic-overlay" aria-hidden="true"></div>
         <div class="animation-title">
           <p>CRÉER • EXPÉRIMENTER • CONSTRUIRE</p>
-          <h2 id="animation-title">CHAQUE PROJET <span>RACONTE UNE HISTOIRE.</span></h2>
+          <h1 id="animation-title">MES <span>PROJETS</span></h1>
+          <p class="animation-description">Sites web, expériences interactives et logiciels.</p>
         </div>
-        <div class="sequence-counter" aria-hidden="true"><span>01</span><span class="sequence-counter__line"></span><span>240</span></div>
-        <p class="scroll-prompt" id="scrollPrompt">Scroll to explore</p>
-        <button class="skip-animation" id="skipAnimation" type="button">PASSER L'ANIMATION <span aria-hidden="true">↓</span></button>
+        <div class="sequence-counter" aria-label="Image de l'animation">
+          <span id="frameCounterCurrent">01</span>
+          <span class="sequence-counter__line" aria-hidden="true"></span>
+          <span id="frameCounterTotal">240</span>
+        </div>
+        <p class="scroll-prompt" id="scrollPrompt">Faites défiler pour découvrir</p>
+        <button class="skip-animation" id="skipAnimation" type="button">VOIR LES PROJETS <span aria-hidden="true">↓</span></button>
         <progress class="progress-track" id="progressBar" value="0" max="1" aria-label="Progression de l'animation"></progress>
       </div>
     </section>
 
     <section class="projects-showcase" id="mes-projets" aria-labelledby="showcase-title">
       <header class="projects-showcase__intro">
-        <p class="section-eyebrow">MES PROJETS</p>
+        <p class="section-eyebrow">MES RÉALISATIONS</p>
         <h2 id="showcase-title">Explorez mon univers</h2>
-        <p>Chaque bâtiment représente un projet.<br>Cliquez pour découvrir.</p>
+        <p>Choisissez un projet pour consulter ses technologies, ses contributions et ses démonstrations.</p>
       </header>
 
       <ul class="projects-city" aria-label="Liste des projets">
         <li class="city-project-item city-project-item--orange">
-          <a href="projects/projet-grue-blanche.html" class="city-project city-project--orange" aria-label="Découvrir le projet Flipbook numérique">
-            <span aria-hidden="true">01</span><strong>FLIPBOOK<br>NUMÉRIQUE</strong>
+          <a href="projects/projet-grue-blanche.html" class="city-project city-project--orange">
+            <span aria-hidden="true">01</span><strong>LA GRUE BLANCHE</strong><span class="project-summary">Flipbook audio interactif</span>
           </a>
         </li>
         <li class="city-project-item city-project-item--red">
-          <a href="projects/projet-pinterest.html" class="city-project city-project--red" aria-label="Découvrir le projet site web et mobile">
-            <span aria-hidden="true">02</span><strong>SITE WEB<br>ET MOBILE</strong>
+          <a href="projects/projet-pinterest.html" class="city-project city-project--red">
+            <span aria-hidden="true">02</span><strong>PINTEREST CLONE</strong><span class="project-summary">Interface web et mobile</span>
           </a>
         </li>
         <li class="city-project-item city-project-item--blue">
-          <a href="projects/projet-morazato.html" class="city-project city-project--blue" aria-label="Découvrir le projet e-commerce Morazato">
-            <span aria-hidden="true">03</span><strong>E-COMMERCE<br>MORAZATO</strong>
+          <a href="projects/projet-morazato.html" class="city-project city-project--blue">
+            <span aria-hidden="true">03</span><strong>MORAZATO</strong><span class="project-summary">Site e-commerce sous React</span>
           </a>
         </li>
         <li class="city-project-item city-project-item--pink">
-          <a href="projects/projet-snaketris.html" class="city-project city-project--pink" aria-label="Découvrir le projet Snaketris">
-            <span aria-hidden="true">04</span><strong>SNAKETRIS</strong>
+          <a href="projects/projet-snaketris.html" class="city-project city-project--pink">
+            <span aria-hidden="true">04</span><strong>SNAKETRIS</strong><span class="project-summary">Jeu C++ et SDL2</span>
           </a>
         </li>
         <li class="city-project-item city-project-item--navy">
-          <a href="https://github.com/Arsellor/books-api-rest-crud.git" class="city-project city-project--navy" aria-label="Découvrir le projet API REST et CRUD" target="_blank" rel="noopener noreferrer">
-            <span aria-hidden="true">05</span><strong>API REST</strong>
+          <a href="https://github.com/Arsellor/books-api-rest-crud" class="city-project city-project--navy" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">05</span><strong>API REST &amp; CRUD</strong><span class="project-summary">Dépôt du projet sur GitHub ↗</span>
           </a>
         </li>
         <li class="city-project-image" aria-hidden="true">

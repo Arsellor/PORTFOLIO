@@ -43,8 +43,9 @@ a {
 
 .contact-sequence {
     position: relative;
-    height: 360vh;
-    background: #000;
+    height: calc(100svh + clamp(180px, 35vh, 380px));
+    min-height: 560px;
+    background: #17131a;
 }
 
 .contact-sequence__sticky {
@@ -52,7 +53,7 @@ a {
     top: var(--header-height);
     height: calc(100svh - var(--header-height));
     overflow: hidden;
-    background: #000;
+    background: #17131a;
     isolation: isolate;
 }
 
@@ -62,7 +63,26 @@ a {
     width: 100%;
     height: 100%;
     display: block;
-    background: #000;
+    background: transparent;
+    z-index: 1;
+}
+
+.sequence-poster {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-sequence__sticky::after {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .28));
+    content: "";
+    pointer-events: none;
 }
 
 .scroll-prompt {
@@ -449,7 +469,7 @@ a.contact-card:hover {
     max-width: none;
     margin: 20px 0 0;
     font-size: 15px;
-    line-height: 2.05;
+    line-height: 1.75;
 }
 
 .availability-copy strong {
@@ -846,8 +866,12 @@ a.contact-card:hover {
 }
 
 .cta-buttons a {
+    min-height: 52px;
     min-width: 230px;
     padding: 17px 22px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 12px;
     background: #fff;
     color: var(--orange);
@@ -928,13 +952,34 @@ a.contact-card:hover {
 }
 
 @media (max-width: 900px) {
-    .contact-sequence { height: 180svh; }
-    .skip-animation {
-        top: 16px;
-        right: 16px;
-        padding: 9px 11px;
-        font-size: 10px;
+    .contact-sequence {
+        height: 100svh;
+        min-height: 360px;
     }
+
+    .contact-sequence__sticky {
+        position: relative;
+        top: auto;
+        height: 100%;
+    }
+
+    #contactCanvas,
+    .progress-track,
+    .scroll-prompt {
+        display: none;
+    }
+
+    .skip-animation {
+        top: auto;
+        right: 50%;
+        bottom: 24px;
+        min-height: 44px;
+        padding: 12px 18px;
+        transform: translateX(50%);
+        white-space: nowrap;
+    }
+
+    .skip-animation:hover { transform: translate(50%, -2px); }
 }
 
 @media (max-width: 650px) {
@@ -975,34 +1020,6 @@ a.contact-card:hover {
 }
 
 @media (max-width: 620px) {
-    /* L’animation reste scroll-driven mais ne réserve plus une longue zone vide. */
-    .contact-sequence {
-        height: 100svh;
-        padding-top: 0;
-        background: #fff;
-    }
-
-    .contact-sequence__sticky {
-        top: var(--header-height);
-        height: calc(100svh - var(--header-height));
-        width: 100%;
-        max-width: none;
-        background: transparent;
-    }
-
-    #contactCanvas {
-        width: 100%;
-        height: 100%;
-        background: transparent;
-    }
-
-    .skip-animation {
-        top: 12px;
-        right: 12px;
-        padding: 8px 10px;
-        font-size: 8px;
-    }
-
     .contact-hero {
         padding-top: 24px;
         padding-bottom: 34px;
@@ -1199,4 +1216,21 @@ a.contact-card:hover {
     .skip-animation,
     .contact-card,
     .figma-form button { transition: none; }
+
+    .contact-sequence {
+        height: min(100svh, 760px);
+        min-height: 360px;
+    }
+
+    .contact-sequence__sticky {
+        position: relative;
+        top: auto;
+        height: 100%;
+    }
+
+    #contactCanvas,
+    .progress-track,
+    .scroll-prompt {
+        display: none;
+    }
 }

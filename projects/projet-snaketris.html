@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Snaketris — Projet C++ / SDL2 d'Arsellia.">
-    <title>Arsellia — Snaketris</title>
+    <meta name="description" content="Snaketris — jeu C++ et SDL2, démonstration vidéo et commandes clavier.">
+    <title>Arsellia — Snaketris, jeu C++ / SDL2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS principal -->
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/projet-snaketris.css?v=20260923">
+    <link rel="stylesheet" href="../css/project-detail.css">
 
-    <!-- CSS responsive (chargé après pour surcharger) -->
-  
     <script src="../js/header.js" defer></script>
-    <script src="../js/projet-snaketris.js" defer></script>
   </head>
 
-<body class="project-detail-page">
+<body class="project-detail-page project-page--snaketris">
     <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
     <!-- =========================
@@ -63,91 +59,66 @@
     <!-- =========================
          CONTENU PRINCIPAL
     ========================== -->
-    <main class="project-detail" id="main-content">
+    <main class="project-detail" id="main-content" tabindex="-1">
 
         <!-- =========================
              HERO DU PROJET
         ========================== -->
-        <section class="project-hero">
-
-            <!-- Colonne gauche : vidéo + GitHub -->
-            <div class="project-media-column">
-
-                <div class="project-media">
-                    <video
-                        class="project-video"
-                        controls
-                        preload="metadata"
-                        playsinline
-                        aria-label="Démonstration de Snaketris"
-                    >
-                        <source src="../assets/videos/snaketris.webm" type="video/webm">
-                        Votre navigateur ne prend pas en charge la vidéo.
-                    </video>
-                </div>
-
-                <footer class="project-socials" aria-label="Réseaux et liens du projet">
-                    <a href="https://github.com/Arsellor/Snaketris-Cpp"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Voir le code sur GitHub">
-                        <img src="../assets/icons/icons8-github-64.webp" alt="">
-                    </a>
-                </footer>
-
-            </div>
-
-            <!-- Colonne droite : informations du projet -->
-            <div class="project-copy">
-                <h1>Snaketris</h1>
-                <div class="title-line" aria-hidden="true"></div>
-
-                <p class="project-type">Jeu C++ / SDL2</p>
-
-                <p class="project-lead">
-                    Snaketris est un jeu hybride entre Snake et Tetris.
-                    Le joueur dirige un serpent, récupère des fruits,
-                    augmente son score et utilise des mécaniques basées
-                    sur les couleurs de ses anneaux.
+        <section class="project-hero" aria-labelledby="project-title">
+            <header class="project-heading">
+                <p class="project-heading__eyebrow">Projet interactif · Jeu natif</p>
+                <h1 id="project-title">Snaketris</h1>
+                <hr class="project-heading__line">
+                <p class="project-intro">
+                    Un jeu C++ / SDL2 qui combine des mécaniques de Snake et de Tetris :
+                    le serpent récupère des fruits colorés et alimente son score.
                 </p>
+            </header>
 
-                <!-- Technologies -->
-                <ul class="tech-list">
-                    <li class="tech-badge tech-cpp">C++</li>
-                    <li class="tech-badge tech-sdl">SDL2</li>
+            <figure class="project-media">
+                <video controls preload="metadata" playsinline aria-label="Vidéo de démonstration de Snaketris, avec piste audio">
+                    <source src="../assets/videos/snaketris.webm" type="video/webm">
+                    Votre navigateur ne prend pas en charge la vidéo.
+                </video>
+                <figcaption>Vidéo de démonstration enregistrée ; le jeu n’est pas jouable dans cette page.</figcaption>
+            </figure>
+
+            <div class="project-copy">
+                <h2 class="project-subheading">Technologies</h2>
+                <ul class="tech-list" aria-label="Technologies utilisées">
+                    <li class="tech-badge">C++</li>
+                    <li class="tech-badge">SDL2</li>
                     <li class="tech-badge">Makefile</li>
                     <li class="tech-badge">Programmation modulaire</li>
                     <li class="tech-badge">SAÉ</li>
                 </ul>
 
-                <!-- Cartes de présentation -->
+                <h2 class="project-subheading">Principes du jeu</h2>
                 <div class="project-facts">
                     <article class="fact">
                         <img class="fact-icon" src="../assets/images/code.webp" alt="">
-                        <p>
-                            <strong>Concept Snake :</strong> le serpent grandit
-                            lorsqu'il mange un fruit. Le score augmente et une
-                            nouvelle ressource apparaît sur le plateau.
-                        </p>
+                        <p><strong>Snake :</strong> le serpent grandit lorsqu’il mange un fruit, le score augmente et un nouvel élément apparaît.</p>
                     </article>
-
                     <article class="fact">
                         <img class="fact-icon" src="../assets/images/coeur.webp" alt="">
-                        <p>
-                            <strong>Règle Tetris :</strong> lorsque trois anneaux
-                            consécutifs possèdent la même couleur, celui du
-                            milieu disparaît automatiquement.
-                        </p>
+                        <p><strong>Tetris :</strong> quand trois anneaux consécutifs ont la même couleur, celui du milieu disparaît.</p>
                     </article>
-
                     <article class="fact">
                         <img class="fact-icon" src="../assets/images/micro.webp" alt="">
-                        <p>
-                            <strong>Objectif :</strong> maîtriser la programmation
-                            modulaire en C++ et la bibliothèque graphique SDL2.
-                        </p>
+                        <p><strong>Objectif :</strong> pratiquer la programmation modulaire en C++ avec la bibliothèque SDL2.</p>
                     </article>
                 </div>
+
+                <div class="project-actions" aria-label="Code source">
+                    <a class="project-link project-link--primary" href="https://github.com/Arsellor/Snaketris-Cpp" target="_blank" rel="noopener noreferrer">
+                        <img src="../assets/icons/icons8-github-64.webp" alt="">
+                        Code source et instructions
+                    </a>
+                </div>
+                <p class="game-note">
+                    La version native se pilote au clavier. Sur téléphone, cette page permet de regarder la vidéo ;
+                    le dépôt GitHub contient le code source et les instructions pour lancer le jeu.
+                </p>
             </div>
         </section>
 
@@ -157,29 +128,30 @@
         <section class="project-details">
             <div class="details-grid">
 
-                <section class="section-card">
-                    <h2 class="section-title">Commandes</h2>
-
+                <section class="section-card" aria-labelledby="controls-title">
+                    <h2 class="section-title" id="controls-title">Commandes du jeu natif</h2>
+                    <div class="command-list">
                     <div class="command-row">
-                        <span class="key">↑ ↓ ← →</span>
+                        <kbd class="key">↑ ↓ ← →</kbd>
                         <span>Déplacer le serpent</span>
                     </div>
                     <div class="command-row">
-                        <span class="key">ESPACE</span>
+                        <kbd class="key">Espace</kbd>
                         <span>Pause / reprendre</span>
                     </div>
                     <div class="command-row">
-                        <span class="key">S</span>
+                        <kbd class="key">S</kbd>
                         <span>Sauvegarder la partie</span>
                     </div>
                     <div class="command-row">
-                        <span class="key">Q / ÉCHAP</span>
+                        <kbd class="key">Q / Échap</kbd>
                         <span>Quitter le jeu</span>
+                    </div>
                     </div>
                 </section>
 
-                <section class="section-card">
-                    <h2 class="section-title">Règles principales</h2>
+                <section class="section-card" aria-labelledby="rules-title">
+                    <h2 class="section-title" id="rules-title">Règles principales</h2>
                     <ul class="rules">
                         <li>Le serpent perd s'il touche le bord du plateau.</li>
                         <li>Le serpent perd s'il touche son propre corps.</li>
@@ -191,6 +163,20 @@
             </div>
         </section>
 
+        <nav class="project-navigation" aria-label="Navigation entre les projets">
+            <a href="projet-morazato.html">← Projet précédent : Morazato</a>
+            <a href="../projets.html">Tous les projets</a>
+            <a href="projet-grue-blanche.html">Projet suivant : La Grue Blanche →</a>
+        </nav>
+
     </main>
+    <footer class="project-site-footer">
+        <p>© 2026 Arsellia · Portfolio</p>
+        <nav aria-label="Navigation de pied de page">
+            <a href="../index.html">Accueil</a>
+            <a href="../projets.html">Mes projets</a>
+            <a href="../contact.html">Contact</a>
+        </nav>
+    </footer>
 </body>
 </html>

@@ -403,13 +403,6 @@ a.contact-card:hover {
     overflow: hidden;
 }
 
-.card-label {
-    margin: 0 0 24px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .13em;
-}
-
 .availability-card h3 {
     max-width: 620px;
     margin: 0;

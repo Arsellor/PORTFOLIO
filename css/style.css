@@ -1828,3 +1828,78 @@
         transition: none;
     }
 }
+
+/* Fix du chevauchement constaté dans la capture : le HTML utilise
+   projects-showcase__intro (et non projects-showcase__header). */
+.projects-showcase__intro {
+    position: relative;
+    z-index: 3;
+    width: min(100%, 850px);
+    margin: 0 0 clamp(28px, 5vw, 72px);
+}
+.projects-showcase__intro .section-eyebrow {
+    margin: 0 0 16px;
+}
+.projects-showcase__intro h2 {
+    max-width: 12ch;
+    margin: 0 0 22px;
+    color: var(--black);
+    font-size: clamp(38px, 5.8vw, 76px);
+    line-height: .98;
+    letter-spacing: -.045em;
+    overflow-wrap: anywhere;
+}
+.projects-showcase__intro > p:last-child {
+    max-width: 42rem;
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.65;
+}
+.projects-city {
+    position: relative;
+    isolation: isolate;
+    z-index: 1;
+    width: min(100%, 1440px);
+    min-width: 0;
+    aspect-ratio: 1123 / 749;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+.projects-city__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.city-project-item {
+    position: absolute;
+    z-index: 2;
+}
+.city-project-image {
+    pointer-events: none;
+}
+@media (max-width: 750px) {
+    .projects-showcase { padding: clamp(44px, 8vw, 72px) 0; }
+    .projects-showcase__intro {
+        padding-inline: 18px;
+        margin-bottom: 22px;
+    }
+    .projects-showcase__intro h2 {
+        max-width: 14ch;
+        font-size: clamp(30px, 7.8vw, 44px);
+        line-height: 1.04;
+    }
+    .projects-showcase__intro > p:last-child {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+    .projects-city { width: 100%; aspect-ratio: 1123 / 749; }
+    .city-project { min-width: 0; min-height: 44px; overflow-wrap: anywhere; }
+}
+@media (max-width: 390px) {
+    .projects-showcase__intro { padding-inline: 14px; }
+    .projects-showcase__intro h2 { font-size: clamp(28px, 8.2vw, 34px); }
+    .city-project strong { font-size: clamp(7px, 2.3vw, 9px); line-height: 1.15; }
+}

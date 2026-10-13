@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="La Grue Blanche — Flip book audio numérique interactif.">
-  <title>Arsellia — La Grue Blanche</title>
+  <meta name="description" content="La Grue Blanche — flipbook illustré et audio, réalisé en HTML, CSS et JavaScript.">
+  <title>Arsellia — La Grue Blanche, flipbook audio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/projet-grue-blanche.css">
+  <link rel="stylesheet" href="../css/project-detail.css">
   <script src="../js/header.js" defer></script>
-  <script src="../js/projet-grue-blanche.js" defer></script>
-  </head>
-<body class="project-detail-page">
+</head>
+<body class="project-detail-page project-page--grue-blanche">
     <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <header class="site-header">
   <a class="brand" href="../index.html" aria-label="Arsellia — Accueil">
     <span class="brand__name">ARSELLIA</span>
-    <span class="brand__type">— DÉVELOPPEUSE WEB FULL STACK ET IA</span>
+    <span class="brand__type">— DEVELOPPEUSE WEB FULL STACK ET IA</span>
   </a>
   <nav class="site-navigation" aria-label="Navigation principale">
     <ul class="site-navigation__list">
@@ -32,51 +31,79 @@
   </button>
 </header>
 
-<main class="project-detail" id="main-content" tabindex="-1" data-node-id="2252:473">
+<main class="project-detail" id="main-content" tabindex="-1">
   <section class="project-hero" aria-labelledby="project-title">
-    <div class="project-media" data-node-id="2252:474">
-      <img src="../assets/images/flipbook.webp" alt="Illustration de La Grue Blanche">
-    </div>
+    <header class="project-heading">
+      <p class="project-heading__eyebrow">Projet interactif · Livre illustré et audio</p>
+      <h1 id="project-title">La Grue Blanche</h1>
+      <hr class="project-heading__line">
+      <p class="project-intro">
+        Un conte traditionnel japonais revisité sous la forme d’un flipbook consultable page par page,
+        réalisé en HTML, CSS et JavaScript.
+      </p>
+    </header>
+
+    <figure class="project-media">
+      <img src="../assets/images/flipbook.webp" alt="Illustration de couverture du projet La Grue Blanche" width="420" height="627" fetchpriority="high" decoding="async">
+      <figcaption>Illustration de couverture du flipbook.</figcaption>
+    </figure>
 
     <div class="project-copy">
-      <h1 id="project-title">La Grue Blanche — Flip book audio numérique interactif</h1>
-      <span class="title-line" aria-hidden="true"></span>
+      <h2 class="project-subheading">Technologies</h2>
+      <ul class="tech-list" aria-label="Technologies utilisées">
+        <li class="tech-badge">HTML</li>
+        <li class="tech-badge">CSS</li>
+        <li class="tech-badge">JavaScript</li>
+      </ul>
 
+      <h2 class="project-subheading">Contributions</h2>
       <div class="project-facts">
         <article class="fact">
-          <img src="../assets/images/code.webp" alt="" class="fact-icon">
-          <p>Conte traditionnel japonais revisité en flip book animé réalisé avec HTML, CSS et JavaScript sur Visual Studio.</p>
+          <img class="fact-icon" src="../assets/images/code.webp" alt="">
+          <p><strong>Réalisation :</strong> l’interface et le flipbook ont été réalisés par Arsellia.</p>
         </article>
         <article class="fact">
-          <img src="../assets/images/coeur.webp" alt="" class="fact-icon">
-          <p>Une histoire touchante de gratitude et de mystère, à découvrir page par page dans le navigateur.</p>
+          <img class="fact-icon" src="../assets/images/coeur.webp" alt="">
+          <p><strong>Texte :</strong> l’histoire a été réécrite par T. Edène dans le cadre d’un devoir à la maison.</p>
         </article>
         <article class="fact">
-          <img src="../assets/images/micro.webp" alt="" class="fact-icon">
-          <p>Ce livre audio a été réécrit par T. Edène dans le cadre d’un devoir à la maison.</p>
+          <img class="fact-icon" src="../assets/images/micro.webp" alt="">
+          <p><strong>Audio :</strong> la démonstration en ligne propose un lecteur audio avec contrôles accessibles.</p>
         </article>
       </div>
 
-      <div class="credits">
-        <div class="credit">
-          <div class="credit-avatar">●</div>
-          <div><span>Réalisatrice</span><strong>T. ARSELLIA</strong></div>
-        </div>
-        <div class="credit-separator" aria-hidden="true"></div>
-        <div class="credit">
-          <div class="credit-avatar credit-avatar--orange">♩</div>
-          <div><span>Voix</span><strong>T. Edène</strong></div>
-        </div>
+      <div class="project-actions" aria-label="Démonstrations et code source">
+        <a class="project-link project-link--primary" href="https://arsellor.github.io/la-grue-blanche-flipbook/" target="_blank" rel="noopener noreferrer">
+          Ouvrir le flipbook et son lecteur audio <span aria-hidden="true">↗</span>
+        </a>
+        <a class="project-link" href="https://github.com/Arsellor/la-grue-blanche-flipbook" target="_blank" rel="noopener noreferrer">
+          <img src="../assets/icons/icons8-github-64.webp" alt="">
+          Code source
+        </a>
+        <a class="project-link" href="https://youtu.be/M-T3lfmaCQU?si=0cdl_iYuD17bsTeU" target="_blank" rel="noopener noreferrer">
+          <img src="../assets/icons/icons8-lecture-de-youtube-48.webp" alt="">
+          Vidéo YouTube
+        </a>
+        <a class="project-link" href="https://www.tiktok.com/@tantchi/video/7630962595599551766?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener noreferrer">
+          Démonstration TikTok
+        </a>
       </div>
     </div>
   </section>
 
-  <footer class="project-socials" aria-label="Réseaux et liens du projet">
-    <a href="https://www.tiktok.com/@tantchi/video/7630962595599551766?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="../assets/icons/icons8-tic-tac-48.webp" alt=""></a>
-    <a href="https://youtu.be/M-T3lfmaCQU?si=0cdl_iYuD17bsTeU" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="../assets/icons/icons8-lecture-de-youtube-48.webp" alt=""></a>
-    <a href="https://github.com/Arsellor/la-grue-blanche-flipbook.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="../assets/icons/icons8-github-64.webp" alt=""></a>
-    <div class="project-socials__spacer"></div>
-  </footer>
+  <nav class="project-navigation" aria-label="Navigation entre les projets">
+    <a href="projet-snaketris.html">← Projet précédent : Snaketris</a>
+    <a href="../projets.html">Tous les projets</a>
+    <a href="projet-pinterest.html">Projet suivant : Pinterest →</a>
+  </nav>
 </main>
+<footer class="project-site-footer">
+  <p>© 2026 Arsellia · Portfolio</p>
+  <nav aria-label="Navigation de pied de page">
+    <a href="../index.html">Accueil</a>
+    <a href="../projets.html">Mes projets</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+</footer>
 </body>
 </html>

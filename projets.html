@@ -10,10 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261013-city-v1">
+  <link rel="stylesheet" href="css/style.css?v=20261013-animation-mobile-v1">
   <link rel="stylesheet" href="css/header.css">
   <script src="js/header.js" defer></script>
-  <script src="js/app.js?v=20261001-orientation-v1" defer></script>
+  <script src="js/app.js?v=20261013-project-frame-v1" defer></script>
 </head>
 <body class="projects-page">
   <a class="skip-link" href="#main-content">Aller au contenu principal</a>
@@ -40,23 +40,15 @@
   </header>
 
   <main id="main-content" tabindex="-1">
-    <section class="sequence-scroll" aria-labelledby="animation-title">
+    <section class="sequence-scroll" aria-label="Animation de présentation des projets">
       <div class="sequence-sticky">
         <img class="sequence-poster" src="assets/animations/projects/frame_000001.webp" alt="" aria-hidden="true" fetchpriority="high">
         <canvas id="morphCanvas" aria-hidden="true"></canvas>
-        <div class="cinematic-overlay" aria-hidden="true"></div>
-        <div class="animation-title">
-          <p>CRÉER • EXPÉRIMENTER • CONSTRUIRE</p>
-          <h1 id="animation-title">MES <span>PROJETS</span></h1>
-          <p class="animation-description">Sites web, expériences interactives et logiciels.</p>
-        </div>
         <div class="sequence-counter" aria-label="Image de l'animation">
           <span id="frameCounterCurrent">01</span>
           <span class="sequence-counter__line" aria-hidden="true"></span>
           <span id="frameCounterTotal">240</span>
         </div>
-        <p class="scroll-prompt" id="scrollPrompt">Faites défiler pour découvrir</p>
-        <button class="skip-animation" id="skipAnimation" type="button">VOIR LES PROJETS <span aria-hidden="true">↓</span></button>
         <progress class="progress-track" id="progressBar" value="0" max="1" aria-label="Progression de l'animation"></progress>
       </div>
     </section>

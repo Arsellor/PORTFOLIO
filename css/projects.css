@@ -8,6 +8,79 @@ html { scroll-behavior: smooth; }
     font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
+.projects-sequence {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    background: #17131a;
+}
+
+.projects-sequence__sticky {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    isolation: isolate;
+}
+
+.projects-sequence__poster,
+.projects-sequence__canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.projects-sequence__poster {
+    z-index: 0;
+    object-fit: contain;
+}
+
+.projects-sequence__canvas {
+    z-index: 1;
+}
+
+.projects-sequence__progress {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 2;
+    width: 100%;
+    height: 3px;
+    margin: 0;
+    border: 0;
+    appearance: none;
+    background: rgba(255, 255, 255, .22);
+}
+
+.projects-sequence__progress::-webkit-progress-bar {
+    background: rgba(255, 255, 255, .22);
+}
+
+.projects-sequence__progress::-webkit-progress-value {
+    background: var(--orange);
+}
+
+.projects-sequence__progress::-moz-progress-bar {
+    background: var(--orange);
+}
+
+.projects-sequence.is-animating {
+    height: calc(100svh + clamp(720px, 100vh, 1200px));
+    min-height: 900px;
+}
+
+.projects-sequence.is-animating .projects-sequence__sticky {
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100svh - var(--header-height));
+    min-height: 360px;
+    aspect-ratio: auto;
+}
+
 .projects-hero {
     width: min(100%, 1920px);
     min-height: 780px;
@@ -107,6 +180,7 @@ html { scroll-behavior: smooth; }
     margin: 0;
     padding: 0;
     list-style: none;
+    scroll-margin-top: calc(var(--header-height) + 16px);
 }
 
 .city-project-item {
@@ -217,6 +291,10 @@ html { scroll-behavior: smooth; }
 }
 
 @media (max-width: 900px) {
+    .projects-sequence {
+        display: none;
+    }
+
     .projects-hero {
         min-height: 0;
         padding: calc(var(--header-height) + 36px) 24px 48px;
@@ -239,6 +317,17 @@ html { scroll-behavior: smooth; }
     .projects-city {
         width: min(100%, 650px);
         max-height: none;
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .projects-city__image {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
     }
 
     .projects-city__links {
@@ -312,6 +401,22 @@ html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+
+    .projects-sequence.is-animating {
+        height: auto;
+        min-height: 0;
+    }
+
+    .projects-sequence.is-animating .projects-sequence__sticky {
+        position: relative;
+        top: auto;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    .projects-sequence__canvas,
+    .projects-sequence__progress { display: none; }
 
     .projects-hero__link,
     .city-project { transition: none; }

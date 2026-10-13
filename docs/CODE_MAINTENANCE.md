@@ -15,9 +15,10 @@ css/contact.css     # contact
 css/project-detail.css
 js/header.js        # navigation
 js/contact.js       # animation et formulaire Contact
+js/projects-animation.js # animation au défilement sur desktop
 ```
 
-La page Projets affiche directement la ville et ses liens; l'ancienne séquence canvas d'accueil a été retirée car elle n'était pas liée à cette illustration.
+La page Projets conserve la ville 3D sur toutes les tailles d'écran et relie l'animation au défilement à cette vitrine sur desktop uniquement.
 
 ## Règle du header/navbar
 

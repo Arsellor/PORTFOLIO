@@ -43,7 +43,7 @@ a {
 
 .contact-sequence {
     position: relative;
-    height: calc(100svh + clamp(180px, 35vh, 380px));
+    height: calc(100svh + clamp(720px, 90vh, 1200px));
     min-height: 560px;
     background: #17131a;
 }

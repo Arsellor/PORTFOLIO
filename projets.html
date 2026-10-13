@@ -12,8 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20261013-full-redesign-v1">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/projects.css?v=20261013-full-redesign-v1">
+  <link rel="stylesheet" href="css/projects.css?v=20261013-project-scroll-v3">
   <script src="js/header.js" defer></script>
+  <script src="js/projects-animation.js?v=20261013-project-scroll-v1" defer></script>
 </head>
 <body class="projects-page">
   <a class="skip-link" href="#main-content">Aller au contenu principal</a>
@@ -40,6 +41,14 @@
   </header>
 
   <main id="main-content" tabindex="-1">
+    <section class="projects-sequence is-static" aria-label="Animation de transition vers les projets">
+      <div class="projects-sequence__sticky">
+        <img class="projects-sequence__poster" src="assets/animations/projects/frame_000001.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+        <canvas class="projects-sequence__canvas" id="projectsCanvas" aria-hidden="true"></canvas>
+        <progress class="projects-sequence__progress" id="projectsProgress" value="0" max="1" aria-label="Progression de l’animation des projets"></progress>
+      </div>
+    </section>
+
     <section class="projects-hero" id="mes-projets" aria-labelledby="projects-title">
       <header class="projects-hero__content">
         <p class="projects-hero__eyebrow">PORTFOLIO · PROJETS</p>

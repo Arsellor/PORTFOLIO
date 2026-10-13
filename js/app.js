@@ -289,20 +289,4 @@
     }
   }
 
-  const skipAnimationButton =
-    document.getElementById("skipAnimation");
-
-  if (skipAnimationButton) {
-    const projectsSection =
-      document.getElementById("mes-projets");
-
-    skipAnimationButton.addEventListener("click", () => {
-      projectsSection?.scrollIntoView({
-        behavior: window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches ? "auto" : "smooth",
-        block: "start"
-      });
-    });
-  }
 })();

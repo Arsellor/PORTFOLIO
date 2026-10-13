@@ -13,15 +13,28 @@
     frameExtension: ".webp",
     firstFrame: 1,
     framePadding: 6,
-    desktopPreloadRadius: 10,
-    mobilePreloadRadius: 6,
+    preloadRadius: 2,
+    maxConcurrentLoads: 3,
     smoothing: 0.18
   };
 
   if (canvas && section && sticky) {
     const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
+    const poster = section.querySelector(".sequence-poster");
+    const frameCounter = document.getElementById("frameCounterCurrent");
+    const connection = navigator.connection;
+    const animateSequence = Boolean(
+      ctx &&
+      window.matchMedia(
+        "(min-width: 901px) and (prefers-reduced-motion: no-preference)"
+      ).matches &&
+      !connection?.saveData
+    );
     const images = new Array(CONFIG.totalFrames);
     const requested = new Set();
+    const failed = new Set();
+    let pendingFrames = [];
+    let activeLoads = 0;
 
     let currentFrame = 0;
     let targetFrame = 0;
@@ -29,17 +42,6 @@
     let height = 1;
     let framePending = false;
     let scrollPending = false;
-
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    const constrainedNetwork = Boolean(connection?.saveData) ||
-      /(^slow-2g|2g)/i.test(connection?.effectiveType || "");
-
-    function getPreloadRadius() {
-      const isMobile = window.matchMedia("(max-width: 750px)").matches;
-      return constrainedNetwork
-        ? 2
-        : (isMobile ? CONFIG.mobilePreloadRadius : CONFIG.desktopPreloadRadius);
-    }
 
     function frameURL(index) {
       const number = String(index + CONFIG.firstFrame)
@@ -77,56 +79,53 @@
       );
     }
 
-    function loadFrame(index, priority = "low") {
-      if (
-        index < 0 ||
-        index >= CONFIG.totalFrames ||
-        images[index] ||
-        requested.has(index)
-      ) return;
+    function pumpFrameQueue() {
+      if (document.hidden) return;
+      while (
+        activeLoads < CONFIG.maxConcurrentLoads &&
+        pendingFrames.length > 0
+      ) {
+        const index = pendingFrames.shift();
+        if (images[index] || requested.has(index) || failed.has(index)) continue;
 
-      requested.add(index);
+        requested.add(index);
+        activeLoads += 1;
+        const image = new Image();
+        image.decoding = "async";
 
-      const image = new Image();
-      image.decoding = "async";
+        image.onload = () => {
+          images[index] = image;
+          activeLoads -= 1;
+          if (index === Math.round(targetFrame)) drawFrame(index);
+          pumpFrameQueue();
+        };
 
-      try {
-        image.fetchPriority = priority;
-      } catch (_) {}
+        image.onerror = () => {
+          failed.add(index);
+          activeLoads -= 1;
+          console.warn("[Arsellia] Frame projet introuvable :", frameURL(index));
+          pumpFrameQueue();
+        };
 
-      image.onload = () => {
-        images[index] = image;
-
-        // Toujours afficher le premier frame dès qu'il arrive.
-        if (index === 0) {
-          drawFrame(0);
-        }
-
-        if (index === Math.round(targetFrame)) {
-          drawFrame(index);
-        }
-      };
-
-      image.onerror = () => {
-        requested.delete(index);
-        console.warn("[Arsellia] Frame projet introuvable :", frameURL(index));
-      };
-
-      image.src = frameURL(index);
-    }
-
-    function preloadAround(index) {
-      loadFrame(index, "high");
-
-      const preloadRadius = getPreloadRadius();
-
-      for (let distance = 1; distance <= preloadRadius; distance += 1) {
-        loadFrame(index - distance);
-        loadFrame(index + distance);
+        image.src = frameURL(index);
       }
     }
 
+    function preloadAround(index) {
+      if (!animateSequence) return;
+
+      pendingFrames = [];
+      for (let distance = 0; distance <= CONFIG.preloadRadius; distance += 1) {
+        const ahead = index + distance;
+        const behind = index - distance;
+        if (ahead < CONFIG.totalFrames) pendingFrames.push(ahead);
+        if (distance > 0 && behind >= 0) pendingFrames.push(behind);
+      }
+      pumpFrameQueue();
+    }
+
     function resizeCanvas() {
+      if (!animateSequence) return;
       const rect = canvas.getBoundingClientRect();
 
       width = Math.max(1, Math.round(rect.width));
@@ -179,6 +178,7 @@
     }
 
     function updateScroll() {
+      if (!animateSequence) return;
       const progress = getProgress();
 
       targetFrame =
@@ -186,6 +186,9 @@
         (CONFIG.totalFrames - 1);
 
       preloadAround(Math.round(targetFrame));
+      if (frameCounter) {
+        frameCounter.textContent = String(Math.round(targetFrame) + 1).padStart(2, "0");
+      }
 
       if (progressBar) {
         progressBar.value = progress;
@@ -210,73 +213,80 @@
       });
     }
 
-    const resizeObserver = new ResizeObserver(resizeCanvas);
-    resizeObserver.observe(canvas);
-
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      { passive: true }
-    );
-
-    let orientationReflowTimer = 0;
-    let orientationReflowFrame = 0;
-
-    function reflowAfterOrientationChange() {
-      window.cancelAnimationFrame(orientationReflowFrame);
-      window.clearTimeout(orientationReflowTimer);
-
-      orientationReflowFrame = window.requestAnimationFrame(() => {
-        resizeCanvas();
-        updateScroll();
-      });
-
-      // Les navigateurs mobiles peuvent encore modifier la hauteur du viewport
-      // quelques dizaines de millisecondes après la rotation.
-      orientationReflowTimer = window.setTimeout(() => {
-        resizeCanvas();
-        updateScroll();
-      }, 180);
+    if (poster?.complete && poster.naturalWidth > 0) {
+      images[0] = poster;
+    } else if (poster) {
+      poster.addEventListener("load", () => {
+        images[0] = poster;
+        if (animateSequence) drawFrame(Math.round(currentFrame));
+      }, { once: true });
     }
 
-    window.addEventListener(
-      "resize",
-      () => {
-        resizeCanvas();
-        updateScroll();
-      },
-      { passive: true }
-    );
+    if (animateSequence) {
+      const resizeObserver = new ResizeObserver(resizeCanvas);
+      resizeObserver.observe(canvas);
 
-    window.addEventListener(
-      "orientationchange",
-      reflowAfterOrientationChange,
-      { passive: true }
-    );
+      window.addEventListener(
+        "scroll",
+        handleScroll,
+        { passive: true }
+      );
 
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener(
+      let orientationReflowTimer = 0;
+      let orientationReflowFrame = 0;
+
+      function reflowAfterOrientationChange() {
+        window.cancelAnimationFrame(orientationReflowFrame);
+        window.clearTimeout(orientationReflowTimer);
+
+        orientationReflowFrame = window.requestAnimationFrame(() => {
+          resizeCanvas();
+          updateScroll();
+        });
+
+        orientationReflowTimer = window.setTimeout(() => {
+          resizeCanvas();
+          updateScroll();
+        }, 180);
+      }
+
+      window.addEventListener(
         "resize",
+        () => {
+          resizeCanvas();
+          updateScroll();
+        },
+        { passive: true }
+      );
+
+      window.addEventListener(
+        "orientationchange",
         reflowAfterOrientationChange,
         { passive: true }
       );
-    }
 
-    document.addEventListener(
-      "visibilitychange",
-      () => {
-        if (!document.hidden) {
-          resizeCanvas();
-          updateScroll();
-        }
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener(
+          "resize",
+          reflowAfterOrientationChange,
+          { passive: true }
+        );
       }
-    );
 
-    // Initialisation immédiate : le premier frame est prioritaire.
-    resizeCanvas();
-    loadFrame(0, "high");
-    preloadAround(0);
-    updateScroll();
+      document.addEventListener(
+        "visibilitychange",
+        () => {
+          if (!document.hidden) {
+            resizeCanvas();
+            updateScroll();
+          }
+        }
+      );
+
+      resizeCanvas();
+      preloadAround(0);
+      updateScroll();
+    }
   }
 
   const skipAnimationButton =
@@ -288,7 +298,9 @@
 
     skipAnimationButton.addEventListener("click", () => {
       projectsSection?.scrollIntoView({
-        behavior: "smooth",
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches ? "auto" : "smooth",
         block: "start"
       });
     });

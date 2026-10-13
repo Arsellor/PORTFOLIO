@@ -13,7 +13,8 @@
         framePrefix: "frame_",
         frameExtension: ".webp",
         firstFrame: 1,
-        preloadRadius: 18,
+        preloadRadius: 2,
+        maxConcurrentLoads: 3,
         smoothing: 0.14
     };
 
@@ -24,8 +25,20 @@
 
     if (canvas && section && sticky) {
         const ctx = canvas.getContext("2d", { alpha: true });
+        const poster = section.querySelector(".sequence-poster");
+        const connection = navigator.connection;
+        const animateSequence = Boolean(
+            ctx &&
+            window.matchMedia(
+                "(min-width: 901px) and (prefers-reduced-motion: no-preference)"
+            ).matches &&
+            !connection?.saveData
+        );
         const images = new Array(CONFIG.totalFrames);
         const requested = new Set();
+        const failed = new Set();
+        let pendingFrames = [];
+        let activeLoads = 0;
 
         let currentFrame = 0;
         let targetFrame = 0;
@@ -33,7 +46,6 @@
         let height = 1;
         let dpr = 1;
         let renderPending = false;
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         function frameURL(index) {
             const number = String(index + CONFIG.firstFrame).padStart(6, "0");
@@ -41,6 +53,7 @@
         }
 
         function resizeCanvas() {
+            if (!animateSequence) return;
             const rect = canvas.getBoundingClientRect();
             width = Math.max(1, Math.round(rect.width));
             height = Math.max(1, Math.round(rect.height));
@@ -53,35 +66,49 @@
             drawFrame(Math.round(currentFrame));
         }
 
-        function loadFrame(index) {
-            if (index < 0 || index >= CONFIG.totalFrames) return;
-            if (images[index] || requested.has(index)) return;
+        function pumpFrameQueue() {
+            if (document.hidden) return;
+            while (
+                activeLoads < CONFIG.maxConcurrentLoads &&
+                pendingFrames.length > 0
+            ) {
+                const index = pendingFrames.shift();
+                if (images[index] || requested.has(index) || failed.has(index)) continue;
 
-            requested.add(index);
+                requested.add(index);
+                activeLoads += 1;
+                const image = new Image();
+                image.decoding = "async";
 
-            const image = new Image();
-            image.decoding = "async";
+                image.onload = () => {
+                    images[index] = image;
+                    activeLoads -= 1;
+                    if (index === Math.round(targetFrame)) drawFrame(index);
+                    pumpFrameQueue();
+                };
 
-            image.onload = () => {
-                images[index] = image;
-                if (index === 0 || index === Math.round(targetFrame)) {
-                    drawFrame(index);
-                }
-            };
+                image.onerror = () => {
+                    failed.add(index);
+                    activeLoads -= 1;
+                    console.warn("[Arsellia] Frame introuvable :", frameURL(index));
+                    pumpFrameQueue();
+                };
 
-            image.onerror = () => {
-                requested.delete(index);
-                console.warn("[Arsellia] Frame introuvable :", frameURL(index));
-            };
-
-            image.src = frameURL(index);
+                image.src = frameURL(index);
+            }
         }
 
         function preloadAround(index) {
-            const start = Math.max(0, index - CONFIG.preloadRadius);
-            const end = Math.min(CONFIG.totalFrames - 1, index + CONFIG.preloadRadius);
+            if (!animateSequence) return;
 
-            for (let i = start; i <= end; i++) loadFrame(i);
+            pendingFrames = [];
+            for (let distance = 0; distance <= CONFIG.preloadRadius; distance += 1) {
+                const ahead = index + distance;
+                const behind = index - distance;
+                if (ahead < CONFIG.totalFrames) pendingFrames.push(ahead);
+                if (distance > 0 && behind >= 0) pendingFrames.push(behind);
+            }
+            pumpFrameQueue();
         }
 
         function getAvailableFrame(index) {
@@ -143,6 +170,7 @@
         }
 
         function updateScroll() {
+            if (!animateSequence) return;
             const progress = getProgress();
 
             // Début plus cinématique : accélération progressive.
@@ -163,7 +191,7 @@
             requestAnimationFrame(() => {
                 renderPending = false;
                 const delta = targetFrame - currentFrame;
-                currentFrame = reduceMotion || Math.abs(delta) < 0.01
+                currentFrame = Math.abs(delta) < 0.01
                     ? targetFrame
                     : currentFrame + delta * CONFIG.smoothing;
                 drawFrame(Math.round(currentFrame));
@@ -192,38 +220,48 @@
             }, 180);
         }
 
-        window.addEventListener("resize", () => {
-            resizeCanvas();
-            updateScroll();
-        }, { passive: true });
+        if (poster?.complete && poster.naturalWidth > 0) {
+            images[0] = poster;
+        } else if (poster) {
+            poster.addEventListener("load", () => {
+                images[0] = poster;
+                if (animateSequence) drawFrame(Math.round(currentFrame));
+            }, { once: true });
+        }
 
-        window.addEventListener(
-            "orientationchange",
-            reflowAfterOrientationChange,
-            { passive: true }
-        );
+        if (animateSequence) {
+            window.addEventListener("resize", () => {
+                resizeCanvas();
+                updateScroll();
+            }, { passive: true });
 
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener(
-                "resize",
+            window.addEventListener(
+                "orientationchange",
                 reflowAfterOrientationChange,
                 { passive: true }
             );
-        }
 
-        window.addEventListener("scroll", updateScroll, { passive: true });
-
-        resizeCanvas();
-        loadFrame(0);
-        preloadAround(0);
-        updateScroll();
-
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) {
-                resizeCanvas();
-                updateScroll();
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener(
+                    "resize",
+                    reflowAfterOrientationChange,
+                    { passive: true }
+                );
             }
-        });
+
+            window.addEventListener("scroll", updateScroll, { passive: true });
+
+            resizeCanvas();
+            preloadAround(0);
+            updateScroll();
+
+            document.addEventListener("visibilitychange", () => {
+                if (!document.hidden) {
+                    resizeCanvas();
+                    updateScroll();
+                }
+            });
+        }
     }
 
     const skipAnimationButton =
@@ -270,7 +308,7 @@
             }
 
             status.textContent =
-                `Merci ${name} ! Votre logiciel de messagerie va s’ouvrir. Vérifiez le message puis envoyez-le.`;
+                "Votre logiciel de messagerie devrait s’ouvrir. Le message ne sera pas envoyé automatiquement : vérifiez-le puis cliquez sur Envoyer.";
 
             status.className = "form-status is-success";
 
@@ -279,8 +317,15 @@
                 `Nom : ${name}\nAdresse e-mail : ${email}\n\n${message}`
             );
 
-            window.location.href =
-                `mailto:tcharsellia2020@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+            try {
+                window.location.href =
+                    `mailto:tcharsellia2020@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+            } catch (error) {
+                status.textContent =
+                    "Impossible d’ouvrir votre logiciel de messagerie. Écrivez directement à tcharsellia2020@gmail.com.";
+                status.className = "form-status is-error";
+                console.error("[Arsellia] Impossible d’ouvrir le lien e-mail.", error);
+            }
         });
     }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arsellia — Portfolio développeur web Full Stack, page contact.">
+    <meta name="description" content="Arsellia — Portfolio de développeuse web Full Stack, page contact.">
     <title>Arsellia — Contact</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
 <header class="site-header">
     <a class="brand" href="index.html" aria-label="Arsellia — Accueil">
         <span class="brand__name">ARSELLIA</span>
-        <span class="brand__type">— DEVELOPPEUSE WEB FULL STACK ET IA</span>
+        <span class="brand__type">— DÉVELOPPEUSE WEB FULL STACK ET IA</span>
     </a>
 
     <nav class="site-navigation" aria-label="Navigation principale">
@@ -58,8 +58,9 @@
     <!-- =====================================================
          1. TON SCROLL-DRIVEN ANIMATION EXISTANTE
          ===================================================== -->
-    <section class="contact-sequence" aria-label="Animation cinématique de la page contact">
+    <section class="contact-sequence" aria-label="Illustration animée">
         <article class="contact-sequence__sticky">
+            <img class="sequence-poster" src="assets/animations/contact/frames/frame_000001.webp" alt="" aria-hidden="true" fetchpriority="high">
             <canvas id="contactCanvas" aria-hidden="true"></canvas>
 
             <p class="scroll-prompt" id="scrollPrompt" aria-hidden="true">
@@ -67,7 +68,7 @@
             </p>
 
             <button class="skip-animation" id="skipAnimation" type="button">
-                PASSER L'ANIMATION
+                ACCÉDER AU CONTACT
                 <span aria-hidden="true">↓</span>
             </button>
 
@@ -116,7 +117,7 @@
                 <p>RETROUVEZ-MOI AUSSI SUR</p>
                 <div class="social-buttons">
                     <a href="https://github.com/Arsellor" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub <span>↗</span></a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn <span>↗</span></a>
+                    <!-- Ajouter ici l’URL du profil LinkedIn personnel lorsqu’elle sera confirmée. -->
                 </div>
             </div>
         </div>
@@ -124,9 +125,6 @@
         <div class="contact-hero__visual">
             <div class="visual-glow"></div>
 
-            <!-- IMAGE À AJOUTER :
-                 C:\Users\tchar\Downloads\Illustrations_Wrapper.png
-                 -> assets/images/Illustrations_Wrapper.webp -->
             <img class="lighthouse-illustration"
                 src="assets/images/Illustrations_Wrapper.webp"
                  alt="Illustration d'un phare"
@@ -164,15 +162,9 @@
                     <p class="card-label">CONTRAT DE PROFESSIONNALISATION</p>
                     <h3>Recherche active</h3>
                     <p class="availability-copy">
-                        <span class="copy-lead"><span class="copy-icon" aria-hidden="true">&lt;/&gt;</span>Une solide expertise en <strong>JavaScript</strong>, <strong>React</strong>, <strong>Angular</strong>. Le
-                        développement et l’optimisation de solutions web.
-                        <span class="copy-lead"><span class="copy-icon" aria-hidden="true">✦</span>Passionnée par les innovations technologiques, motivée</span>
-                        à évoluer dans un environnement dynamique et je m’adapte
-                        rapidement aux nouveaux outils et langages pour offrir
-                        des applications web performantes et répondant aux
-                        besoins précis des clients.
-                        <span class="copy-lead"><span class="copy-icon" aria-hidden="true">↗</span>Motivée, curieuse et prête à m’investir pleinement dans</span>
-                        des projets web <strong>Front-End</strong> et <strong>Back-End</strong> au sein d'une entreprise.
+                        Je développe des solutions web avec <strong>JavaScript</strong>, <strong>React</strong> et <strong>Angular</strong>.
+                        Curieuse des innovations technologiques, je m’adapte aux outils et aux besoins de chaque projet.
+                        Je souhaite contribuer à des projets <strong>front-end</strong> et <strong>back-end</strong> au sein d’une entreprise.
                     </p>
                 </div>
                 <div class="availability-tech" aria-label="Technologies principales">
@@ -210,8 +202,8 @@
             <h2 id="message-title">UN FORMULAIRE SIMPLE ET RAPIDE</h2>
 
             <p>
-                Vous préférez m'envoyer un message directement depuis le portfolio ?
-                C'est ici. Je pourrai vous répondre dès que possible.
+                Remplissez le formulaire : votre logiciel de messagerie s’ouvrira avec le message prérempli.
+                Vous pourrez le vérifier puis l’envoyer depuis votre messagerie.
             </p>
 
             <div class="portfolio-art-card">
@@ -227,7 +219,8 @@
             </div>
         </div>
 
-        <form class="contact-form figma-form" id="contactForm" action="#" method="post">
+        <form class="contact-form figma-form" id="contactForm"
+              action="mailto:tcharsellia2020@gmail.com" method="post" enctype="text/plain">
             <fieldset>
                 <legend>Votre message</legend>
 
@@ -258,7 +251,7 @@
                 </div>
 
                 <button type="submit">
-                    <span>ENVOYER LE MESSAGE</span>
+                    <span>OUVRIR LA MESSAGERIE</span>
                     <span aria-hidden="true">→</span>
                 </button>
 
@@ -273,7 +266,7 @@
     <section class="contact-cta">
         <div>
             <p class="section-kicker section-kicker--light">UNE OPPORTUNITÉ ?</p>
-            <h2>PRÊT À DÉMARRER CETTE AVENTURE ?</h2>
+            <h2>PRÊTE À DÉMARRER CETTE AVENTURE ?</h2>
             <p>
                 Je recherche une alternance pour développer mes compétences
                 et contribuer concrètement à des projets web ambitieux.

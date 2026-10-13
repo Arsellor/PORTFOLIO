@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Découvrez les projets web réalisés par Arsellia, développeuse Web Full Stack.">
+  <meta name="description" content="Découvrez les projets web et logiciels d'Arsellia, développeuse web full stack et IA.">
   <meta name="theme-color" content="#ffffff">
   <title>Arsellia — Mes projets</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261013-animation-mobile-v2">
+  <link rel="stylesheet" href="css/style.css?v=20261013-full-redesign-v1">
   <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/projects.css?v=20261013-full-redesign-v1">
   <script src="js/header.js" defer></script>
-  <script src="js/app.js?v=20261013-project-frame-v1" defer></script>
 </head>
 <body class="projects-page">
   <a class="skip-link" href="#main-content">Aller au contenu principal</a>
@@ -21,7 +21,7 @@
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Arsellia — Accueil">
       <span class="brand__name">ARSELLIA</span>
-      <span class="brand__type">— DEVELOPPEUSE WEB FULL STACK ET IA</span>
+      <span class="brand__type">— DÉVELOPPEUSE WEB FULL STACK / IA</span>
     </a>
     <nav class="site-navigation" aria-label="Navigation principale">
       <ul class="site-navigation__list">
@@ -40,70 +40,52 @@
   </header>
 
   <main id="main-content" tabindex="-1">
-    <section class="sequence-scroll" aria-label="Animation de présentation des projets">
-      <div class="sequence-sticky">
-        <img class="sequence-poster" src="assets/animations/projects/frame_000001.webp" alt="" aria-hidden="true" fetchpriority="high">
-        <canvas id="morphCanvas" aria-hidden="true"></canvas>
-        <div class="sequence-counter" aria-label="Image de l'animation">
-          <span id="frameCounterCurrent">01</span>
-          <span class="sequence-counter__line" aria-hidden="true"></span>
-          <span id="frameCounterTotal">240</span>
-        </div>
-        <progress class="progress-track" id="progressBar" value="0" max="1" aria-label="Progression de l'animation"></progress>
-      </div>
-    </section>
-
-    <section class="projects-showcase" id="mes-projets" aria-labelledby="showcase-title">
-      <header class="projects-showcase__intro">
-        <p class="section-eyebrow">MES RÉALISATIONS</p>
-        <h2 id="showcase-title">Explorez mon univers</h2>
-        <p>Choisissez un projet pour consulter ses technologies, ses contributions et ses démonstrations.</p>
+    <section class="projects-hero" id="mes-projets" aria-labelledby="projects-title">
+      <header class="projects-hero__content">
+        <p class="projects-hero__eyebrow">PORTFOLIO · PROJETS</p>
+        <h1 id="projects-title">Des idées prennent forme.</h1>
+        <p class="projects-hero__description">Explorez mes projets web et logiciels à travers une ville miniature interactive.</p>
+        <a class="projects-hero__link" href="#project-links">Parcourir les projets <span aria-hidden="true">↓</span></a>
       </header>
 
-      <ul class="projects-city" aria-label="Liste des projets">
-        <li class="city-project-item city-project-item--orange">
-          <a href="projects/projet-grue-blanche.html" class="city-project city-project--orange">
-            <span aria-hidden="true">01</span><strong>LA GRUE BLANCHE</strong><span class="project-summary">Flipbook audio interactif</span>
-          </a>
-        </li>
-        <li class="city-project-item city-project-item--red">
-          <a href="projects/projet-pinterest.html" class="city-project city-project--red">
-            <span aria-hidden="true">02</span><strong>PINTEREST CLONE</strong><span class="project-summary">Interface web et mobile</span>
-          </a>
-        </li>
-        <li class="city-project-item city-project-item--blue">
-          <a href="projects/projet-morazato.html" class="city-project city-project--blue">
-            <span aria-hidden="true">03</span><strong>MORAZATO</strong><span class="project-summary">Site e-commerce sous React</span>
-          </a>
-        </li>
-        <li class="city-project-item city-project-item--pink">
-          <a href="projects/projet-snaketris.html" class="city-project city-project--pink">
-            <span aria-hidden="true">04</span><strong>SNAKETRIS</strong><span class="project-summary">Jeu C++ et SDL2</span>
-          </a>
-        </li>
-        <li class="city-project-item city-project-item--navy">
-          <a href="https://github.com/Arsellor/books-api-rest-crud" class="city-project city-project--navy" target="_blank" rel="noopener noreferrer">
-            <span aria-hidden="true">05</span><strong>API REST &amp; CRUD</strong><span class="project-summary">Dépôt du projet sur GitHub ↗</span>
-          </a>
-        </li>
-        <li class="city-project-image" aria-hidden="true">
-          <img src="assets/images/Paysage.webp" alt="" class="projects-city__image" width="1123" height="749" decoding="async" fetchpriority="high">
-        </li>
-      </ul>
-
-      <div class="projects-showcase__pagination" aria-hidden="true">
-        <span class="pagination-dot pagination-dot--light"></span>
-        <span class="pagination-dot"></span>
-        <span class="pagination-dot"></span>
-        <span class="pagination-dot pagination-dot--orange"></span>
-      </div>
+      <figure class="projects-city">
+        <img src="assets/images/Paysage.webp" alt="Ville miniature en 3D avec bâtiments, routes, espaces verts et bord de mer" class="projects-city__image" width="1536" height="1024" fetchpriority="high" decoding="async">
+        <figcaption class="visually-hidden">Sélectionnez un repère de la ville ou un projet de la liste pour en savoir plus.</figcaption>
+        <ul class="projects-city__links" id="project-links" aria-label="Projets représentés dans la ville">
+          <li class="city-project-item city-project-item--grue">
+            <a href="projects/projet-grue-blanche.html" class="city-project city-project--orange">
+              <span class="city-project__number">01</span><span><strong>LA GRUE BLANCHE</strong><small>Flipbook audio</small></span>
+            </a>
+          </li>
+          <li class="city-project-item city-project-item--pinterest">
+            <a href="projects/projet-pinterest.html" class="city-project city-project--red">
+              <span class="city-project__number">02</span><span><strong>PINTEREST CLONE</strong><small>Interface web et mobile</small></span>
+            </a>
+          </li>
+          <li class="city-project-item city-project-item--morazato">
+            <a href="projects/projet-morazato.html" class="city-project city-project--blue">
+              <span class="city-project__number">03</span><span><strong>MORAZATO</strong><small>Site vitrine React</small></span>
+            </a>
+          </li>
+          <li class="city-project-item city-project-item--snaketris">
+            <a href="projects/projet-snaketris.html" class="city-project city-project--pink">
+              <span class="city-project__number">04</span><span><strong>SNAKETRIS</strong><small>Jeu C++ / SDL2</small></span>
+            </a>
+          </li>
+          <li class="city-project-item city-project-item--api">
+            <a href="https://github.com/Arsellor/books-api-rest-crud" class="city-project city-project--navy" target="_blank" rel="noopener noreferrer">
+              <span class="city-project__number">05</span><span><strong>API REST &amp; CRUD</strong><small>Code source GitHub ↗</small></span>
+            </a>
+          </li>
+        </ul>
+      </figure>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__content">
       <p>© 2026 ARSELLIA — PORTFOLIO</p>
-      <p>Développeuse Web Full Stack et IA</p>
+      <p>DÉVELOPPEUSE WEB FULL STACK / IA</p>
     </div>
   </footer>
 </body>

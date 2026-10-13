@@ -1,34 +1,23 @@
 # Organisation et maintenance du code
 
-## Problème principal à éviter : duplication
+## Architecture actuelle
 
-Le header et la navbar doivent devenir un composant unique. Une modification du logo, de la hauteur, des liens ou du responsive ne doit pas nécessiter de modifier plusieurs pages.
+Le header et la navigation sont partagés entre les pages. Une modification du logo, de la hauteur, des liens ou du responsive doit rester cohérente sur toutes les pages.
 
-## Architecture cible
+Les feuilles de style sont séparées par surface :
 
 ```text
-css/
-├── base/
-│   ├── reset.css
-│   ├── variables.css
-│   └── typography.css
-├── components/
-│   ├── header.css
-│   ├── footer.css
-│   └── buttons.css
-└── pages/
-    ├── home.css
-    ├── projects.css
-    └── contact.css
-
-js/
-├── components/
-│   └── header.js
-└── pages/
-    ├── home.js
-    ├── projects.js
-    └── contact.js
+css/style.css       # base et tokens partagés
+css/header.css      # en-tête et navigation
+css/index.css       # accueil
+css/projects.css    # projets
+css/contact.css     # contact
+css/project-detail.css
+js/header.js        # navigation
+js/contact.js       # animation et formulaire Contact
 ```
+
+La page Projets affiche directement la ville et ses liens; l'ancienne séquence canvas d'accueil a été retirée car elle n'était pas liée à cette illustration.
 
 ## Règle du header/navbar
 

@@ -76,15 +76,6 @@ a {
     object-fit: cover;
 }
 
-.contact-sequence__sticky::after {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .28));
-    content: "";
-    pointer-events: none;
-}
-
 .scroll-prompt {
     position: absolute;
     left: 50%;
@@ -229,12 +220,11 @@ a {
     background: var(--cream);
     border: 1px solid var(--border);
     border-radius: 18px;
-    transition: transform .25s ease, box-shadow .25s ease;
+    transition: transform .25s ease;
 }
 
 a.contact-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 35px rgba(0,0,0,.08);
 }
 
 .contact-card__icon {
@@ -307,21 +297,12 @@ a.contact-card:hover {
     overflow: hidden;
 }
 
-.visual-glow {
-    position: absolute;
-    width: min(700px, 110%);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(253,147,17,.18) 0%, rgba(253,147,17,.06) 35%, transparent 70%);
-}
-
 .lighthouse-illustration {
     position: relative;
     z-index: 1;
     width: min(100%, 650px);
     max-height: 600px;
     object-fit: contain;
-    filter: drop-shadow(0 25px 35px rgba(0,0,0,.13));
 }
 
 .lighthouse-illustration.is-missing {
@@ -402,8 +383,7 @@ a.contact-card:hover {
 .apprenticeship-layout {
     margin-top: 36px;
     display: grid;
-    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
 }
 
@@ -420,33 +400,7 @@ a.contact-card:hover {
     border-radius: 26px;
     background: var(--orange);
     color: #fff;
-    box-shadow: 0 20px 45px rgba(253,147,17,.2);
     overflow: hidden;
-}
-
-.availability-card::before,
-.availability-card::after {
-    position: absolute;
-    z-index: -1;
-    content: "";
-    pointer-events: none;
-}
-
-.availability-card::before {
-    inset: 0;
-    background:
-        linear-gradient(135deg, rgba(35,27,23,.32), transparent 46%),
-        repeating-linear-gradient(135deg, transparent 0 42px, rgba(255,255,255,.08) 43px 44px);
-}
-
-.availability-card::after {
-    right: -70px;
-    bottom: -100px;
-    width: 280px;
-    height: 280px;
-    border: 1px solid rgba(255,255,255,.24);
-    border-radius: 50%;
-    box-shadow: 0 0 0 28px rgba(255,255,255,.05), 0 0 0 56px rgba(255,255,255,.04);
 }
 
 .card-label {
@@ -457,38 +411,53 @@ a.contact-card:hover {
 }
 
 .availability-card h3 {
-    max-width: 500px;
+    max-width: 620px;
     margin: 0;
     font-family: "Bebas Neue", Impact, sans-serif;
-    font-size: clamp(36px, 4vw, 58px);
+    font-size: clamp(34px, 3.2vw, 48px);
     font-weight: 400;
     line-height: .95;
 }
 
-.availability-card h3 + p {
-    max-width: none;
-    margin: 20px 0 0;
+.strength-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 0;
+    list-style: none;
+}
+
+.strength-item {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, .34);
+}
+
+.strength-item__icon {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .65);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.strength-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.strength-item strong {
+    display: block;
+    margin-bottom: 4px;
     font-size: 15px;
-    line-height: 1.75;
-}
-
-.availability-copy strong {
-    font-weight: 800;
-    color: #fff;
-}
-
-.copy-lead {
-    display: inline;
-}
-
-.copy-icon {
-    display: inline-flex;
-    width: 1.35em;
-    margin-right: .35em;
-    justify-content: center;
-    color: rgba(35,27,23,.75);
-    font-family: monospace;
-    font-weight: 800;
+    letter-spacing: .02em;
 }
 
 .availability-tech {
@@ -520,164 +489,6 @@ a.contact-card:hover {
     letter-spacing: .08em;
 }
 
-.info-grid {
-    min-width: 0;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-    align-items: stretch;
-}
-
-.info-grid .info-card {
-    min-height: 0;
-    padding: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    overflow: hidden;
-}
-
-.info-grid .info-icon {
-    flex: 0 0 auto;
-}
-
-.info-grid .info-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.info-grid .info-card small {
-    text-align: center;
-}
-
-.info-card-title {
-    font-weight: 800;
-}
-
-.info-grid .info-card .info-card-image {
-    flex: 0 0 auto;
-    width: 100%;
-    height: clamp(240px, 24vw, 314px);
-    object-fit: contain;
-    transform-origin: center center;
-}
-
-.info-grid .info-card:first-child .info-card-image {
-    transform: scale(1.12);
-}
-
-.info-grid .info-card:last-child .info-card-image {
-    transform: scale(1.06);
-}
-
-.info-card-image {
-    width: 100%;
-    height: clamp(240px, 24vw, 314px);
-    display: block;
-    object-fit: contain;
-}
-
-.info-card {
-    min-width: 0;
-    min-height: 0;
-    height: auto;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    background: #fff;
-}
-
-.formation-card {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 8px;
-}
-
-.info-card p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-.info-icon {
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    border-radius: 12px;
-    background: rgba(253,147,17,.1);
-    color: var(--orange);
-    font-size: 24px;
-}
-
-.info-card small {
-    max-width: 100%;
-    color: var(--muted);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: .1em;
-    line-height: 1.35;
-}
-
-.info-card strong {
-    max-width: 100%;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.45;
-    overflow-wrap: anywhere;
-}
-
-.formation-logo {
-    width: min(100%, 150px);
-    height: auto;
-    object-fit: contain;
-}
-
-.formation-details {
-    max-width: 100%;
-    color: var(--muted);
-    font-size: 10px;
-    line-height: 1.35;
-}
-
-.formation-details p {
-    margin: 0;
-}
-
-.info-card p strong {
-    font-weight: 400;
-}
-
-.info-card ul {
-    margin: 0;
-    padding-left: 18px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.55;
-}
-
-.info-card li {
-    margin: 0 0 8px;
-    overflow-wrap: anywhere;
-}
-
-.info-card li:last-child {
-    margin-bottom: 0;
-}
-
-.info-card li strong {
-    font-weight: 800;
-}
-
 /* =========================================================
    FORMULAIRE
 ========================================================= */
@@ -698,7 +509,6 @@ a.contact-card:hover {
     border: 1px solid var(--border);
     border-radius: 24px;
     background: var(--cream);
-    box-shadow: 0 20px 55px rgba(0,0,0,.08);
 }
 
 .portfolio-art-card img {
@@ -736,7 +546,6 @@ a.contact-card:hover {
     border: 1px solid var(--border);
     border-radius: 28px;
     background: #fff;
-    box-shadow: 0 24px 60px rgba(0,0,0,.09);
 }
 
 .figma-form fieldset {
@@ -781,7 +590,7 @@ a.contact-card:hover {
     background: var(--cream);
     color: var(--text);
     font: inherit;
-    transition: border-color .2s ease, box-shadow .2s ease;
+    transition: border-color .2s ease;
 }
 
 .form-group textarea {
@@ -792,7 +601,8 @@ a.contact-card:hover {
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--orange);
-    box-shadow: 0 0 0 4px rgba(253,147,17,.12);
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
 }
 
 .figma-form button {
@@ -813,8 +623,15 @@ a.contact-card:hover {
     font-weight: 800;
     letter-spacing: .05em;
     cursor: pointer;
-    box-shadow: 0 12px 28px rgba(253,147,17,.22);
     transition: transform .2s ease, background .2s ease;
+}
+
+.figma-form button:focus-visible,
+.cta-buttons a:focus-visible,
+.contact-card:focus-visible,
+.social-buttons a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
 }
 
 .figma-form button:hover {
@@ -953,14 +770,24 @@ a.contact-card:hover {
 
 @media (max-width: 900px) {
     .contact-sequence {
-        height: 100svh;
-        min-height: 360px;
+        height: auto;
+        min-height: 0;
+        padding-top: var(--header-height);
+        background: #fff;
     }
 
     .contact-sequence__sticky {
         position: relative;
         top: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        background: #fff;
+    }
+
+    .sequence-poster {
+        object-fit: contain;
+        object-position: center;
     }
 
     #contactCanvas,
@@ -1005,7 +832,6 @@ a.contact-card:hover {
         overflow-wrap: anywhere;
     }
 
-    .info-grid { grid-template-columns: 1fr; }
     .availability-card { padding: 28px; }
     .portfolio-art-card img { height: 210px; }
     .cta-buttons { grid-template-columns: 1fr; }
@@ -1074,22 +900,11 @@ a.contact-card:hover {
 
     .availability-card { padding: 16px; }
     .availability-card h3 { font-size: clamp(34px, 9.8vw, 46px); }
-    .availability-card h3 + p {
-        font-size: 14px;
-        line-height: 1.75;
-    }
-
     .availability-tech { gap: 6px; }
 
     .availability-badge {
         max-width: 100%;
         text-align: center;
-    }
-
-    .info-grid .info-card .info-card-image {
-        height: auto;
-        max-height: 315px;
-        transform: none;
     }
 
     .message-section { gap: 34px; }
@@ -1181,11 +996,6 @@ a.contact-card:hover {
 
     .availability-card { padding: 16px; }
     .availability-card h3 { font-size: 32px; }
-    .availability-card h3 + p {
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
     .availability-tech span { padding: 6px 8px; }
 
     .message-section,
@@ -1218,14 +1028,15 @@ a.contact-card:hover {
     .figma-form button { transition: none; }
 
     .contact-sequence {
-        height: min(100svh, 760px);
-        min-height: 360px;
+        height: auto;
+        min-height: 0;
     }
 
     .contact-sequence__sticky {
         position: relative;
         top: auto;
-        height: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 
     #contactCanvas,

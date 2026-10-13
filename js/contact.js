@@ -33,6 +33,7 @@
         let height = 1;
         let dpr = 1;
         let renderPending = false;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         function frameURL(index) {
             const number = String(index + CONFIG.firstFrame).padStart(6, "0");
@@ -162,7 +163,7 @@
             requestAnimationFrame(() => {
                 renderPending = false;
                 const delta = targetFrame - currentFrame;
-                currentFrame = Math.abs(delta) < 0.01
+                currentFrame = reduceMotion || Math.abs(delta) < 0.01
                     ? targetFrame
                     : currentFrame + delta * CONFIG.smoothing;
                 drawFrame(Math.round(currentFrame));

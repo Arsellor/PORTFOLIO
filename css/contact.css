@@ -404,12 +404,13 @@ a.contact-card:hover {
 }
 
 .availability-card h3 {
-    max-width: 620px;
+    width: 100%;
     margin: 0;
     font-family: "Bebas Neue", Impact, sans-serif;
     font-size: clamp(34px, 3.2vw, 48px);
     font-weight: 400;
     line-height: .95;
+    text-align: center;
 }
 
 .info-grid {
@@ -426,7 +427,7 @@ a.contact-card:hover {
     padding: 24px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     border: 1px solid var(--border);
     border-radius: 22px;
@@ -434,8 +435,8 @@ a.contact-card:hover {
 }
 
 .info-icon {
-    width: 60px;
-    height: 60px;
+    width: clamp(72px, 8vw, 96px);
+    height: clamp(72px, 8vw, 96px);
     display: grid;
     place-items: center;
 }
@@ -453,6 +454,7 @@ a.contact-card:hover {
     font-weight: 800;
     letter-spacing: .08em;
     line-height: 1.45;
+    text-align: center;
 }
 
 .info-card-image {
@@ -460,6 +462,7 @@ a.contact-card:hover {
     width: 100%;
     height: auto;
     margin-top: 4px;
+    margin-inline: auto;
     object-fit: contain;
 }
 
@@ -876,7 +879,7 @@ a.contact-card:hover {
     .availability-card h3 { font-size: clamp(34px, 9.8vw, 46px); }
     .info-grid { grid-template-columns: minmax(0, 1fr); }
     .info-card { padding: 18px; }
-    .info-icon { width: 52px; height: 52px; }
+    .info-icon { width: 72px; height: 72px; }
 
     .message-section { gap: 34px; }
 

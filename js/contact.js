@@ -1,10 +1,6 @@
 (() => {
     "use strict";
 
-    const scriptURL = document.currentScript
-        ? document.currentScript.src
-        : document.baseURI;
-
     /* =========================================================
        ARSELLIA — SCROLL-DRIVEN CONTACT ANIMATION
        Le code d'origine est conservé et amélioré pour cohabiter
@@ -36,6 +32,8 @@
         let width = 1;
         let height = 1;
         let dpr = 1;
+        let renderPending = false;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         function frameURL(index) {
             const number = String(index + CONFIG.firstFrame).padStart(6, "0");
@@ -66,10 +64,13 @@
 
             image.onload = () => {
                 images[index] = image;
-                if (index === 0) drawFrame(0);
+                if (index === 0 || index === Math.round(targetFrame)) {
+                    drawFrame(index);
+                }
             };
 
             image.onerror = () => {
+                requested.delete(index);
                 console.warn("[Arsellia] Frame introuvable :", frameURL(index));
             };
 
@@ -153,17 +154,23 @@
             if (progressBar) progressBar.value = progress;
 
             sticky.classList.toggle("is-complete", progress >= 0.995);
+            scheduleRender();
         }
 
-        function render() {
-            currentFrame += (targetFrame - currentFrame) * CONFIG.smoothing;
-
-            if (Math.abs(targetFrame - currentFrame) < 0.01) {
-                currentFrame = targetFrame;
-            }
-
-            drawFrame(Math.round(currentFrame));
-            requestAnimationFrame(render);
+        function scheduleRender() {
+            if (renderPending || document.hidden) return;
+            renderPending = true;
+            requestAnimationFrame(() => {
+                renderPending = false;
+                const delta = targetFrame - currentFrame;
+                currentFrame = reduceMotion || Math.abs(delta) < 0.01
+                    ? targetFrame
+                    : currentFrame + delta * CONFIG.smoothing;
+                drawFrame(Math.round(currentFrame));
+                if (Math.abs(targetFrame - currentFrame) >= 0.01) {
+                    scheduleRender();
+                }
+            });
         }
 
         let orientationReflowTimer = 0;
@@ -210,7 +217,13 @@
         loadFrame(0);
         preloadAround(0);
         updateScroll();
-        render();
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+                resizeCanvas();
+                updateScroll();
+            }
+        });
     }
 
     const skipAnimationButton =
@@ -257,7 +270,7 @@
             }
 
             status.textContent =
-                `✅ Merci ${name} ! Votre message est prêt à être envoyé.`;
+                `Merci ${name} ! Votre logiciel de messagerie va s’ouvrir. Vérifiez le message puis envoyez-le.`;
 
             status.className = "form-status is-success";
 

@@ -83,7 +83,7 @@
 
 .projects-page {
     margin: 0;
-    min-width: 320px;
+    min-width: 0;
     overflow-x: hidden;
     font-family: "Inter", Arial, Helvetica, sans-serif;
 }
